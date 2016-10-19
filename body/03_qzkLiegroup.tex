@@ -1,0 +1,935 @@
+\chapter{基于李群方法的拓展 QZK 方程研究}
+\echapter{Study on Extended QZK Equations Based on the Lie Group Method}
+
+%\section{拓展量子 Zakharov-Kuznetsov 方程简介}
+%\esection{Introduction to extended quantum Zakharov-Kuznetsov equation}
+2011年, Zakharov 和 Kuznetsov \cite{abdou2011quant} 构造了描述由冷离子和热电子构成的磁等离子体的非线性离子波 (IAWs) 的方程.量子等离子体及其它们的性质获得了越来越多的从理论物理和实验物理角度的注意,主要是因为它们在德布罗伊波长超过德拜波长接近费米波长时的带电载体特性 \cite{abdou2011quant,ahmed2013kinks,bhrawy2013soli,biswas20091soli,biswas2013soli,bluman2010appli,elganaini2011tra,godleswski2004the,guner2015bright,ibragimov2006inte}. 在均匀磁场里的弱非线性离子波的性质由 quantum Zakharov-Kuznetsov (QZK) 方程来刻画.许多研究者在不同的量子等离子体模型中研究了磁场的影响 \cite{ibragimov2007anew,iwasaki1990cylin,johnpilai2011sym,khan2008linear,krishnan2010sol,leveque1992num,linares2009well,linares2011local,morris2013soli,moslem2007soli,mothibi2015con,moussa2001simi,munro2014con,munro2000sta,mushtaq2005non,olver2000app,peng2008exact,sabry2009non}.
+
+(2+1) 维 Zakharov-Kuznetsov (ZK) 方程的主要研究手段有正弦余弦方法,拓展双曲正切方法,同伦分析方法 \cite{linares2009well}, 简化的 Hirota 方法 \cite{biswas2013soli,bluman2010appli} 和映射方法 \cite{morris2013soli}, 等等.带有非线性扩散项和时间相关系数的 (2+1) 维广义 Zakharov-Kuznetsov (gZK) 方程由孤立波拟设方法所研究 \cite{sabry2009non}. (3+1) 维 QZK 方程可以通过辅助方程方法 \cite{ahmed2013kinks} 和拓展 F 展开 (EFE) 方法得到 \cite{munro2000sta}. 在 \cite{ahmed2013kinks} 中作者使用了约化摄动方法正式地得到了拓展 quantum Zakharov-Kuznetsov (extended QZK) 方程,该方程由广义拓展方法 \cite{guner2015bright}, Jacobi 椭圆正弦和余弦函数 \cite{biswas20091soli} 所研究.李对称方法和极简方程方法也可以用来研究 Zakharov-Kuznetsov 方程 \cite{leveque1992num}.此外,对于一类广义 (2+1) 维 Zakharov-Kuznetsov 方程也有类似的工作 \cite{moslem2007soli}.
+
+Wazwaz \cite{elganaini2011tra} 研究了一类新的拓展 (2+1) 维 QZK 方程, (3+1) 维 QZK 方程和 (3+1) 维拓展 QZK 方程.
+
+新的 (2+1) 维拓展 QZK 方程的形式如下:
+\begin{equation}\label{eq:eqzk}
+u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
+\end{equation}
+式中 $a,~b$ 和 $c$ 为常实数, $u(x, y, t)$ 表示等离子体中静电场波的势能.它是空间变量 $x,~y$ 和暂态变量 $t$ 的函数.方程 \eqref{eq:eqzk} 中的第一项为暂态发展项,系数 $a$ 和非线性项的系数 $b$ 和 $c$ 是多维空间扩散系数.
+
+针对上述方程,作者采用了极简形式的 Hirota 方法,得到了多孤子解和爆破解 \cite{biswas2013soli,bluman2010appli}. 李对称方法也有应用到 \eqref{eq:eqzk} 方程中的相关研究 \cite{sjoberg2007dou}.
+
+在本小节,我们将基于 \cite{wang2014soli} 进一步研究拓展 QZK 方程.守恒律在研究微分方程中扮演了重要角色,因为守恒律往往对应着物理中的守恒律,比如质量守恒、能量守恒、动量守恒、角动量守恒、电荷守恒或其他运动的约束 \cite{mushtaq2005non,song2013top,song2013dom}. 守恒律可以用来研究非线性偏微分方程的存在唯一性和解的稳定性 \cite{wang2014soli}, 此外也有关于数值解的研究 \cite{wazwaz2005exact,wazwaz2008the}. 因此,有必要研究偏微分方程的守恒性质.
+
+本章的结构安排如下.首先,在小节 \ref{sec:05lie} 中介绍李点对称方法.其次,给出了利用李点对称方法得到的一些结果.在小节 \ref{sec:05con} 中,根据 Ibragimov 新守恒律定理构造了拓展 QZK 方程的守恒律.接下来,在小节 \ref{sec:05optimal} 中,找到了一个最优系统的一维子代数.然后在小节 \ref{sec:05reduction} 中,对最优子代数系统进行了相似约化,将 (2+1) 维拓展 QZK 方程约化为含有两个独立变量的线性偏微分方程.最后做了小结.
+
+\section{李点对称方法}\label{sec:05lie}
+\esection{The Lie Point Symmetry Method}
+李点对称方法 \cite{peter2000sym,bluman2008symmetry} 基本思想是将李群作为变换群,将代数学中群作用到集合上的思想自然平移过来,其作用对象是微分方程,达到将一个复杂的微分方程变换为较为简单的微分方程的目的.
+
+在此过程中,首先要寻找一个变换,寻找该变换是李点对称方法的核心问题之一.一个常用的方法是用李点对称,该方法程式化程度高,将漫无边际地寻找变换的过程变成了只需要机械的符号计算的过程.李点对称的思想是保持变换的每一阶导数和偏导数的形式,这样就能保证方程形式在变换之后和原来方程一致.
+
+下面,首先介绍一些李群变换方法的相关知识.
+
+\subsection{基本概念}
+\esubsection{Basic Definitions}
+这一章介绍李群的一般性质,下一章要针对矩阵李群进行讨论.
+首先从李群的定义开始 \cite{kirillov2008anintro}, 逐步介绍一些李群的性质,以及后面要用到的李代数的相关内容.
+
+\begin{definition}[实的李群]
+	\emph{一个实的李群 $\mathcal{G}$ 是一个包含两个结构的集合: $\mathcal{G}$ 是一个群, $\mathcal{G}$ 是一个流形.这两个结构满足如下的条件:
+	\begin{itemize}
+		\item 群的乘积映射 $\mathcal{G}\times\mathcal{G}\to \mathcal{G}$ 是光滑映射,
+		\item 逆映射 $\mathcal{G}\to \mathcal{G}$ 是光滑映射.
+	\end{itemize}}
+\end{definition}
+
+\begin{definition}[复的李群]
+	\emph{一个复的李群 $\mathcal{G}$ 是一个包含两个结构的集合: $\mathcal{G}$ 是一个群, $\mathcal{G}$ 是一个复解析流形.这两个结构满足如下的条件:
+	\begin{itemize}
+		\item 群的乘积映射 $\mathcal{G}\times\mathcal{G}\to \mathcal{G}$ 是解析映射,
+		\item 逆映射 $\mathcal{G}\to \mathcal{G}$ 是解析映射.
+	\end{itemize}}
+\end{definition}
+
+接下来举一些李群的例子
+\begin{description}
+	\item[(1)] $R^n$, 群作用是加法;
+	\item[(2)] $S^1=\{z\in \mathbb{C}:|z|=1 \},~\times$;
+	\item[(3)] $SU(2)=\{A \in GL(2,\mathbb{C})|A\bar{A}^t=1,det A = 1\},~\times$. 能够看出
+	\begin{equation*}
+		SU(2)=\left\lbrace\begin{pmatrix}
+			\alpha&\beta\\
+			-\bar{\beta}&\alpha
+		\end{pmatrix}:\alpha,\beta\in\mathbb{C},|\alpha|^2+|\beta|^2 = 1
+		 \right\rbrace.
+	\end{equation*}
+\end{description}
+
+然后给出李子群的定义:
+\begin{definition}[李子群]
+	\emph{李群 $\mathcal{H}$ 是李群 $\mathcal{G}$ 是李子群,如果 $\mathcal{H}$ 是 $\mathcal{G}$ 的浸入子流形,并且是子群.}
+\end{definition}
+
+有了李子群的定义,就有了代数里面群的映射,同态,同构等代数工具来研究李群.
+
+\begin{definition}[李群在流形上的作用]
+	\emph{李群 $\mathcal{G}$ 在流形 $M$ 上的作用是对于任意 $g\in \mathcal{G}$ 的一个微分同胚映射 $\rho(g) \in \mathrm{Diff}~M$, 满足 $\rho(1) = id$ 和 $\rho(gh)=\rho(g)\rho(h)$ 使得
+	\begin{equation*}
+        \mathcal{G} \times M \to M : (g, m) \to \rho(g).m
+	\end{equation*}
+	是一个光滑映射.}
+\end{definition}
+
+\begin{definition}[复李群在复流形上的全纯作用]
+	\emph{复李群 $\mathcal{G}$ 在复流形 $M$ 上的全纯作用是对于任意 $g\in \mathcal{G}$ 的一个可逆全纯映射 $\rho(g) \in \mathrm{Diff}~M$, 满足 $\rho(1) = id$ 和 $\rho(gh)=\rho(g)\rho(h)$ 使得
+	\begin{equation*}
+        \mathcal{G} \times M \to M : (g, m) \to \rho(g).m
+	\end{equation*}
+	是一个全纯映射.}
+\end{definition}
+
+李群在流形上的作用是后面研究李群对偏微分方程的变换的基础,李群方法就是单参数变换李群作用到方程上寻找不变量.然后给出几个重要的李群在流形上的作用.
+\begin{description}
+	\item[(1)] 左作用 $L_g : \mathcal{G} \to \mathcal{G}$ 定义为 $L_g (h) = gh$,
+	\item[(2)] 右作用 $R_g : \mathcal{G} \to \mathcal{G}$ 定义为 $R_g (h) = hg^{-1}$,
+	\item[(3)] 共轭作用 $Ad~g: \mathcal{G} \to \mathcal{G}$ 定义为 $Ad~g(h) = ghg^{−1}$.
+\end{description}
+
+接下来,我们介绍一个在李群和李代数之间的一个重要的映射,指数映射 $\mathrm{exp}: \mathfrak{g}\to \mathcal{G}$, 其中 $\mathfrak{g}=T\mathcal{G}$ 为 $\mathcal{G}$ 的切空间,也是李群的李代数,有如下定理.
+\begin{theorem}
+	\emph{设 $\mathcal{G}$ 是一个实数或者复数李群, $\mathfrak{g}=T\mathcal{G}$, 并且取 $x\in\mathfrak{g}$, 那么存在一个唯一李群的映射 $\gamma_x : K \to \mathcal{G}$, 使得
+	\begin{equation*}
+		\dot{\gamma}_x(0)=x,
+	\end{equation*}
+式中上面的点代表对 $t$ 求导数.称该映射 $\gamma_x$ 为关于 $x$ 的单参子群.}
+\end{theorem}
+
+有了单参子群 $\gamma_x$ ,就可以给出指数映射的定义了.
+\begin{definition}
+	\emph{设 $\mathcal{G}$ 为一个实数或者复数的李群, $\mathfrak{g}=T\mathcal{G}$, 那么,指数映射 $\mathrm{exp}: \mathfrak{g}\to \mathcal{G}$ 定义为
+	\begin{equation*}
+		\mathrm{exp}(x)=\dot{\gamma}_x(1),
+	\end{equation*}
+	式中 $\dot{\gamma}_x(t)$ 是单参子群在群的单位元上对 $x$ 的切向量.}
+\end{definition}
+
+下面的定理给出了指数映射的一些性质.
+\begin{theorem}
+\emph{设 $\mathcal{G}$ 为一个实数或者复数的李群, $\mathfrak{g}=T\mathcal{G}$, 则有
+\begin{description}
+	\item[(1)] $\mathrm{exp}(x) = 1 + x + \ldots$, (即 $\mathrm{exp}(0)=1$, 并且 $\mathrm{exp}_*(0): \mathfrak{g} \to T\mathcal{G} = \mathfrak{g}$ 为单位映射).
+	\item[(2)] 指数映射是一个从 $\mathfrak{g}$ 的 $0$ 点的邻域到 $\mathcal{G}$ 的 $1$ 点邻域的微分同胚映射(对于复数李群,为可逆解析映射).局部的逆映射定义为 $log$.
+	\item[(3)] 对任意的 $s,t\in K$, 有 $\mathrm{exp}((t + s)x) = \mathrm{exp}(tx) \mathrm{exp}(sx)$.
+	\item[(4)] 对于任意的李群同态 $\psi:\mathcal{G}_1\to \mathcal{G}_2$, 和任意的 $x\in \mathfrak{g}_1$, 有 $\mathrm{exp}(\psi_{*} (x)) = \psi(\mathrm{exp}(x))$.
+	\item[(5)] 对任意的 $X\in \mathcal{G}$ 和任意的 $y\in \mathfrak{g}$, 有 $X \mathrm{exp}(y)X^{−1} = \mathrm{exp}(Ad~X .y)$.
+\end{description}}
+\end{theorem}
+
+指数映射都作用到李群里,因此,不同点的指数映射可以进行乘积作用.不同于指数函数的是,这里不满足
+\begin{equation*}
+	\mathrm{exp}(x)\mathrm{exp}(y)=\mathrm{exp}(xy),
+\end{equation*}
+在这里将这种关系记作
+\begin{equation*}
+	\mathrm{exp}(x)\mathrm{exp}(y)=\mathrm{exp}(\mu(x,y)),
+\end{equation*}
+关于 $\mu(x,y)$ 有如下定理.
+
+\begin{theorem}
+	\emph{$\mu(x,y)$ 的泰勒展开式为
+	\begin{equation*}
+		\mu(x,y)=x + y + \lambda(x, y) +\cdots ~,
+	\end{equation*}
+	式中省略的部分代表阶数大于等于 $3$ 的项,并且 $\lambda:\mathfrak{g}\times\mathfrak{g}\to \mathfrak{g}$ 为双线性反对称映射(满足 $\lambda(x, y) = −\lambda(y, x)$).}
+\end{theorem}
+
+定义这种关系为 $[x,y]=2\lambda(x,y)$, 因此有
+\begin{equation*}
+	\mathrm{exp}(x)\mathrm{exp}(y)=\mathrm{exp}(x+y+\frac{1}{2}[x,y]+\cdots),
+\end{equation*}
+式中的反对称映射 $[,]:\mathfrak{g}\times\mathfrak{g}\to \mathfrak{g}$ 定义为交换子.
+
+对于交换子,有如下的性质定理.
+\begin{theorem}
+\emph{\begin{description}
+	\item[(1)] 设 $\psi:\mathcal{G}_1\to \mathcal{G}_2$ 为实数的或者复数的李群之间的映射,并且 $\psi_*:\mathfrak{g}_1\to\mathfrak{g}_2$, 其中 $\mathfrak{g}_1=T\mathcal{G}_1,\mathfrak{g}_2=T\mathcal{G}_2$ 为对应的李群在单位的切空间.那么 $\psi_*$ 保持交换子的运算,即对任意的 $x,y\in \mathfrak{g}_1$ 有
+	\begin{equation*}
+		\psi_*[x,y]=[\psi_x,\psi_y].
+	\end{equation*}
+	\item[(2)] 对任意的 $x,y\in \mathfrak{g}$, 在 $\mathfrak{g}=T\mathcal{G}$ 上李群 $\mathcal{G}$ 的自共轭算子满足
+	\begin{equation*}
+		Ad~g([x,y]) = [Ad~g.x,Ad~g.y].
+	\end{equation*}
+	\item[(3)] $\mathrm{exp}(x)\mathrm{exp}(y)\mathrm{exp}(-x)\mathrm{exp}(-y)=\mathrm{exp}([x,y]+\cdots)$, 其中省略的部分是三阶或三阶以上的项.
+\end{description}}
+\end{theorem}
+
+作为一个例子,可以看到,如果 $\mathcal{G} \subset GL(n, \mathbb{K})$, 以至于 $\mathfrak{g} \subset \mathfrak{gl}(n, \mathbb{K})$, 那么,该交换子有如下的形式 $[x, y] = xy − yx$.
+
+可以看出
+\begin{equation*}
+	Ad:\mathcal{G}\to GL(\mathfrak{g}).
+\end{equation*}
+于是有如下的性质定理.
+
+\begin{theorem}\label{thm:adjoint}
+	\emph{定义 $ad=Ad_*:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$ 为 $Ad$ 的切映射,那么有
+	\begin{description}
+		\item[(1)] $ad~x.y = [x, y]$;
+		\item[(2)] $Ad(\mathrm{exp}~x) = \mathrm{exp}(ad~x)$.
+	\end{description}}
+\end{theorem}
+
+对于这里的交换子,有如下的雅可比恒等式:
+\begin{theorem}
+	\emph{设 $G$ 为实数的或复数的李群, $\mathfrak{g}=TG$, 并且设交换子 $[,]:\mathfrak{g}\times\mathfrak{g}\to \mathfrak{g}$ 按照前面所定义.那么该交换子满足如下的雅可比恒等式.
+	\begin{equation*}
+		[x, [y, z]] = [[x, y], z] + [y, [x, z]].
+	\end{equation*}
+	雅可比恒等式还有如下的几种形式
+	\begin{equation*}
+		[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0.
+	\end{equation*}
+	\begin{equation*}
+		ad~x.[y, z] = [ad~x.y, z] + [y, ad~x.z].
+	\end{equation*}
+	\begin{equation*}
+		ad~[x, y] = ad~x~ad~y − ad~y~ad~x.
+	\end{equation*}}
+\end{theorem}
+
+有了雅可比恒等式的概念,就可以给出李代数的定义了.
+\begin{definition}[李代数]
+	\emph{数域 $\mathbb{K}$ 上的李代数是一个 $\mathbb{K}$ 上的向量空间,在它上面定义了一个双线性映射 $[,]:\mathfrak{g}\times\mathfrak{g}\to \mathfrak{g}$, 该算子是一个反对称的算子 $[x, y] = −[y, x]$, 并且满足雅可比恒等式.}
+\end{definition}
+
+然后再给出子代数的定义.
+\begin{definition}
+	\emph{设 $\mathfrak{g}$ 为数域 $\mathbb{K}$ 上的李代数,一个子空间 $\mathfrak{h}\subset \mathfrak{g}$ 称作李子代数,如果它在交换子下封闭.即,对于任意的 $x,y\in \mathfrak{h}$, 有 $[x,y]\in\mathfrak{h}$.}
+\end{definition}
+
+设 $\psi^t:M\to M$ 为一簇单参数的微分同胚映射,则对于每个点 $m\in M$, $\psi^t(m)$ 可以看成一条 $M$ 上的曲线,因此 $\frac{d}{dt}\psi^t(m)\in T_mM$ 是在 $M$ 上 $m$ 点的切向量.换句话说, $\frac{d}{dt}\psi^t$ 是 $M$ 上的一个向量场.因此,可以很自然地定义 $\mathrm{Diff}~M$ 的李代数为 $\mathrm{Vect}~M$, 即 $M$ 上的所有光滑向量的空间.
+
+指数映射这里又是什么?如果 $\xi\in \mathrm{Vect}~M$ 为一个向量场,那么 $\mathrm{exp}(t\xi)$ 为一簇单参微分同胚映射,它们的导数是向量场 $\xi$. 因此该向量场为如下微分方程的解
+\begin{equation*}
+	\frac{d}{dt}\psi^t(m)|_{t=0}=\xi(m).
+\end{equation*}
+
+换句话说, $\psi^t$ 是向量场 $\xi$ 随时间变化的一个流.定义为
+\begin{equation*}
+	\mathrm{exp}(t\xi)=\Psi_{\xi}^t.
+\end{equation*}
+
+关于向量场的李代数,有如下的性质定理.
+\begin{theorem}
+\emph{\begin{description}
+	\item[(1)] 设 $\xi,\eta \in \mathrm{Vect}(M)$ 为 $M$ 上的向量场,则存在唯一的向量场,这里记作 $[\xi,\eta]$ 满足
+	\begin{equation*}
+		\Psi_{\xi}^t\Psi_{\eta}^s\Psi_{\xi}^{-t}\Psi_{\eta}^{-s}=\Psi_{[\xi,\eta]}^{ts}+\cdots,
+	\end{equation*}
+	式中省略的项为阶数大于等于 $3$ 的项.
+	\item[(2)] 该交换子定义了向量空间上的一个李代数.
+	\item[(3)] 交换子还可以用如下任意一个公式定义.
+	\begin{equation*}
+		[\xi,\eta]=\frac{d}{dt}(\Psi_{\xi}^t)_*\eta,
+	\end{equation*}
+	\begin{equation*}
+		\partial_{[\xi,\eta]}f=\partial_{\eta}(\partial_{\xi}f)-\partial_{\xi}(\partial_{\eta}f),\quad f\in C^{\infty}(M),
+	\end{equation*}
+	\begin{equation*}
+		[\sum f_i\partial_i,\sum g_j\partial_j]=\sum_{i,j}(g_i\partial_i(f_j)-f_i\partial_i(g_j))\partial_j,
+	\end{equation*}
+	式中 $\partial_{\xi}(f)$ 为函数 $f$ 沿向量场 $\xi$ 的方向导数, $\partial_i=\frac{\partial}{\partial x_i}$ 对局部坐标系$\{x^i\}$.
+\end{description}}
+\end{theorem}
+
+有了这些李群和李代数的基础知识,就可以对李群方法做出介绍了.
+
+\subsection{无穷小变换}
+\esubsection{Infinitesimal Transformations}
+无穷小变换是李群方法的关键,可以说,有了无穷小变换,整个李群方法都变为了可能,不需要其他更多的条件,就可以算出几乎所有需要的量.无穷小变换作为一个微分下的产物,很适合利用程式计算,甚至符号计算中有所应用.首先给出无穷小变换的定义.
+
+\begin{definition}[单参数李变换群]
+\emph{单参数变换群 $x^{*}=X(x;\epsilon)$ 如果满足:
+\begin{description}
+\item [(1)] $\epsilon$ 是连续参数,当 $\epsilon = 0$ 时, $x^{*}=x$.
+\item [(2)] $X$ 关于 $x$ 无穷次可微,且为 $\epsilon$ 的解析函数.
+\item [(3)] $\phi (\epsilon,\delta)$ 为 $\epsilon$ 和 $\delta$ 的解析函数.
+\end{description}
+则称为单参数李变换群.}
+\end{definition}
+
+对单参数李变换群
+\begin{equation}\label{eq:liet}
+x^{*}=X(x;\epsilon)
+\end{equation}
+中的 $\epsilon$ 在 $\epsilon=0$ 处展开,取到一阶项
+\begin{equation*}
+x+\epsilon \xi(x),
+\end{equation*}
+式中
+\begin{equation*}
+\xi(x)=\left.\frac{\partial X(x;\epsilon)}{\partial \epsilon}\right|_{\epsilon=0}.
+\end{equation*}
+称 $x+\epsilon \xi(x)$ 为单参数李变换群的\textbf{无穷小变换}.
+
+可以看到,无穷小变换包含了单参数李变换群的直到一阶导数性质,这对研究李群上的切空间,尤其是李代数来说是足够了的.后面将会看到,利用无穷小变换可以计算出点对称的许多重要的量,对求解偏微分方程的李群方法来说,这是最关键的一点.
+
+接下来,给出三个李基本定理.
+\begin{theorem}[李第一基本定理]
+\emph{存在参数化$\tau(\epsilon)$, 使得李变换群 \eqref{eq:liet} 等价于一阶常微分方程初值问题
+\begin{equation*}
+\frac{dx^*}{dt}=\xi(x^*),
+\end{equation*}
+并且,当 $\tau=0$ 时有
+\begin{equation*}
+x^*=x.
+\end{equation*}
+特别地,
+\begin{equation*}
+\tau(\varepsilon)=\int_0^{\varepsilon}\Gamma(\varepsilon ')\,\mathrm{d}\varepsilon ',
+\end{equation*}
+式中
+\begin{equation*}
+\Gamma(\varepsilon)=\left.\frac{\partial(a,b)}{\partial b}\right|_{(a,b)=(\varepsilon^{-1},\varepsilon)},
+\end{equation*}
+\begin{equation*}
+\Gamma(0)=1.
+\end{equation*}}
+\end{theorem}
+
+李第一基本定理同时告诉了我们如何去寻找一个参数变换,使得李群中乘积运算的形式更加简单,这样也能够便利其他量的计算.我们给出一个例子说明如何使用李第一基本定理.
+
+对于伸缩变换的李群
+\begin{equation*}
+	x^*=(1+\varepsilon)x,
+\end{equation*}
+\begin{equation*}
+	y^*=(1+\varepsilon)^2y,\quad -1<\varepsilon<\infty.
+\end{equation*}
+对应李群的乘法为 $\psi(a,b)=a+b+ab$, 并且 $\varepsilon^{-1}=-\varepsilon/(1+\varepsilon)$. 这里 $\partial \psi(a,b)/\partial b=1+a$, 因此
+\begin{equation*}
+	\Gamma(\varepsilon) = \left.\frac{\partial \psi(a,b)}{\partial b}\right|_{(a,b)=(\varepsilon^{-1},\varepsilon)}=1+\varepsilon^{-1}=\frac{1}{1+\varepsilon}.
+\end{equation*}
+设 $\mathbf{x}=(x,y)$, 则伸缩变换群变成了 $\mathbf{X}(\mathbf{x};\varepsilon)=((1+\varepsilon)x,(1+\varepsilon)^2y)$. 因此 $\partial \mathbf{X}(\mathbf{x};\varepsilon)/\partial \varepsilon=(x,2(1+\varepsilon)y)$, 并且
+\begin{equation*}
+	\xi(\mathbf{x})=\left.\frac{\partial \mathbf{X}(\mathbf{x};\varepsilon)}{\partial \varepsilon}\right|_{\varepsilon=0}=(x,2y).
+\end{equation*}
+因此,变换后的方程化为
+\begin{equation*}
+	\frac{dx^*}{d\varepsilon}=\frac{x^*}{1+\varepsilon},\quad \frac{dy^*}{d\varepsilon}=\frac{2y^*}{1+\varepsilon},
+\end{equation*}
+并且在 $\varepsilon=0$ 处有
+\begin{equation*}
+	x^*=x,\quad y^*=y.
+\end{equation*}
+通过一个参数变换
+\begin{equation*}
+	\tau=\int_{0}^{\varepsilon}\Gamma(\varepsilon ')d\varepsilon '=\int_{0}^{\varepsilon}\frac{1}{1+\varepsilon '}d\varepsilon ' = log(1+\varepsilon),
+\end{equation*}
+单参数李群变成
+\begin{equation*}
+	x^*=e^x,
+\end{equation*}
+\begin{equation*}
+	y^*=e^{2y},\quad -\infty<\varepsilon<\infty,
+\end{equation*}
+并且李群的乘积运算变为
+\begin{equation*}
+	\psi(\tau_1,\tau_2)=\tau_1+\tau_2.
+\end{equation*}
+
+\begin{theorem}[李第二基本定理]
+\emph{$r$ 参数李变换群的任意两个无穷小生成元的换位子也是无穷小生成元,并且有
+\begin{equation}\label{eq:liec}
+[X_\alpha,X_\beta] =\sum_{\gamma=1}^{r}C_{\alpha\beta}^{\gamma}X_{\gamma},
+\end{equation}
+式中 $C_{\alpha\beta}^{\gamma}$ 为结构常数, $\alpha,\beta,\gamma=1,2,\cdots,r.$}
+\end{theorem}
+
+\begin{theorem}[李第三基本定理]
+\emph{由转化关系 \eqref{eq:liec} 定义的结构常数满足关系
+\begin{equation*}
+C_{\alpha\beta}^{\gamma}=-C_{\beta\alpha}^{\gamma},
+\end{equation*}
+\begin{equation*}
+\sum_{\rho=1}^{r}[C_{\alpha\beta}^{\rho}C_{\rho\gamma}^{\delta}+C_{\beta\gamma}^{\rho}C_{\rho\alpha}^{\delta}+C_{\gamma\alpha}^{\rho}C_{\rho\beta}^{\delta}]=0.
+\end{equation*}}
+\end{theorem}
+
+李第一基本定理说明了,复杂的非线性变换,可以通过一阶展开,并变换参数,在局部等价于形式统一的一阶常微分方程.李第二基本定理和李第三基本定理在说李群对应一个李代数,及其结构常数的一些关系.
+
+\subsection{无穷小生成元及其延拓}
+\esubsection{Infinitesimals and Prolongations}
+无穷小生成元是由无穷小变换所定义的一个算子.
+\begin{definition}[无穷小生成元]
+\emph{	单参数李变换群的无穷小生成元是这样一个算子
+	\begin{equation*}
+		X=X(\mathbf{x})=\xi(\mathbf{x})\cdot \nabla = \sum_{i=1}^{n}\xi_i(\mathbf{x})\frac{\partial}{\partial x_i},
+	\end{equation*}
+	式中 $\nabla$ 为梯度算子
+	\begin{equation*}
+		\nabla=\left(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_2},\cdots,\frac{\partial}{\partial x_n}\right).
+	\end{equation*}}
+\end{definition}
+
+对于任意可微函数 $F(\mathbf{x})$
+\begin{equation*}
+	XF(\mathbf{x})=X(\mathbf{x})F(\mathbf{x})=\xi(\mathbf{x})\cdot \nabla F(\mathbf{x}) = \sum_{i=1}^{n}\xi_i(\mathbf{x})\frac{\partial F(\mathbf{x})}{\partial x_i}.
+\end{equation*}
+注意到 $X(\mathbf{x})=\xi(\mathbf{x})$.
+
+对于单个自变量单个因变量的单参李群
+\begin{equation*}
+\begin{aligned}
+x^*&=X(x,y;\varepsilon)=x+\epsilon \xi(x,y)+O(\varepsilon^2),\\
+y^*&=Y(x,y;\varepsilon)=y+\epsilon \eta(x,y)+O(\varepsilon^2),
+\end{aligned}
+\end{equation*}
+其相应的无穷小生成元为
+\begin{equation*}
+X=\xi(x,y)\frac{\partial}{\partial x}+\eta(x,y)\frac{\partial}{\partial y}.
+\end{equation*}
+
+其无穷小生成元的 $k$ 阶延拓为
+\begin{equation*}
+\begin{aligned}
+X^{(k)}=\xi(x,y)&\frac{\partial}{\partial x}+\eta(x,y)\frac{\partial}{\partial y}+\eta^{(1)}(x,y,y_1)\frac{\partial}{\partial y_1}+\cdots \\
+&\eta^{(k)}(x,y,y_1,\cdots,y_k)\frac{\partial}{\partial y_k},
+\end{aligned}
+\end{equation*}
+式中$k=1,2,\cdots$ . $\{\eta^{(k)}\}$ 可以根据如下定理进行计算.
+
+\begin{definition}[全导数算子]
+\begin{equation*}
+\frac{D}{Dx}=\frac{\partial}{\partial x}+y_1\frac{\partial}{\partial y}+y_2\frac{\partial}{\partial y_1}+\cdots+y_{n+1}\frac{\partial}{\partial y_{n}}+\cdots~.
+\end{equation*}
+\end{definition}
+
+\begin{theorem}[$\eta^{(k)}$ 的计算]
+\emph{\begin{equation*}
+\eta^{(k)}(x,y,y_1,\cdots,y_k) = \frac{D\eta^{(k-1)}}{Dx}-y_k \frac{D\xi(x,y)}{Dx},
+\end{equation*}
+式中
+\begin{equation*}
+\eta^{0}=\eta(x,y).
+\end{equation*}}
+\end{theorem}
+
+对于 $n$ 个自变量单个因变量的单参李群,自变量记为 $x=(x_1,x_2,\ldots,x_n)$, 因变量记为 $u=u(x)$
+\begin{equation*}
+\begin{aligned}
+x_i^*&=X_i(x,u;\varepsilon)=x_i+\epsilon \xi_i(x,u)+O(\varepsilon^2),\\
+u^*&=U(x,u;\varepsilon)=u+\epsilon \eta(x,u)+O(\varepsilon^2),
+\end{aligned}
+\end{equation*}
+$i=1,2,\ldots,n$. 其相应的无穷小生成元为
+\begin{equation*}
+X=\xi_i(x,u)\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u},
+\end{equation*}
+式中 $\xi_i(x,u)\frac{\partial}{\partial x_i}$ 表示对指标 $i$ 的求和.
+
+其无穷小生成元的 $k$ 阶延拓为
+\begin{equation*}
+\begin{aligned}
+X^{(k)}=\xi_i(x,u)&\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u}+\eta_i^{(1)}(x,u,u_1)\frac{\partial}{\partial u_1}+\cdots \\
+&\eta^{(k)}_{i_1i_2\cdots i_{k-1}}\frac{\partial}{\partial u_{i_1i_2\cdots i_{k-1}}},
+\end{aligned}
+\end{equation*}
+式中 $k=1,2,\cdots$ . $\{\eta^{(k)}\}$ 可以根据如下定理进行计算.
+
+\begin{definition}[全导数算子]
+\emph{\begin{equation*}
+D_i=\frac{D}{Dx_i}=\frac{\partial}{\partial x_i}+u_1\frac{\partial}{\partial u}+u_{ij}\frac{\partial}{\partial u_j}+\cdots+u_{ii_1i_2\cdots i_n}\frac{\partial}{\partial u_{i_1i_2\cdots i_n}}+\cdots~.
+\end{equation*}}
+\end{definition}
+
+\begin{theorem}[$\eta^{(k)}$ 的计算]
+\emph{\begin{equation*}
+\begin{aligned}
+\eta_i^{(1)}=D_i\eta-(D_i\xi_j)u_j,\quad i=1,2,\ldots,n ;\\
+\eta^{(k)}_{i_1i_2\cdots i_k} = D_{i_k}\eta_{i_1i_2\cdots i_{k-1}}^{(k-1)}-(D_{i_k}\xi_j)u_{i_1i_2\cdots i_{k-1}j},
+\end{aligned}
+\end{equation*}
+式中 $i_l=1,2,\ldots,n$. $l=1,2,\ldots,k$. $k=2,3,\ldots~.$}
+\end{theorem}
+
+对于 $n$ 个自变量 $n$ 个因变量的单参李群,可以对照 $n$ 个自变量单个因变量的情形,唯一区别是将因变量 $u$ 化为多个分量,而对每个分量,延拓的公式是一样的,此处不再展开.
+
+如上的延拓方式被称为点对称的延拓,因为这样的延拓能够保证延拓之后的各阶导数关系在符号程度上成立.例如记
+\begin{equation*}
+	y_k=y^{(k)}=\frac{d^ky}{dx^k},
+\end{equation*}
+并且满足
+\begin{equation*}
+	dy=y_1dx,
+\end{equation*}
+和
+\begin{equation*}
+	dy_k=y_{k+1}dx.
+\end{equation*}
+变换之后的导数 $y_k^*$ 满足
+\begin{equation*}
+	dy^*=y^*_1dx^*,
+\end{equation*}
+和
+\begin{equation*}
+	dy_k^*=y^*_{k+1}dx^*.
+\end{equation*}
+同理,对于多个自变量的方程,甚至多个因变量的方程,也要保证这样的条件.
+
+\subsection{偏微分方程的不变性}
+\esubsection{Invariance of Partial Differential Equations}
+为了引入微分方程的不变性,首先引入不变函数的概念.
+\begin{definition}[不变函数]
+	\emph{一个无穷可微函数 $F(\mathbf{x})$ 叫做李群作用下的不变函数,当且仅当对于任意群变换,有
+	\begin{equation*}
+		F(\mathbf{x^*})\equiv F(\mathbf{x}).
+	\end{equation*}
+如果 $F(\mathbf{x})$ 是群作用下的不变函数,称 $F(\mathbf{x})$ 是群作用下的不变量,也称 $F(\mathbf{x})$ 在群作用下是不变的.}
+\end{definition}
+
+对于不变函数,有如下定理.
+\begin{theorem}
+	\emph{$F(\mathbf{x})$ 在群的作用下是不变的,当且仅当
+	\begin{equation*}
+		XF(\mathbf{x})\equiv 0.
+	\end{equation*}}
+\end{theorem}
+
+对于偏微分方程,有如下类似的结果.
+\begin{theorem}[偏微分方程不变形的无穷小准则]
+	\emph{令
+	\begin{equation*}
+		X=\xi_i(x,u)\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u}
+	\end{equation*}
+	为李点变换的生成元,设
+	\begin{equation*}
+\begin{aligned}
+X^{(k)}=\xi_i(x,u)&\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u}+\eta^{(1)}(x,u,\partial u)\frac{\partial}{\partial u_i}+\cdots \\
+&\eta^{(k)}_{i_1i_2\cdots i_k}(x,u,\partial u,\cdots,\partial ^k u)\frac{\partial}{\partial u_{i_1i_2\cdots i_k}},
+\end{aligned}
+\end{equation*}
+为无穷小生成元的 $k$ 阶延拓.则单参李点对称群被偏微分方程所接受,当且仅当
+\begin{equation*}
+	X^{(k)}F(x,u,\partial u,\cdots,\partial ^k u)=0,
+\end{equation*}
+在
+\begin{equation*}
+	F(x,u,\partial u,\cdots,\partial ^k u)=0
+\end{equation*}
+时成立.}
+\end{theorem}
+
+对于偏微分方程,给出不变解的概念.
+\begin{definition}
+	\emph{$u=\Theta(x)$ 是被单参数李群所接受的偏微分方程的不变解,当且仅当
+	\begin{description}
+		\item[(1)] $u=\Theta(x)$ 是无穷小变换的不变解.
+		\item[(2)] $u=\Theta(x)$ 是偏微分方程的解.
+	\end{description}}
+\end{definition}
+
+根据定义,可以看到, $u=\Theta(x)$ 是不变解,当且仅当
+\begin{description}
+	\item[(1)] 当 $u=\Theta(x)$ 时 $X(u-\Theta(x))=0$, 即
+	\begin{equation*}
+		\xi_i(x,\Theta(x))\frac{\partial \Theta(x)}{\partial x_i}=\eta(x,\Theta(x)).
+	\end{equation*}
+	\item[(2)] 当 $u=\Theta(x)$ 时, $F(x,u,\partial u,\cdots,\partial ^k u)=0$ 即
+	\begin{equation*}
+		F(x,\Theta(x),\partial \Theta(x),\cdots,\partial ^k \Theta(x))=0.
+	\end{equation*}
+\end{description}
+
+上面的说明,能够看出知道,可以从两个角度来入手解决问题.
+\begin{description}
+	\item[(1) 不变形式方法] 首先需要求解关于 $u=\Theta(x)$ 的一阶偏微分方程,解相应的特征方程
+	\begin{equation*}
+		\frac{dx_1}{\xi_1(x,u)}=\frac{dx_2}{\xi_2(x,u)}=\cdots=\frac{dx_n}{\xi_n(x,u)}=\frac{du}{\eta(x,u)}.
+\end{equation*}
+根据该方程,可以给出通解 $u=\Theta(x)$ 的一个隐式不变形式
+\begin{equation*}
+	v(x,u)=\Psi(y_1(x,u),y_2(x,u),\cdots,y_{n-1}(x,u)),
+\end{equation*}
+式中 $\Psi$ 为任意可微函数.这里可以寻找关于自变量 $y_1,y_2,\cdots,y_{n-1}$ 和因变量 $v$ 的函数.最后将得到的 $v$ 代入原偏微分方程里可以得到约化的方程.
+	\item[(2) 直接代入方法] 该方法相比之下更有效,尤其是在不能求得不变曲面的特征方程时,必须这样做.假设 $\xi_n(x,u)\neq 0$, 方程可以写作
+	\begin{equation*}
+		\frac{\partial u}{\partial x_n}=\frac{\eta(x,u)}{\xi_n(x,u)}-\sum_{i=1}^{n-1}\frac{\xi_i(x,u)}{\xi_n(x,u)}\frac{\partial u}{\partial x_i}.
+	\end{equation*}
+	把上式代入方程中,即可得到一个 $n-1$ 个自变量的约化方程,其中 $x_n$ 作为参数.此时,任意的方程的约化解都定义了偏微分方程的不变解,也就得到了它在李点变换群下无穷小生成元的不变解.
+\end{description}
+
+最后,要给出在约化偏微分方程中比较重要的一个结果,对于 $k$ 阶微分方程
+\begin{equation*}
+	u_{i_1i_2\cdots i_l}=f(x,u,\partial u,\cdots,\partial ^k u),
+\end{equation*}
+式中 $f(x,u,\partial u,\cdots,\partial ^k u)$ 不显含 $u_{i_1i_2\cdots i_l}$, 可以知道该方程接受一个形如
+\begin{equation*}
+	X=\xi_i(x,u)\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u}
+\end{equation*}
+的无穷小变换,并且有如下形式的 $k$ 阶延拓
+\begin{equation*}
+\begin{aligned}
+X^{(k)}=\xi_i(x,u)&\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\partial u}+\eta^{(1)}(x,u,\partial u)\frac{\partial}{\partial u_i}+\cdots \\
+&\eta^{(k)}_{i_1i_2\cdots i_k}(x,u,\partial u,\cdots,\partial ^k u)\frac{\partial}{\partial u_{i_1i_2\cdots i_k}},
+\end{aligned}
+\end{equation*}
+当且仅当,如果 $u$ 满足 $u_{i_1i_2\cdots i_l}=f(x,u,\partial u,\cdots,\partial ^k u)$, 则
+\begin{equation*}
+	\eta_{i_1i_2\cdots i_l}^{(l)}=\xi_j\frac{\partial f}{\partial x_j}+\eta\frac{\partial f}{\partial u}+\eta_j^{(1)}\frac{\partial f}{\partial u_j}+\cdots+\eta_{j_1j_2\cdots j_k}^{(k)}\frac{\partial f}{\partial u_{j_1j_2\cdots j_k}}.
+\end{equation*}
+
+此外,很容易验证
+\begin{description}
+	\item[(1)] $p\geq 2$ 时, $\eta_{j_1j_2\cdots j_p}^{(p)}$ 对于 $\partial^pu$ 是线性的.
+	\item[(2)] $\eta_{j_1j_2\cdots j_p}^{(p)}$ 是 $\partial u,\partial^2u,\cdots,\partial^pu$ 的多项式,其系数对于 $\xi(x,u),~\eta(x,u)$ 到最高 $p$ 阶导数是齐次的.
+\end{description}
+
+\section{拓展 QZK 方程的李群方法主要结果}
+\esection{Main Results of Extended QZK Equations by Lie Group Method}
+
+\subsection{拓展 QZK 方程的守恒律}\label{sec:05con}
+\esubsection{Conservation Laws of Extended QZK Equations}
+在本小节里,得到了 \eqref{eq:eqzk} 方程的守恒律,采用的手段是 Ibragimov 的新守恒律定理 \cite{wazwaz2012soli,yan2009per}.
+
+采用如下文章中的符号表示和相关结果,详见 \cite{wazwaz2012soli,yan2009per,yasar2010con,zakharov1974on}.
+
+定义 $m$ 个含有 $n$ 个独立自变量 $x=(x^1,x^2,\cdots,x^n)$ 的 $r$ 阶  ($r\geq1$) PDE 系统为
+\begin{equation}\label{eq:system}
+F_\alpha(x,u,u_{(1)},\cdots,u_{(r)})=0,~ \alpha=1,2,\cdots,m,
+\end{equation}
+式中, $x=(x^1,x^2,\cdots,x^n)$ 自变量,其的分量为 $x^i$, $u=(u^1,u^2,\cdots,u^n)$ 为因变量,其分量 $u^\beta$.
+
+\begin{definition}[形式 Lagrangian]
+	\emph{方程 \eqref{eq:system} 的形式 Lagrangian 定义为
+	\begin{equation*}
+		L=vF(x,u,u_{(1)},\cdots,u_{(r)}),
+	\end{equation*}
+	式中 $v$ 是一个新的因变量.}
+\end{definition}
+
+因此,方程 \eqref{eq:system} 的共轭方程有如下形式
+\begin{equation}\label{eq:adjoint}
+	F^*\equiv \frac{\delta L}{\delta u} = 0,
+\end{equation}
+式中 $\displaystyle \frac{\delta}{\delta u}$ 为如下形式的欧拉算子
+\begin{equation*}
+	\frac{\delta}{\delta u} = \frac{\partial}{\partial u}+\sum_{s=1}^{\infty}(-1)^{s}D_{i_1}\cdots D_{i_r}\frac{\partial}{\partial u_{i_1\cdots i_r}}.
+\end{equation*}
+
+系统 \eqref{eq:system} 有一个李点对称,其无穷小生成元为
+\begin{equation}\label{eq:infi}
+X=\xi^i(x,u)\frac{\partial}{\partial x^i}+\eta^\beta(x,u)\frac{\partial}{\partial u^\beta},
+\end{equation}
+如果在系统 \eqref{eq:system} 的解空间上满足 $XF_\alpha=0$.
+
+向量 $C=(C^1,C^2,\cdots,C^n)$ 是系统 \eqref{eq:system} 的守恒向量,如果在系统 \eqref{eq:system} 的解空间上满足
+\begin{equation}\label{eq:div}
+divC\equiv D_i(C^i)=0.
+\end{equation}
+表达式 \eqref{eq:div} 是系统 \eqref{eq:system} 的一个守恒律.这里 $D_i$ 是对变量 $x^i$ 的全导数.
+
+\begin{theorem}[\cite{wazwaz2012soli,yan2009per}]
+\emph{系统 \eqref{eq:system} 的李点对称算子 \eqref{eq:infi} 能够得到一个守恒向量 $C=(C^1,C^2,\cdots,C^n)$, 可以由下面的公式得到
+\begin{equation*}
+\begin{aligned}
+C^i&=L\xi^i+W^\alpha \bigg[\frac{\partial L}{\partial u^\alpha_i}-D_j(\frac{\partial L}{\partial u^\alpha_{ij}})+D_jD_k(\frac{\partial L}{\partial u^\alpha_{ijk}})-\cdots\bigg]\\
+&+D_j(W^\alpha)\bigg[\frac{\partial L}{\partial u^\alpha_{ij}}-D_k(\frac{\partial L}{\partial u^\alpha_{ijk}})+\cdots\bigg]+D_jD_k(W^\alpha)\bigg[\frac{\partial L}{\partial u^\alpha_{ijk}}\bigg]+\cdots,\\
+\end{aligned}
+\end{equation*}
+式中 $W^\alpha=\eta^\alpha-\xi^ju^\alpha_j$ 和 $L=v^\alpha F_\alpha(x,u,v,u_{(1)},v_{(1)},\cdots,u_{(r)},v_{(r)})$, 是系统的形式 Lagrangian.其中 $v= (v^1,v^2,\cdots,v^m)$ 是对偶变量, $\alpha=1,2,\cdots, m$.}
+\end{theorem}
+
+首先给出严格自共轭的定义,然后要证明方程 \eqref{eq:eqzk} 是严格自共轭的.
+
+\begin{definition}[严格自共轭]
+	\emph{微分方程 \eqref{eq:system} 是严格自共轭的,如果令 $v=u$, 其所有的解 $u$ 均满足自共轭方程 \eqref{eq:adjoint}.}
+\end{definition}
+
+% \begin{definition}[非线性自共轭]
+% 	\emph{微分方程 \eqref{eq:system} 是非线性自共轭的,如果取如下代换,其所有的解 $u$ 均满足自共轭方程 \eqref{eq:adjoint}
+% 	\begin{equation*}
+% 		v=\varphi(x,u,u_{(1)},\cdots,u_{(r)}),\quad \varphi \neq 0,
+% 	\end{equation*}
+% 	式中 $\varphi$ 为一个非零函数.}
+% \end{definition}
+%
+% \begin{definition}[拟自共轭]
+% 	\emph{微分方程 \eqref{eq:system} 是拟自共轭的,如果取如下代换,其所有的解均满足自共轭方程 \eqref{eq:adjoint}
+% 	\begin{equation*}
+% 		v=h(u),\quad h'(u)\neq 0.
+% 	\end{equation*}}
+% \end{definition}
+
+\begin{theorem}
+\emph{方程 \eqref{eq:eqzk} 是严格自共轭的.}
+\end{theorem}
+
+{\textbf{证明}} 方程 \eqref{eq:eqzk} 的 Lagrangian 方程写成如下形式:
+\begin{equation}\label{eq:lag}
+L=v[u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})],
+\end{equation}
+式中 $v$ 是对偶变量.
+
+根据方程 \eqref{eq:lag}, 能得到
+\begin{align*}
+\frac{\partial L}{\partial u}=au_{x}v,~\frac{\partial L}{\partial u_{t}}=v, ~\frac{\partial L}{\partial u_{x}}=auv,~
+\frac{\partial L}{\partial u_{xxx}}=\frac{\partial L}{\partial u_{yyy}}=bv,~\frac{\partial L}{\partial u_{xyy}}=\frac{\partial L}{\partial u_{xxy}}=cv.
+\end{align*}
+
+方程 \eqref{eq:eqzk} 的共轭方程可以写成
+\begin{equation*}
+\begin{aligned}
+F^{*}&=\frac{\delta}{\delta u}[vF]=0;\\
+F^{*}&=\frac{\partial L}{\partial u}-D_{x}\frac{\partial L}{\partial u_{x}}-D_{t}\frac{\partial L}{\partial u_{t}}-(D_{x})^{3}\frac{\partial L}{\partial u_{xxx}}\\
+&-(D_{y})^{3}\frac{\partial L}{\partial u_{yyy}}-D_{x}D_{y}D_{y}\frac{\partial L}{\partial u_{xyy}}-D_{x}D_{x}D_{y}\frac{\partial L}{\partial u_{xxy}}=0,\\
+\end{aligned}
+\end{equation*}
+即
+\begin{equation}\label{eq:fstar}
+F^{*}=-[v_{t}+auv_{x}+b(v_{xxx}+v_{yyy})+c(v_{xyy}+v_{xxy})]=0.
+\end{equation}
+
+在方程 \eqref{eq:fstar} 中令 $v=u$, 可以得到拓展QZK 方程
+\begin{equation*}
+u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0.
+\end{equation*}
+因此,拓展 QZK 方程是严格自共轭的.
+
+证毕.
+
+接下来,根据 Ibragimov \cite{wazwaz2012soli,yan2009per} 的思想,构造方程 \eqref{eq:eqzk} 新的守恒律.根据李点对称方法,假设有如下的单参数李群
+\begin{equation*}
+	\begin{aligned}
+		t^*&=t+\varepsilon \tau(x,y,t,u)+O(\varepsilon^2),\\
+		x^*&=x+\varepsilon \xi(x,y,t,u)+O(\varepsilon^2),\\
+		y^*&=y+\varepsilon \eta(x,y,t,u)+O(\varepsilon^2),\\
+		u^*&=u+\varepsilon \phi(x,y,t,u)+O(\varepsilon^2),
+	\end{aligned}
+\end{equation*}
+其对应的向量场为
+\begin{equation*}
+	V=\tau(x,y,t,u)\frac{\partial}{\partial t}+\xi(x,y,t,u)\frac{\partial}{\partial x}+\eta(x,y,t,u)\frac{\partial}{\partial y}+\psi(x,y,t,u)\frac{\partial}{\partial u}.
+\end{equation*}
+如果该向量场生成元生成方程 \eqref{eq:eqzk} 的李对称,则有
+\begin{equation*}
+	\left. Pr^{(3)}V(\Delta_1)\right|_{\Delta_1=0}=0.
+\end{equation*}
+也就是可以化为
+\begin{equation*}
+	\phi^t+a\phi u_x + au\phi^x + b\phi^{xxx} + b\phi^{yyy}+c\phi^{xyy}+c\phi^{xxy}=0.
+\end{equation*}
+结合延拓的形式,我们有
+\begin{equation*}
+	\begin{aligned}
+		\tau&=3c_1t+c_2,\\
+		\xi&=\frac{c_1}{3}x+c_3t+c_4,\\
+		\eta&=\frac{c_1}{3}y+c_5,\\
+		\phi&=\frac{-2ac_1u+3c_3}{3a}.
+	\end{aligned}
+\end{equation*}
+因此,方程 \eqref{eq:eqzk} 的李点对称表示为 \cite{wang2014soli}
+\begin{equation*}
+	X_{1}=\frac{\partial}{\partial x},~X_{2}=\frac{\partial}{\partial y},~X_{3}=\frac{\partial}{\partial t},~X_{4}=x\frac{\partial}{\partial x}+3t\frac{\partial}{\partial t}+y\frac{\partial}{\partial y}-2u\frac{\partial}{\partial u}, ~X_{5}=t\frac{\partial}{\partial x}+\frac{1}{a}\frac{\partial}{\partial u}.
+\end{equation*}
+
+\begin{description}
+ \item[(1)] 首先考虑方程 \eqref{eq:eqzk} 的李点对称 $X_{1}=\frac{\partial}{\partial x}$. 其守恒向量的分量为
+\begin{equation*}
+\begin{aligned}
+c^{x}&=uu_t-cu_xu_{yy}+cu_yu{xx}+cu_yu_{xy};\\
+c^{y}&=-bu_xu{yy}+cu{xx}u_y+bu_yu_{xy}-cu_yu_{xxx}-cu_yu_{xxy}-buu_{xyy};\\
+c^{t}&=-uu_x.
+\end{aligned}
+\end{equation*}
+ \item[(2)] 类似地, $X_{2}=\frac{\partial}{\partial y}$ 对应的李点对称守恒向量为
+\begin{equation*}
+\begin{aligned}
+c^{x}&=-a^2u_y-bu_yu_{xx}+bu_xu_{xy}+cu_xu_{yy}-buu_{xxy}-cuu_{xyy}-cuu_{yyy};\\
+c^{y}&=uu_t+au^2u_x+bu_{xxx}-cu_yu_{xx}+cu_xu_{xy}+cu_xu_{yy};\\
+c^{t}&=-uu_y.
+\end{aligned}
+\end{equation*}
+ \item[(3)] 对应于 $X_{3}=\frac{\partial}{\partial t}$, 有如下结果
+\begin{equation*}
+\begin{aligned}
+c^{x}&=-au^2u_t-bu_{xx}u_t-cu_{xy}u_t-cu_{yy}u_t+bu_{xt}u_x+cu_{tx}u_y+cu_{ty}u_x+cu_{ty}u_y\\
+&~~~~-buu_{xxt}-cuu_{txy}-cuu_{tyy};\\
+c^{y}&=-cu_tu_{xx}-cu_{xt}u_t-bu_{yy}u_t+cu_xu_{tx}+cu_yu_{tx}+cu_xu_{ty}+bu_yu_{ty}-cuu_{txx}\\
+&~~~~-cuu_{txy}-buu_{tyy};\\
+c^{t}&=au^2u_x+buu_{xxx}+buu_{yyy}+cuu_{xyy}+cuu_{xxy}.
+\end{aligned}
+\end{equation*}
+  \item[(4)] 对应于 $X_{4}=x\frac{\partial}{\partial x}+3t\frac{\partial}{\partial t}+y\frac{\partial}{\partial y}-2u\frac{\partial}{\partial u}$, 守恒向量为
+\begin{equation*}
+\begin{aligned}
+c^{x}&=xu(u_{t}+auu_{x}+bu_{yyy})-(2u+xu_{x}+yu_{y}+3tu_{t})(au^2+bu_{xx}+cu_{xy}+cu_{yy})\\
+&+(3u_{x}+xu_{xx}+yu_{xy}+3tu_{tx})(bu_{x}+cu_{y})+(3u_{y}+xu_{xy}+yu_{yy}+3tu_{ty})(cu_{x}+cu_{y})\\
+&-(4u_{xx}+yu{xxy}+3tu_{txx})bu-(4u_{xy}+yu{xyy}+3tu_{txy})cu\\
+&-(4u_{yy}+yu{yyy}+3tu_{tyy})cu;\\
+c^{y}&=yu(u_{t}+auu_{x}+bu_{xxx})-(2u+xu_{x}+yu_{y}+3tu_{t})(cu_{xx}+cu_{xy}+bu_{yy})\\
+&+(3u_{x}+xu_{xx}+yu_{xy}+3tu_{tx})(cu_{x}+cu_{y})+(3u_{y}+xu_{xy}+yu_{yy}+3tu_{ty})(cu_{x}+bu_{y})\\
+&-(4u_{xx}+xu_{xxx}+3tu_{txx})cu-(4u_{xy}+xu_{xxy}+3tu_{txy})cu\\
+&-(4u_{yy}+xu_{xyy}+3tu_{tyy})bu;\\
+c^{t}&=3btuu_{t}u_{xxx}+3(b+c)tuu_{yyy}+3ctuu_{xyy}-3atu^2uu_x-2xuu_x-yu_y-2u^2.
+\end{aligned}
+\end{equation*}
+
+\item[(5)] 最后,考虑 $X_{5}=t\frac{\partial}{\partial x}+\frac{1}{a}\frac{\partial}{\partial u}$, 可以得到
+\begin{equation*}
+\begin{aligned}
+c^{x}&=btuu_{yyy}+ctuu_{xyy}-ctu_{x}u_{xx}-ctu_{x}u_{yy}+ctu_{y}u_{xx}+\frac{b}{a}u_{xx}+\frac{c}{a}u_{xy}\\
+&~~~+\frac{c}{a}u_{yy}+tuu_t+u^2;\\
+c^{y}&=\frac{c}{a}u_{xx}+\frac{c}{a}u_{xy}+\frac{b}{a}u_{yy}-ctu_{x}u_{xy}-btu_{x}u_{yy}+ctu_{y}u_{xx}-ctuu_{xxx}-ctuu_{xxy};\\
+c^{t}&=\frac{1}{a}u-tu_{x}u.\\
+\end{aligned}
+\end{equation*}
+\end{description}
+
+\subsection{拓展 QZK 方程的一维子代数最优系统}\label{sec:05optimal}
+\esubsection{Optimal Systems of 1D Subalgebras for Extended QZK Equations}
+在本小节,推导出方程 \eqref{eq:eqzk} 的一维子代数最优系统.采用文献 \cite{peter2000sym} 中的方法来得到一维子代数最优系统.根据定理 \ref{thm:adjoint} 可知,其共轭变换为
+\begin{equation*}
+	Ad(\exp(\varepsilon X_i))X_j=X_j-\varepsilon[X_i,X_j]+\frac{\varepsilon^2}{2}[X_i,[X_i,X_j]]-\cdots,
+\end{equation*}
+式中 $[X_i,X_j]=X_iX_j-X_jX_i$ 是李代数的交换子, $\varepsilon$ 为参数.
+
+接下来,来构造方程 \eqref{eq:eqzk} 的一维子代数最优系统.其李代数的共轭表示见表 \ref{tab:table1}.
+
+\begin{table}[!h]
+\centering
+\caption{{无穷小生成元的共轭表示}}
+\label{tab:table1}
+\begin{tabularx}{\linewidth}{XXXXXX}
+\toprule
+$Ad(\exp(\varepsilon *))(*)$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}$&$X_{5}$\\
+\midrule
+$X_{1}$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}-\varepsilon X_{1}$&$X_{5}$\\
+$X_{2}$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}-\varepsilon X_{2}$&$X_{5}$\\
+$X_{3}$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}-3\varepsilon X_{3}$&$X_{5}-a\varepsilon X_{1}$\\
+$X_{4}$&$e^{\varepsilon}X_{1}$&$e^{\varepsilon}X_{2}$&$e^{3\varepsilon}X_{3}$&$X_{4}$&$e^{-2\varepsilon}X_{5}$\\
+$X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X_{5}$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{theorem}
+\emph{方程 \eqref{eq:eqzk} 的一个一维子代数最优系统为
+\begin{equation*}
+	mX_{3}+nX_{4}+X_{5},~ X_{4}, X_{3},~ X_{3}-X_{2}, ~X_{3}+X_{2}, ~lX_{1}+X_{2}, ~X_{1},
+\end{equation*}
+式中 $m,n,l\in \mathbf{R}$ 为任意非零常数.}
+\end{theorem}
+
+{\textbf{证明}} 给定一个非零向量
+\begin{equation*}
+	X=\beta_{1}X_{1}+\beta_{2}X_{2}+\beta_{3}X_{3}+\beta_{4}X_{4}+\beta_{5}X_{5}.
+\end{equation*}
+然后通过使用合适的共轭映射来尽可能地化简更多的 $\beta_i$.
+
+情形 1:
+
+首先假设 $\beta_5\neq 0.$ 对 $X$ 做尺度变换使得 $\beta_5=1$. 作用于 $Ad(\exp{(\frac{\beta_2}{\beta_4} X_2)})$ 和 $Ad(\exp{(\frac{\beta_1}{\beta_4} X_1)})$ 能够得到
+\begin{equation*}
+	\widetilde{X}=Ad(\exp{(\frac{\beta_2}{\beta_4} X_2)})\circ Ad(\exp{(\frac{\beta_1}{\beta_4} X_1)}) X=\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}.
+\end{equation*}
+可以知道,没有其他更简单的结果了.因此,每一个由 $X$ 生成的一维的子代数,如果满足 $\beta_5\neq 0 $, 则它等价于由
+\begin{equation*}
+	\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}
+\end{equation*}
+生成的子代数,式中 $\beta_{3}, \beta_{4} \in \mathbf{R}$ 为任意非零常数.
+
+情形 2:
+
+其余的一维子代数应该由这样的向量生成 $\beta_5=0, ~\beta_4\neq 0$. 同样地,取 $\beta_4=1$. 所以,非零向量 $X=\beta_{1}X_{1}+\beta_{2}X_{2}+\beta_{3}X_{3}+X_{4}$ 等价于如下映射地 $\widetilde{X}$
+\begin{equation*}
+	\widetilde{X}= Ad(\exp{(\frac{\beta_3}{3} X_3)})\circ Ad(\exp{(\beta_2 X_2)})\circ Ad(\exp{(\beta_1 X_1)}) X=X_{4}.
+\end{equation*}
+因此,每个一维子代数由满足条件 $\beta_5=0,~ \beta_4\neq 0$ 的 $X$ 生成,等价于该子代数由 $X_{4}$ 生成.
+
+情形 3:
+
+进一步,如果 $\beta_5=0,~\beta_4=0,$ 且 $\beta_3\neq 0$, 取 $\beta_3=1$. 因此, $X$ 等价于在共轭变换下的 $\widetilde{X}$
+\begin{equation*}
+\begin{aligned}
+\widetilde{X}&=Ad(\exp(\varepsilon X_{4}))\circ Ad(\exp{(\frac{-\beta_1}{a} X_1)}) X\\
+&=e^{\varepsilon}\beta_{2}X_{2}+e^{3\varepsilon}X_{3}.
+\end{aligned}
+\end{equation*}
+此处为一个标量乘以 $\widetilde{X}=e^{-2\varepsilon}\beta_{2}X_{2}+X_{3}$. 所以,根据 $\beta_{2}$ 的符号,可以取 $X_{2}$ 的系数为 $+1,~-1,~0$ 中的一个.因此, $X$ 中满足 $\beta_5=0,~\beta_4=0$ 的子代数等价于由
+\begin{equation*}
+	X_{3}, ~X_{3}-X_{2}, ~X_{3}+X_{2}
+\end{equation*}
+生成的子代数.
+
+情形 4:
+
+接下来,考虑 $\beta_5=\beta_4=\beta_3=0$ 的情形.取 $\beta_2=1$, 于是 $\widetilde{X}=\beta_{1}X_{1}+X_{2}$. 如果将其用 $Ad(\exp({\varepsilon X_4)})$ 作用于 $\widetilde{X}$, 有
+\begin{equation*}
+	\widetilde{X}=Ad(\exp{(\varepsilon X_1)}) X=\beta_{1}X_{1}+X_{2}.
+\end{equation*}
+
+因此 $X$ 中满足 $\beta_5=\beta_4=\beta_3=0$ 的子代数,等价于由
+\begin{equation*}
+	\beta_{1}X_{1}+X_{2}
+\end{equation*}
+生成的子代数,式中 $\beta_{1} \in \mathbf{R}$ 为任意非零常数.
+
+情形 5:
+
+最后一种情形, $\beta_{2}=\beta_{3}=\beta_{4}=\beta_{5}=0$, 可以类似地得到它等价于由 $X_1$ 生成.
+
+所以,方程 \eqref{eq:eqzk} 的一个一维子代数最优系统为
+\begin{equation*}
+	mX_{3}+nX_{4}+X_{5}, ~X_{4},~ X_{3}, ~X_{3}-X_{2},~ X_{3}+X_{2},~ lX_{1}+X_{2}, ~X_{1},
+\end{equation*}
+式中 $m,n,l\in \mathbf{R}$ 为任意非零常数.
+
+证毕.
+
+\subsection{拓展 QZK 方程的约化}\label{sec:05reduction}
+\esubsection{Reduction of Extended QZK Equations}
+在本小节中,使用得到的一维子代数来约化方程 \eqref{eq:eqzk}.
+\begin{description}
+
+\item[(1)] $X_3-X_2=\frac{\partial}{\partial t}-\frac{\partial}{\partial y}.$
+
+对不变曲面条件进行积分
+\begin{equation*}
+	\frac{dx}{0}=\frac{dy}{-1}=\frac{dt}{1}=\frac{du}{0},
+\end{equation*}
+得到相似变换 $u=\phi(f,g)$, 其中相似变量为 $f=x,~g=t+y$.
+将相似变换 $u=\phi(f,g)$ 代入方程 \eqref{eq:eqzk}, 得到约化方程
+\begin{equation*}
+	\phi_g+a\phi \phi_f+b(\phi_{fff}+\phi_{ggg})+c(\phi_{fgg}+\phi_{ffg})=0.
+\end{equation*}
+
+\item[(2)]$X_3+X_2=\frac{\partial}{\partial t}+\frac{\partial}{\partial y}.$
+
+对不变曲面条件进行积分
+\begin{equation*}
+	\frac{dx}{0}=\frac{dy}{1}=\frac{dt}{1}=\frac{du}{0},
+\end{equation*}
+得到相似变换 $u=\phi(f,g)$, 其中相似变量为 $f=x,~g=t-y$.
+将相似变换 $u=\phi(f,g)$ 代入方程 \eqref{eq:eqzk}, 得到约化方程
+\begin{equation*}
+	\phi_g+a\phi \phi_f+b(\phi_{fff}-\phi_{ggg})+c(\phi_{fgg}-\phi_{ffg})=0.
+\end{equation*}
+
+\item[(3)]$\beta_1X_1+X_2=\beta_1\frac{\partial}{\partial x}+\frac{\partial}{\partial y}.$
+
+对不变曲面条件进行积分
+\begin{equation*}
+	\frac{dx}{\beta_1}=\frac{dy}{1}=\frac{dt}{0}=\frac{du}{0},
+\end{equation*}
+得到相似变换 $u=\phi(f,g)$, 其中相似变量为 $f=y-\beta_1x,~g=t$.
+将相似变换 $u=\phi(f,g)$ 代入方程 \eqref{eq:eqzk}, 得到约化方程
+\begin{equation*}
+	\phi_g-a\beta_1\phi \phi_f+(b-b\beta_1^3-c\beta_1+c\beta_1^2)\phi_{fff}=0.
+\end{equation*}
+\end{description}
+
+
+\section{小结}\label{sec:05conclusion}
+\esection{Brief Summary}
+在本章中,将复合变分准则应用到了 (2+1) 维拓展 QZK 方程.应用这些李对称,证明了 (2+1) 维拓展 QZK 方程是自共轭的,并且构造了其守恒律.接着,给出了一维子代数最优系统.通过相应的相似不变量的相似变换, (2+1) 维拓展 QZK 方程约化为线性的偏微分方程.

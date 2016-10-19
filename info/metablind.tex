@@ -1,0 +1,141 @@
+% 标题,中文
+\ctitle{关于微分方程的辛方法和李群方法研究}
+
+% 作者,中文
+\cauthor{}
+
+% 学科,中文,本科生不需要
+\csubject{数学}
+
+% 导师姓名,中文
+\csupervisor{}
+
+% 关键词,中文.用全角分号「；」分割
+% 研究生的应首先从《汉语主题词表》中摘选
+\ckeywords{波形松弛；辛方法；辛波形松弛方法；李群方法；微分方程}
+
+% 提交日期,本科生不需要
+\cproddate{\the\year 年\the\month 月}
+
+% 论文类型,中文,本科生不需要
+% 从理论研究、应用基础、应用研究、研究报告、软件开发、设计报告、案例分析、调研报告、其它中选择
+\ctype{应用基础}
+
+% 论文标题,英文
+\etitle{Research on Symplectic Method and Lie Group Method of Differential Equations}
+
+% 作者姓名,英文
+\eauthor{}
+
+% 学科,英文,本科生不需要
+\esubject{Mathematics}
+
+% 导师姓名,英文
+\esupervisor{}
+
+% 关键词,英文.用半角分号和一个半角空格「; 」分割
+\ekeywords{Waveform relaxation; Symplectic method; Symplectic waveform relaxation method; Lie group method; Differential equations}
+
+% 学科门类,英文
+% 从Philosophy（哲学）、Economics（经济学）、Law（法学）、Education（教育学）、Arts（文学）、
+%   Science（理学）、Engineering Science（工学）、Medicine（医学）、Management Science（管理学）中选择
+\ecate{Science}
+
+% 提交日期,英文,本科生不需要
+% 应当和 cproddate 保持一致
+\eproddate{\monthname{\month}\ \the\year}
+
+% 论文类型,英文,本科生不需要
+% 从Theoretical Research（理论研究）、Application Fundamentals（应用基础）、Applied Research（应用研究）、
+%   Research Report（研究报告）、Software Development（软件开发）、Design Report（设计报告）、
+%   Case Study（案例分析）、Investigation Report（调研报告）、其它（Other）中选择
+\etype{Application Fundamentals}
+
+% 摘要,中文.段间空行
+\cabstract{
+
+高性能计算机以及集群的快速发展,使得数值模拟成为了从科学实验到工程实验领域里一个非常重要的工具,
+从而加速了科学研究和产品产出的速度.
+随之而来的是与日俱增的数值计算方法和对高精度,高效数值算法的需求.这些年来,数值计算领域的研究如雨后春笋般
+迅速发展.数值计算的应用,尤其是微分方程的数值模拟的应用遍及各个重要的工程领域乃至经济金融领域.随着工程和军
+事上的应用蓬勃发展,对数值计算的精准性和时效性的要求日益迫切.在大规模集成电路模拟领域,在航空航天
+领域,有一些相当重要的问题需要快速准确地解决,这使得针对快速高效的计算方法的研究变得非常重要.
+
+本文主要针对几类微分方程,研究了辛(Symplectic)方法,辛波形松弛方法,李群方法和李点对称方法,
+提出了一些便于实现和计算速度快的计算方法.详细的研究内容和主要结论如下:
+
+(一) 对于一类特殊类型的电报方程,应用辛方法进行计算.辛方法适用于哈密尔顿系统等具有特殊结构的
+系统,然而电报方程本身不具有这样的结构.这里,我们使用了一个变换对其进行修正,然后再使用辛方法进行
+求解,最后再用逆变换将数值结果变成原方程的数值结果.该方法和傅立叶变换方法的思想类似,都是先变换再
+求解再逆变换的过程.该方法利用了辛方法的优势,能够较好地计算较长时间的数值解.
+
+(二) 对拓展 QZK 方程,利用李点对称方法,进行了一些方程的性质分析,并给出了方程的一个约化.李点对称
+方法是将李群作用到微分方程上,通过构造特定的变换,能够得到一些方程的信息甚至是精确解.根据 Ibragimov
+新守恒律定理构造了拓展 QZK 方程的守恒律.我们找到了一个最优系统的一维子代数,然后对最优子代数
+系统进行了相似约减,将 $(2+1)$ 维拓展 QZK 方程约化为含有两个独立变量的线性偏微分方程.
+
+(三) 针对哈密尔顿系统的辛方法,结合波形松弛方法,首次提出了辛波形松弛方法的概念,使得一些计算
+较为复杂的辛方法的计算难度简化,计算时间也比纯辛方法短.该方法利用了波形松弛方法解耦计算的优势,同时
+利用了辛方法较好的长时间稳定性,在此基础上有机结合,提出了辛波形松弛方法.这里波形松弛方法用来简化辛方法的求解
+过程,辛方法用来指导波形松弛方法中分裂函数的选取,使二者相得益彰.在此基础上,对于流形上的李群方程,利用
+辛波形松弛方法的设计思想,提出了隐式 RK-MK 方法的波形松弛改造格式.李群方程属于流形上的微分方程,
+该类方程的解依然在流形上,但是传统的数值解法,数值解往往会脱离流形, RK-MK 方法就是使得数值结果依然落到流形上这样一类方法,
+利用指数映射.但是,对于一些流形上保结构的问题,对 RK-MK 的
+隐式格式需求带来了求解上的困难,故我们利用波形松弛方法的思想,设计出便于计算的格式,较好地解决了此问题.
+
+总而言之,在本文中,我们提出了电报方程的辛格式改造方法,哈密尔顿系统的辛波形松弛方法,以及在流形上的一个
+应用,并用李群方法来约化偏微分方程.在数值算例上显式出了较好的效果,约化的方程形式得到了化简,都说明了我
+们算法的有效性.最后,对工作进行了总结并对进一步研究进行了展望.
+
+}
+
+% 摘要,英文.段间空行
+\eabstract{
+
+At present, the rapid advancement of high performance computers and workstations has pushed numerical
+simulation to a highly demanded position both in numerical analysis in science study and in numerical simulation
+in industrial production, which reduces the cycle of science study and production. What it brings is the booming
+approaches of numerical methods, the refreshing demands of high precision and effcient numerical algorithms as well as
+numerous studies in this area. Scientific computation, especially computation for differential equations has been widely applied
+in many areas and even in economical areas. As the increased applications in industrial and
+military areas, demands for high precision and real time numerical methods are urgent. Tremendous problems need to be solved
+in large scale integrated circuits and space science fields, which emphasizes the importance of fast and effcient computing methods.
+
+In this dissertation, our study focuses on symplectic method, symplectic waveform relaxation method, Lie group
+method and Lie point symmetry method. Details and major conclusions are listed as follows:
+
+(I) The symplectic is applied to certain kind of telegraph equations. The symplectic method is often used to solve
+Hamiltonian systems, which is not what normal telegraph equations can fit. Here, we take a pre-transform and then
+solve it with the symplectic method, and afterwards drag the numerical solution back to the original telegraph equation
+by an inverse transform. This idea resembles the idea of the Fourier transform method. They all solve equations in the
+frequency domain and apply an inverse transform to bring the solution to the time domain. This computation takes
+advantage of the symplectic method, so it is expected to have long-term numerical results.
+
+(II) For extended quantum Zakharov-Kuznetsov equations, we get some characters of this equation by the Lie point
+symmetry method, and get a reduced equation. The Lie point symmetry method is a method that applies Lie group to differential
+equations. With certain transforms, we can get some information of the equation and even the solution. By the
+theory of Ibragimov, a new conservation law is constructed for extended QZK equations. We find an optimal one dimensional
+Lie subalgebras and reduce the equation with it and then the $(2+1)$ dimensional extended QZK equation is reduced
+to a partial differential equation with two independent variables.
+
+(III) Combining the symplectic method and the waveform relaxation method~(WR), we first propose a new method called
+symplectic waveform relaxation for Hamiltonian systems, which makes it possible to compute a Hamiltonian system
+``with symplectic method''. The advantage is then a faster and easier method for Hamiltonian systems. It takes
+advantage of decoupling feature of the waveform relaxation method and long-term computation
+feature of the symplectic method, which is an organic combination for both. The waveform relaxation method is used to
+simplify the symplectic method while the symplectic method is used to instruct how to choose splitting function of the waveform
+relaxation method. For Lie group equations on manifolds, on the basis of
+the idea of the symplectic waveform relaxation method, we come up with an idea of modifying the RK-MK method
+for Lie group equations. Lie group equations are equations that depict flows on manifolds, whose solution lies on manifold.
+Classical numerical methods cannot guarantee that the solution lies on the manifold, which is far from expected.
+The RK-MK method is such a remedy, which uses exponential mapping and drags the solution back to
+the manifold. However, some RK-MK schemes cannot ensure another requirement of structure preserving,
+which leads to the need of implicit RK-MK. We propose a method to overcome the difficulty of solving with an implicit RK-MK method.
+
+In conclusion, in this dissertation, we use the symplectic method to solve telegraph equations, we use the Lie point symmetry method
+to reduce the extended QZK equation and propose a simple method for implicit numerical schemes by waveform relaxation for
+Hamiltonian systems as well as for Lie group equations. Numerical experiments show the high efficiency of
+our numerical methods. The results also show that the reduced equation is easier to solve original problems. At last, we give a conclusion
+and an outlook.
+
+}

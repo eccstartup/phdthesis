@@ -1,0 +1,62 @@
+\documentclass[
+    doctor,
+    truefont, % just turn it on when using Windows
+    %nofont, % remember to manally set the fonts
+    pdflinks,
+    %colorlinks,
+    %compact,
+    ]{setup/xjtuthesis}
+
+\graphicspath{{figures/}}
+\renewcommand{\vec}{}
+
+\usepackage[section]{algorithm}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{pdfpages}
+
+\begin{document}
+
+% 请修改 meta.tex 中的论文元信息
+\input{info/meta.tex}
+
+\xjtuchead \xjtuehead \xjtucinfopage \xjtueinfopage \xjtutoc \xjtutoe \clearpage
+
+% 主要符号表，可以没有
+\input{body/denotation.tex}
+
+\xjtucontent
+
+% 绪论
+\input{body/01_introduction.tex}
+
+% 以同样方法添加更多章节
+\input{body/02_telegraph.tex}
+
+\input{body/03_qzkLiegroup.tex}
+
+\input{body/04_symplecticWR.tex}
+
+\input{body/05_conclusion.tex}
+
+\xjtuendcontent
+
+\xjtuspchapter{致\quad 谢}{致\quad 谢}{Acknowledgements}
+
+\input{body/acknowledgements.tex}
+
+% 将你要引用的文献的 BibTeX 放入 bibliography.bib \xjtubib{reference/phdthesis}
+
+% 将你要引用的文献的 BibTeX 放入 bibliography.bib \xjtubib{reference/mythesis}
+% from Hui其中chinesebst是我自己生成的参考文献风格,比较符合中国人的习惯参考文
+% 献plain,unsrt,alpha,abbrev,chinesebst,GBT7714-2005NLang,GBT7714-2005AYLang
+
+\input{backmatter.tex}
+
+% \xjtuacademicintegrity
+\cleardoublepage
+\includepdf[offset=0 18mm]{info/shengming.pdf}
+
+\end{document}
