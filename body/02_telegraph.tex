@@ -49,9 +49,9 @@ w(1,t)&=0,&0 \le t \le T,
 \end{aligned}
 \right.
 \end{equation}
-式中 $p \in \mathbb{R}^n$ 和 $q \in \mathbb{R}^n$ 为所求函数, $H=H(q,p)$ 是系统的哈密尔顿量.在实际应用中, $n$ 为该哈密尔顿系统的自由度, $q$ 与 $p$ 分别对应系统的广义位移和广义动量.在相空间 $\mathbb{R}^{2n}$ 上的标准辛形式是如下的二微分形式
+式中 $p \in \mathbb{R}^d$ 和 $q \in \mathbb{R}^d$ 为所求函数, $H=H(q,p)$ 是系统的哈密尔顿量.在实际应用中, $d$ 为该哈密尔顿系统的自由度, $q$ 与 $p$ 分别对应系统的广义位移和广义动量.在相空间 $\mathbb{R}^{2d}$ 上的标准辛形式是如下的二微分形式
 \begin{equation*}
-\omega = \sum_{i=1}^n d q_i \wedge d p_i.
+\omega = \sum_{i=1}^d d q_i \wedge d p_i.
 \end{equation*}
 保持哈密尔顿系统辛结构的数值方法称之为辛方法.后面会给出更精确的定义.常用的辛方法有隐式中点法,交错显式格式,基于 Pad\'{e} 逼近的方法, St\"{o}rmer-Verlet 格式,辛 Runge-Kutta 方法,等等.
 
@@ -436,7 +436,7 @@ S=\begin{pmatrix}
 令 $w=e^{\lambda kt}u$, 并将其带入方程 \eqref{eq:telegraph}, 得到变换
 $w=e^{-\frac{1}{2}kt}u$, 其中 $\lambda = -\frac{1}{2}$. 参见 \cite{polyanin2001handbook}.
 
-同时,容易得到该变换的逆变换 $u=e^{-\frac{1}{2}kt}w$. 注意到该变换和逆变换均不会产生数值上的误差,也就是说,我们算法的误差只隐含在求解哈密尔顿系统那一步里.
+同时,容易得到该变换的逆变换 $u=e^{\frac{1}{2}kt}w$. 注意到该变换和逆变换均不会产生数值上的误差,也就是说,我们算法的误差只隐含在求解哈密尔顿系统那一步里.
 
 \begin{lemma}[由电报方程到 Klein-Gordon 方程的变换 \cite{polyanin2001handbook}]\label{thm:trans}
 \emph{令 $w=e^{-\frac{1}{2}kt}u$, 电报方程 \eqref{eq:telegraph} 将变换成为如下的 Klein-Gordon 方程
@@ -506,7 +506,7 @@ u(0,t)&=0,&0 \le t \le T,~(x,y)\in \partial\Omega .
 
 \subsubsection{Klein-Gordon 方程的离散}
 \esubsubsection{Discretization of Klein-Gordon Equations}
-首先选取等间距的时间格点来进行半离散.取 $0=x_0<x_1<\cdots<x_{N-1}<x_N=1$ 式中 $x_i=i\Delta x,~i = 1,2,\cdots,N$.
+首先选取等间距的空间格点来进行半离散.取 $0=x_0<x_1<\cdots<x_{N-1}<x_N=1$ 式中 $x_i=i\Delta x,~i = 1,2,\cdots,N$.
 
 令 $u_i(t)=u(x_i,t)$, $U=(u_1,u_2,\cdots,u_{N-1})^T$, 并取 $\frac{\partial u_n}{\partial
 x}=\frac{u_{n+1}-2u_n+u_{n-1}}{\Delta x^2}$, 半离散的结果对应着如下的二阶系统
@@ -611,7 +611,7 @@ u}{\partial x^2}$ 一项的离散.如果取
 
 证毕.
 
-类似地,可以得到 $n$ 维电报方程 \eqref{eq:kg2d} 的阶条件, 如果取等间距的时间网格划分
+类似地,可以得到 $n$ 维电报方程 \eqref{eq:kg2d} 的阶条件, 如果取等间距的空间网格划分
 $0=x_{i,0}<x_{i,1}<\cdots<x_{i,N-1}<x_{i,N}=1,~i=1,2,\cdots,n$ 其中
 $x_{i,j}=j\Delta x,~j = 1,2,\cdots,N$, 和二阶的空间离散
 \begin{equation*}
@@ -744,21 +744,21 @@ u_t(1,t)&=0.
 
 \textbf{$\Delta x$ 的阶}
 
-为了得到 $\Delta x$ 的阶,固定一个较小的 $\Deltat$, 然后相应地变化 $\Delta x$. 结果在表 \ref{tab:dx1} 中给出. 这里取 $\Delta t=0.001$ 和 $T=2$.
+为了得到 $\Delta x$ 的阶,固定一个较小的 $\Delta t$, 然后相应地变化 $\Delta x$. 结果在表 \ref{tab:dx1} 中给出. 这里取 $\Delta t=0.001$ 和 $T=2$.
 
 \begin{table}[h]
   \centering
 \caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况.其中 $\Delta t=0.001$ 和 $T=2$, 可以看到 St\"{o}rmer-Verlet 方法为二阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.1 & 0.0026 & 0.0011 & 0.0025 & 0.0017\\
  0.05 & 0.0010 & 0.0013 & 0.0012 & 4.2103e-04\\
  0.025 & 6.8722e-04 & 0.0014 & 9.2472e-04 & 1.0098e-04\\
  0.0125 & 6.0390e-04 & 0.0015 & 8.4536e-04 & 2.1029e-05\\
  0.00625 & 5.8372e-04 & 0.0015 & 8.2554e-04 & 3.5435e-06\\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dx1}
 \end{table}
@@ -774,15 +774,15 @@ u_t(1,t)&=0.
   \centering
 \caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.01$ 和 $T=2$, 可以看到辛欧拉方法为一阶和 St\"{o}rmer-Verlet 方法为二阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.01 & 0.0057 & - & 8.3585e-04 & - \\
  0.005 & 0.0029 & 0.0074 & 2.2122e-04 & 1.5288e-04 \\
  0.0025 & 0.0015 & 0.0037 & 6.7965e-05 & 3.0713e-05 \\
  0.00125 & 7.3818e-04 & 0.0018 & 2.9746e-05 & 8.5729e-06 \\
  0.000625 & 3.7797e-04 & 9.0788e-04 & 2.0234e-05 & 1.4851e-05 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dt1}
 \end{table}
@@ -795,15 +795,15 @@ u_t(1,t)&=0.
   \centering
 \caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.05$ 和 $\Delta t=0.001$, 可以看到所有方法长时间性质良好}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  1 & 0.0010 & 0.0013 & 4.3489e-04 & 1.7282e-04 \\
  10 & 0.0010 & 0.0013 & 4.3489e-04 & 4.2674e-04 \\
  100 & 0.0010 & 0.0013 & 4.3489e-04 & 4.2674e-04 \\
  1000 & 0.0010 & 0.0013 & 4.3489e-04 & 4.2674e-04 \\
  10000 & 0.0010 & 0.0013 & 4.3489e-04 & 4.2674e-04 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:t1}
 \end{table}
@@ -865,15 +865,15 @@ t$, 通过相应地变化 $\Delta x$ 来得到. 取 $\Delta t = 0.0001$, 和 $T
   \centering
 \caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况.其中 $\Delta t=0.0001$ 和 $T=1$, 可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
 $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.1 & 0.6487 & 0.0013 & 0.0013 & 0.0013\\
  0.05 & 0.6496 & 2.7325e-04 & 3.3279e-04 & 3.3271e-04\\
  0.025 & 0.6498 & 6.2785e-05 & 8.3249e-05 & 8.3174e-05\\
  0.0125 & 0.6499 & 8.6850e-05 & 2.0839e-05 & 2.0764e-05\\
  0.00625 & 0.6499 & 9.5203e-05 & 5.2348e-06 & 5.1600e-06\\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dx2}
 \end{table}
@@ -886,15 +886,15 @@ $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
   \centering
 \caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.01$ 和 $T=2$, 可以看到直接方法为一阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.001 & 0.6467 & 9.7975e-04 & 1.6714e-05 & 9.4887e-06 \\
  0.0005 & 0.6485 & 4.8457e-04 & 1.4153e-05 & 1.2295e-05 \\
  0.00025 & 0.6493 & 2.3809e-04 & 1.3524e-05 & 1.3057e-05 \\
  0.000125 & 0.6498 & 1.1523e-04 & 1.3368e-05 & 1.3251e-05 \\
  0.0000625 & 0.6500 & 5.4100e-05 & 1.3329e-05 & 1.3299e-05 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dt2}
 \end{table}
@@ -907,14 +907,14 @@ $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
   \centering
 \caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.01$ 和 $\Delta t=0.001$, 可以看到所有方法长时间性质良好}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  1 & 0.6467 & 9.7975e-04 & 1.6714e-05 & 9.4887e-06 \\
  10 & 0.6467 & 9.7975e-04 & 1.6714e-05 & 9.4887e-06 \\
  100 & 0.6467 & 9.7975e-04 & 1.6714e-05 & 9.4887e-06 \\
  1000 & 0.6467 & 9.7975e-04 & 1.6714e-05 & 9.4887e-06 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:t2}
 \end{table}
@@ -937,14 +937,14 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果.
   \centering
 \caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况.其中 $\Delta t=0.001$ 和 $T=2$, 可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.1 & 0.8252 & 0.0018 & 0.0017 & 0.0017\\
  0.05 & 0.8301 & 5.0684e-04 & 4.2688e-04 & 4.2674e-04\\
  0.025 & 0.8314 & 2.0812e-04 & 1.0680e-04 & 1.0667e-04\\
  0.0125 & 0.8317 & 1.5813e-04 & 2.6763e-05 & 2.6625e-05\\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dx3}
 \end{table}
@@ -957,14 +957,14 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果.
   \centering
 \caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.01$ 和 $T=1$, 可以看到辛欧拉方法为一阶}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  0.001 & 0.8317 & 0.0015 & 2.5175e-05 & 1.1497e-05 \\
  0.0005 & 0.8317 & 7.3588e-04 & 1.9097e-05 & 1.5646e-05 \\
  0.00025 & 0.8317 & 3.7202e-04 & 1.7581e-05 & 3.0713e-05 \\
  0.000125 & 0.8317 & 1.8992e-04 & 1.7203e-05 & 8.5729e-06 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:dt3}
 \end{table}
@@ -977,14 +977,14 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果.
   \centering
 \caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况.其中 $\Delta x=0.1$ 和 $\Delta t=0.001$, 可以看到所有方法长时间性质良好}
 \begin{tabularx}{\linewidth}{XXXXX}
- \toprule
+ \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
- \midrule
+ \midrule[1pt]
  1 & 0.8252 & 0.0026 & 0.0017 & 0.0017 \\
  10 & 0.8599 & 0.0026 & 0.0017 & 0.0017 \\
  100 & 0.8599 & 0.0026 & 0.0017 & 0.0017 \\
  1000 & 0.8599 & 0.0026 & 0.0017 & 0.0017 \\
- \bottomrule
+ \bottomrule[1.5pt]
 \end{tabularx}
   \label{tab:t3}
 \end{table}
