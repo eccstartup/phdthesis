@@ -3,7 +3,7 @@
 
 %\section{Introduction}\label{sec:introduction}
 %\esection{Introduction}
-在本章,我们针对哈密尔顿系统和李群方程,基于波形松弛方法提出一种新的求解方法.哈密尔顿系统的形式如下
+在本章,我们针对哈密尔顿系统和李群方程,基于波形松弛方法提出一种新的求解方法.第一部分我们求解哈密尔顿系统,哈密尔顿系统的形式如下
 \begin{equation}\label{eq:hal0}
   \left\lbrace
     \begin{aligned}
@@ -19,11 +19,11 @@
   \frac{dH}{dt}={H_q}^T\frac{dq}{dt}+{H_p}^T\frac{dp}{dt}={H_q}^TH_p+{H_p}^T(-H_q)=0.
 \end{equation*}
 
-对于每个哈密尔顿系统,辛形式,通常定义为 $\omega = dp \wedge dq$, 是一个常量.辛几何算法是保持辛形式的数值算法,属于数值的范畴,也称之为辛方法.辛方法擅长求解长时间区间的哈密尔顿系统 \cite{feng2010symplectic,hairer2006geometric}. 它立足于保持每个时间阶段的哈密尔顿函数  $H(q,p)$, 即 $H(q_{n+1},p_{n+1})=H(q_n,p_n)$, 而不是过分地追求解的阶数.这种思想在求解星体运动问题上得到了较好的数值结果.
+对于每个哈密尔顿系统,其辛形式通常定义为 $\omega = dp \wedge dq$, 是一个常量.辛几何算法是保持辛形式的数值算法,属于数值的范畴,也称之为辛方法.辛方法擅长求解长时间区间的哈密尔顿系统 \cite{feng2010symplectic,hairer2006geometric}, 它立足于保持每个时间阶段的哈密尔顿函数  $H(q,p)$, 即 $H(q_{n+1},p_{n+1})=H(q_n,p_n)$, 而不是过分地追求解的阶数.这种方法在求解星体运动问题上得到了较好的数值结果.
 
 常用的辛方法有辛欧拉方法,辛 Runge-Kutta 方法,辛 Runge-Kutta-Nystr{\"o}m 方法 \cite{kalogiratou2014fourth,kalogiratou2015}, 辛 ERKN 方法 \cite{wang2014ahigh}, 哈密尔顿 BVM \cite{brugnano2014multi}, 等等.此外,相关的关于哈密尔顿系统的研究还有两步波形松弛方法 \cite{hassanzadeh2014two}, 针对非自治哈密尔顿系统的方法 \cite{hong2000numerical,zhang2010anote}, 随机哈密尔顿方程的方法 \cite{burrage2014structure,ma2015sto,fan2015using}, 多辛方法 \cite{wang2013multi} 和最优控制系统的研究 \cite{li2015asym}, 等等.另外可以知道,辛 Runge-Kutta 方法均为隐式方法 \cite{sanz1988runge}.
 
-李群方程,在本章所涉及的方程,是一类特殊形式的矩阵方程
+在本章后半部分所涉及的李群方程,是一类特殊形式的矩阵方程
 \begin{equation*}
 	Y'=A(t,Y)Y,\quad t\geq 0,\quad Y(0)=Y_0,
 \end{equation*}
@@ -33,7 +33,7 @@
 \begin{equation*}
 	y'=f(t,y),\quad t\geq 0,\quad y(0)=y_0,\quad y_0 \in \mathbb{R}^n,
 \end{equation*}
-有许多成熟的数值算法,比如欧拉法(显式或者隐式),梯形法, Runge-Kutta 法等等.这些方法在数值模拟和仿真领域起到了重要的作用.但是,对于李群方程,可以知道方程的解还在流形上,这些方法就显得无力,因为误差会使结果偏离流形,如图 \ref{fig:explicit}. 相比之下,\textbf{李群方法}的效果会落到流形上,如图 \ref{fig:midpoint}. 在本章,为了简单,把流形上的李群方法也叫做李群方法.
+有许多成熟的数值算法,比如欧拉法(显式或者隐式),梯形法, Runge-Kutta 法,等等.这些方法在数值模拟和仿真领域起到了重要的作用.但是,对于李群方程,方程解的流还在流形上,这些方法就显得无力,因为误差会使结果偏离流形,如图 \ref{fig:explicit}. 相比之下,\textbf{李群方法}的结果会落到流形上,如图 \ref{fig:midpoint}. 在本章,为了简单,把流形上的李群方法也叫做李群方法.
 
 \begin{figure}[h!]
   \centering
@@ -53,15 +53,15 @@
 
 在这里,把结合了辛方法和波形松弛方法的方法叫做\textbf{辛波形松弛方法}.它是传统意义上的波形松弛方法的一个特例,将辛格式作为模型进行逼近,通过运用波形松弛方法解耦的特性,使计算过程更简单.波形松弛方法使问题求解相对隐式方法来说更加容易,同时,辛方法指导了波形松弛方法如何进行解耦.
 
-为了能更好地求解长时间区间的问题,引入窗口加速技术 \cite{jiang2006windowing,ladics2015error}. 窗口技术能够有效地减少波形松弛方法地迭代次数,同时能够保持辛方法的优秀特性.在 \cite{jiang2006windowing} 中作者给出了如何选取窗口长度,另外,窗口技术使得并行求解更加容易 \cite{liu2011waveform}.
+在计算过程中,为了能更好地求解长时间区间的问题,引入窗口加速技术 \cite{jiang2006windowing,ladics2015error}. 窗口技术能够有效地减少波形松弛方法地迭代次数,同时能够保持辛方法的优秀特性.在 \cite{jiang2006windowing} 中作者给出了如何选取窗口长度,此外,窗口技术使得并行求解更加容易 \cite{liu2011waveform}.
 
-接下来,对辛波形松弛方法做进一步地探讨和拓展.该改进基于前面讨论的波形松弛方法对辛格式的改进,更进一步研究波形松弛数值格式在其他保持结构的问题里会有哪些实际可行的应用.对流形上的保结构的数值格式进行波形松弛方法地``改造'',以得到较为容易实现且速度较快的数值格式.
+接下来,对辛波形松弛方法做进一步地探讨和拓展.该拓展基于前面讨论的波形松弛方法对辛格式的改进,更进一步地研究了波形松弛数值格式在其他保持结构的问题里会有哪些实际可行的应用.我们对流形上的保结构的数值格式进行波形松弛方法地``改造'',以得到较为容易实现且速度较快的数值格式.
 
-这里我们将给出求解流形上数值方法 RK-MK \cite{arieh2005liegroup} 的一个改进,该方法的``波形松弛化''说明了波形松弛方法在改造数值格式时的意义.这种改造一方面利用了波形松弛方法的解耦,迭代,实现简单等优点,同时还在通过迭代逼近数值格式,保持了原数值格式的优秀特性.
+这里我们将给出求解流形上数值方法 RK-MK \cite{arieh2005liegroup} 方法的一个改进,该方法的``波形松弛化''再次说明了波形松弛方法在改造数值格式时的意义.这种改造一方面利用了波形松弛方法的解耦,迭代,实现简单等优点,另一方面还在通过迭代逼近数值格式,保持了原数值格式的优秀特性.
 
-通常来说,我们的数值计算都是在一个空间上进行的,而常用的空间是平直的线性欧式空间.然而,有些方程具有特殊的意义,这些问题的解存在在一个流形上.可是,在全空间上数值计算的误差存在会导致计算结果并不在该流形上.为了解决这一类问题,有一类流形上的李群算法被设计出来,这些算法能够很好地保证数值解落在流形上.上面提到的 RK-MK 算法就是这样一类方法.
+通常来说,我们的数值计算都是在一个空间上进行的,常用的空间是平直的线性欧式空间.然而,某些方程具有特殊的意义,这些问题解地流存在在一个流形上.可是,在全空间上数值计算的误差存在会导致计算结果并不在该流形上.为了解决这一类问题,有一类流形上的李群方法被设计出来,这类方法能够很好地保证数值解落在流形上.上面提到的 RK-MK 算法就是这样一类方法.
 
-然而,即使是李群方法,其数值结果会落到流形上,有些情况也并非令人满意,图 \ref{fig:rkmk2} 中的数值结果虽然保持在流形上了,但是并不是原问题应有的数值解,数值解只是在流形上出现了误差.
+然而,即使是李群方法,其数值结果会落到流形上,有些情况也并非令人满意,图 \ref{fig:rkmk2} 中的数值结果虽然保持在流形上了,但是并不是原问题应有的数值解,数值解只是误差出现在流形上了.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{03/rkmk2.png}
@@ -73,14 +73,14 @@
 
 李群方法起初是由 Crouch 和 Grossman \cite{crouch1993numerical} 提出来的,即所谓的 Crouch-Grossman 方法,该方法得到了一系列地推广 \cite{faleinsen2001multi,zaletkin2010numerical,bulychev2001numerical,buono2003numerical,billo1992numerical}. 后来,在 1996 到 1999 年, Munthe-Kaas  等人提出了该方法的一个改进方法 \cite{mk1996lie,mk1997numerical,mk1998runge,mk1999high}, 即 MK-RK 方法,以及后面的一些推广 \cite{ostermann2010exponential,owren2000the,bruls2012lie,munthe2013onpost,garcla2011onalg}. Crouch-Grossman 方法和 MK-RK 方法都用到了李群的指数映射,联结了李群这个流形和李代数之间的关系,并且都利用了 Runge-Kutta 方法这种数值结构,使得阶数可以适当地提高,而且常规意义下的李群方法均为显式方法,计算较为简便.
 
-我们要对隐式的 RK-MK 方法做出一些波形松弛类修正,使得数值方法能够具有较好的长时间稳定性,并且在计算上尽可能地简便,便于实现.该方法的思想来自于上一章对辛方法的波形松弛类改进,和对 RK-MK 方法的理解.在计算过程中,不可避免地要引入窗口技术来加速.
+我们要对隐式的 RK-MK 方法做出一些波形松弛类修正,使得数值方法能够具有较好的长时间稳定性,并且在计算上尽可能地简便,便于实现.该方法的思想来自于前半部分对辛方法的波形松弛类改进,和对 RK-MK 方法的理解.在计算过程中,不可避免地要引入窗口技术来加速.
 
-本章的结构如下.首先在小节 \ref{sec:03wrintro} 中,对波形松弛方法进行简单介绍.在小节 \ref{sec:03wrhal} 中,分析了辛波形松弛方法,并给出了以下两个辛波形松弛方法的离散数值格式.同时,分析了系统哈密尔顿函数的守恒性,并介绍了窗口技术的选取问题.在小节 \ref{sec:04wrmani} 中,将对流形上的李群方法进行介绍,并且介绍 Crouch-Grossman 方法与 RK-MK 方法的相关理论,并陈述我们的修正算法.在小节 \ref{sec:03numerical} 中,给出了四个例子来说明问题.最后,做了一个总结.
+本章的结构如下.在 \ref{sec:03wrintro} 中,对波形松弛方法进行简单介绍.在 \ref{sec:03wrhal} 中,分析了辛波形松弛方法,并给出了以下两个辛波形松弛方法的离散数值格式.同时,分析了系统哈密尔顿函数的守恒性,并介绍了窗口技术的选取问题.在 \ref{sec:04wrmani} 中,将对流形上的李群方法进行介绍,并且介绍 Crouch-Grossman 方法与 RK-MK 方法的相关理论,并陈述我们的修正算法.在 \ref{sec:03numerical} 中,给出了四个例子来说明问题.最后,在 \ref{sec:03conclusion} 中做了一个总结.
 
 \section{波形松弛方法基本概念}\label{sec:03wrintro}
 \esection{Introduction to the WR Method}
 
-波形松弛方法来源于对大规模集成电路系统的研究 \cite{lelarasmee1982waveform}. 我们认为该方法分为两个部分,分裂和迭代.首先,需要使用分裂函数将大规模的系统划分为较小规模的子系统.接下来是迭代,迭代的过程先分别求解子系统,再在系统之间交换信息,进行下一次迭代,直到收敛.由此可见,波形松弛方法的显著特性是问题解耦和潜在的可并行性.
+波形松弛方法来源于对大规模集成电路系统的研究 \cite{lelarasmee1982waveform}. 我们认为该方法分为两个部分,分裂和迭代.首先,需要使用分裂函数将大规模的系统划分为较小规模的子系统.接下来是迭代,迭代的过程先分别求解子系统,再在系统之间交换信息,进行下一次迭代,直到达到容许的误差.由此可见,波形松弛方法的显著特性是问题解耦和潜在的可并行性.
 
 波形松弛方法给我们指出了一种不同的求解微分方程的迭代方式.它不是简简单单的通过求解离散过后的代数方程组的松弛方法,而是通过对方程分裂而构造出来的一种函数迭代方法,是``波形''的迭代.考虑如下的一阶常微分方程
 \begin{equation}\label{eq:03ode}
@@ -92,7 +92,7 @@ x(0)&=x_{0}.
 \right.
 \end{equation}
 
-波形松弛方法的基本思想是找到一个分裂函数 $F(u,v,t)$ 满足 $F(u,u,t)=f(u,t)$, 这样如下方程
+波形松弛方法的基本思想是找到一个分裂函数 $F(u,v,t)$ 满足 $F(u,u,t)=f(u,t)$, 分裂成如下方程
 \begin{equation*}
 \left\{
 \begin{aligned}
@@ -103,7 +103,7 @@ x^{k+1}(0)&=x_{0},
 \end{equation*}
 就能够快速求解并且更容易求解.不能逃避的一件事情是,在分裂函数 $F(u,v,t)$ 下,迭代后的函数序列 $x^{k}(t)$ 要收敛到原方程 \eqref{eq:03ode} 的解.
 
-波形松弛方法的一个优点是能够把耦合的系统,通过分裂,在迭代过程中化为非耦合的系统,即解耦,对于一些问题来讲,这为算法的并行计算提供了条件.同时,注意到,在计算的过程中,波形松弛方法能够将一些只能隐式格式求解的问题,化为显式或者半隐式的格式即可求解的问题.
+波形松弛方法的一个优点是能够把耦合的系统,通过分裂,在迭代过程中解耦为非耦合的系统,对于一些问题来讲,这为算法的并行计算提供了条件.同时,注意到,在计算的过程中,波形松弛方法能够将一些只能隐式格式求解的问题,化为显式或者半隐式的格式即可求解的问题.
 
 一些常见的分裂函数取法有 Gauss-Jacobi 波形松弛方法, Gauss-Seidel 波形松弛方法,等等.作为一个例子,如果记 $u=(u_{1},u_{2},\ldots,u_{n})^{T}, v=(v_{1},v_{2},\ldots,v_{n})^{T}$, 并且方程的形式为
 \begin{equation*}
@@ -123,7 +123,7 @@ Gauss-Jacobi 波形松弛方法和 Gauss-Seidel 波形松弛方法的分裂函�
 &F_{i}(u,v,t)=f_{i}(u_{1},u_{2},\ldots,u_{i-1},u_{i},v_{i+1},\ldots,v_{n},t)\quad \text{(Gauss-Seidel~WR)}.
 \end{align}
 
-简而言之,波形松弛方法 \cite{jiang2009wr} 作为一个数学工具,思想起源于大规模集成电路的求解方法.当系统的规模大到一定程度的时候,使用现有的计算资源求解该问题就变得困难,可以通过分裂成更易于求解的小型系统来计算.为了达到这个目标,选取分裂函数 $F(z,y)$ 使得 $F(z,z)=f(z)$, 然后将方程 \eqref{eq:hal0} 中的 $f(z)$ 替换为 $F(z,y)$. 接下来为每一个子系统选择一个合适的初始迭代,将 $F(z,y)$ 中的 $y$ 作为已知函数, $z$ 作为未知函数,这样每次迭代的计算量就降低了.然而,由于初值的选取和格式的设计,这样的一步计算不会得到系统的真实解.这要通过迭代来保证收敛到方程的真解.通常将迭代方程记作 $\dot{z}^{k+1}=F(z^{k+1},z^{k})$, 其中 $k=0,1,\cdots$ 是迭代次数.
+简而言之,波形松弛方法 \cite{jiang2009wr} 作为一个数学工具,思想起源于大规模集成电路的求解.当系统的规模大到一定程度的时候,使用现有的计算资源求解该问题就变得困难,可以把大型的系统分裂成更易于求解的小型系统来计算.为了达到这个目标,选取分裂函数 $F(z,y)$ 使得 $F(z,z)=f(z)$, 然后将方程 \eqref{eq:hal0} 中的 $f(z)$ 替换为 $F(z,y)$. 接下来为每一个子系统选择一个合适的初始迭代,将 $F(z,y)$ 中的 $y$ 作为已知函数, $z$ 作为未知函数,这样每次迭代的计算量就降低了.然而,由于初值的选取和格式的设计,这样的一步计算不会得到系统的真实解,还要通过迭代来保证收敛到方程的真解.通常将迭代方程记作 $\dot{z}^{k+1}=F(z^{k+1},z^{k})$, 其中 $k=0,1,\cdots$ 是迭代次数.
 
 
 \section{哈密尔顿系统的辛波形松弛方法}\label{sec:03wrhal}
@@ -132,23 +132,23 @@ Gauss-Jacobi 波形松弛方法和 Gauss-Seidel 波形松弛方法的分裂函�
 \begin{equation}\label{eq:hal1}
 \dot{z}=f(z),
 \end{equation}
-式中 $z=(q,p)^T$ 为区间 $[0,T]$ 上的未知函数, $f(z)$ 是方程 \eqref{eq:hal0} 右端函数.
+式中 $z=(q;p)$ 为区间 $[0,T]$ 上的未知函数, $f(z)$ 是方程 \eqref{eq:hal0} 右端函数.
 
-对于波形松弛方法,需要取一个分裂函数 $F(x,y)$ 使得 $F(z,z)=f(z)$. 该分裂函数用于对系统 \eqref{eq:hal1} 进行解耦.对波形松弛方法,有如下的结果.
+对于波形松弛方法,需要取一个分裂函数 $F(x,y)$ 使得 $F(z,z)=f(z)$. 该分裂函数用于对系统 \eqref{eq:hal1} 进行解耦.对波形松弛方法,有如下已知的结果.
 
-\begin{theorem}[\cite{jiang2009wr}]\label{thm:wr}
+\begin{theorem}[ODE 的波形松弛方法 \cite{jiang2009wr}]\label{thm:wr}
 	\emph{如果 \eqref{eq:hal1} 的分裂函数 $F(x,y)$ 对变量 $x$ 和 $y$ 是 Lipschitz 连续的,那么波形松弛方法收敛.}
 \end{theorem}
 
 \subsection{连续时间的辛波形松弛方法}
 \esubsection{The Continuous-time Symplectic WR Method}
-辛波形松弛方法属于传统波形松弛方法的特例.所以定理 \ref{thm:wr} 自动成立.接下来,我们进一步研究哈密尔顿函数 $H$ 的变化情况.
+辛波形松弛方法属于传统波形松弛方法的特例,所以定理 \ref{thm:wr} 自动成立.接下来,我们进一步研究哈密尔顿函数 $H$ 的变化情况.
 
 \begin{theorem}
 \emph{如果辛波形松弛方法收敛,并且 \eqref{eq:hal1} 里的右端函数 $f$ 有界,则哈密尔顿函数收敛到常函数.}
 \end{theorem}
 
-{\textbf{证明}} 记 $H_0$ 为系统的哈密尔顿函数.因为该哈密尔顿 $H_0$ 为常函数,有
+{\textbf{证明}} 记 $H_0$ 为系统的哈密尔顿函数.因为该哈密尔顿函数 $H_0$ 为常函数,有
 \begin{equation*}
 \frac{dH_0}{dt}=0.
 \end{equation*}
@@ -207,7 +207,7 @@ z_{n+1}=z_{n}+h g(z_{n+1},z_{n}),
 \begin{equation}\label{eq:discrete}
 z_{n+1}^{k+1}=z_{n}^{k+1}+h \tilde{F}(z_{n+1}^{k+1},z_{n+1}^{k},z_{n}^{k+1},z_{n}^{k}),
 \end{equation}
-式中 $\tilde{F}(x,y,x,y)=F(x,y)$ 和 $\tilde{F}(x,x,y,y)=g(x,y)$.
+式中满足 $\tilde{F}(x,y,x,y)=F(x,y)$ 和 $\tilde{F}(x,x,y,y)=g(x,y)$.
 
 \begin{theorem}
 \emph{如果辛波形松弛方法收敛,并且辛格式对变量 $z_{n}$ 和 $z_{n+1}$ Lipschitz 连续,那么辛波形松弛方法的哈密尔顿函数收敛到离散格式的哈密尔顿函数.}
@@ -240,6 +240,8 @@ z_{n+1}^{k+1}=z_{n}^{k+1}+h \tilde{F}(z_{n+1}^{k+1},z_{n+1}^{k},z_{n}^{k+1},z_{n
 式中 $C$ 为常数.上面的不等式表明 $\|H^{k+1}_{n+1}-H_{n+1}\| \to 0$ 随着 $k \to \infty$.
 
 证毕.
+
+针对辛波形松弛方法,在这里给出两种重要的例子说明分裂函数的选取方法.
 
 \subsubsection{辛欧拉波形松弛方法}
 \esubsubsection{Symplectic Euler Waveform Relaxation Method}
@@ -341,7 +343,7 @@ z_{n+1}^{k+1}=z_{n}^{k+1}+h \tilde{F}(z_{n+1}^{k+1},z_{n+1}^{k},z_{n}^{k+1},z_{n
 
 根据构造辛波形松弛方法的策略,可以将 Gauss-Jacobi~波形松弛方法 (WRGJ),和 Gauss-Seidel~波形松弛方法(WRGS) 应用于 Runge-Kutta方法,得到相应的 WRGJRK 和 WRGSRK 方法.
 
-所以 WRGJRK 方法为, 对于 $i=1,\cdots,2d$
+WRGJRK 方法为, 对于 $i=1,\cdots,2d$
 \begin{equation*}
   \left\lbrace
     \begin{aligned}
@@ -513,7 +515,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
 \end{equation*}
 上面的不等式表明通过显式格式得到了和辛方法同样的数值结果.
 
-尽管算法是收敛的,我们对数值结果并不满意,原因是为了得到收敛,需要付出太多的迭代次数,可以从如下的定理看出来.
+尽管算法是收敛的,其数值收敛结果并不理想,原因是为了达到收敛条件,需要使用太多的迭代次数,可以从如下的定理看出来.
 
 考虑如下形式的线性微分方程
 \begin{equation*}
@@ -556,7 +558,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
   \end{equation*}}
 \end{lemma}
 
-{\textbf{证明}} 为了证明这个,需要使用一些组合数学的知识.如图 \ref{fig:error} 所示, $e_{n+1}^{k+1}$ 最终都将由 $e_{i}^{0}$ 和 $e_{0}^{j}$ 所表示.这个表示等价于由点 $e_{n+1}^{k+1}$ 逐步移动到边界上的其他点.而且只能向西或者向南移动,并且要覆盖每一种可能的路径.
+{\textbf{证明}} 为了证明该结论,需要使用一些组合数学的知识.如图 \ref{fig:error} 所示, $e_{n+1}^{k+1}$ 最终都将由 $e_{i}^{0}$ 和 $e_{0}^{j}$ 所表示.这个表示等价于由点 $e_{n+1}^{k+1}$ 逐步移动到边界上的其他点.而且只能向西或者向南移动,并且要覆盖每一种可能的路径.
 
 \begin{figure}[h]
   \centering
@@ -573,7 +575,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
   \label{fig:error}
 \end{figure}
 
-这里选取一个作为例子来说明.想要将 $e_{n+1}^{k+1}$ 移动到 $e_{i}^{0}$, 需要向西移动 $n+1-i$ 步,向南移动 $k+1$ 步.每向西移动一步需要乘以因子 $\alpha$, 每向南移动一步需要乘以因子 $\beta$. 所有可能的路径数为 $\binom{k+n+2-i}{k+1}$. 所有有 $\beta^{k+1} \binom{k+n+2-i}{k+1} \alpha^{n+1-i}e_{i}^{0}$. 类似地,为了移动到 $e_{0}^{j}$, 有 $\alpha^{n+1} \binom{n+k+2-j}{n+1} \beta^{k+1-j}e_{0}^{j}$. 把这些结果加起来,就证明了该结论.
+这里选取一个作为例子来说明.想要将 $e_{n+1}^{k+1}$ 移动到 $e_{i}^{0}$, 需要向西移动 $n+1-i$ 步,向南移动 $k+1$ 步.每向西移动一步需要乘以因子 $\alpha$, 每向南移动一步需要乘以因子 $\beta$. 所有可能的路径数为 $\binom{k+n+2-i}{k+1}$, 所以有 $\beta^{k+1} \binom{k+n+2-i}{k+1} \alpha^{n+1-i}e_{i}^{0}$. 类似地,为了移动到 $e_{0}^{j}$, 有 $\alpha^{n+1} \binom{n+k+2-j}{n+1} \beta^{k+1-j}e_{0}^{j}$. 把这些结果加起来,就证明了该结论.
 
 从引理 \ref{lem:error} 可以看出,能够得到一个波形松弛方法误差的精确公式.对于波形松弛方法来说,所有的 $e_{0}^{j}$ 都为零.所以能够得到隐式欧拉波形松弛方法上面的误差结果.
 
@@ -650,7 +652,7 @@ $\beta/(1-\alpha)=n/m$. 事实也是如此,因为当 $n=0$ 时,就是所收敛�
 \section{流形上基于波形松弛的李群方法}\label{sec:04wrmani}
 \esection{Lie Group Method Based on the WR Method on Manifolds}
 
-在这一节里,将介绍适用于一些特定流形上计算的数值方法.该类方法利用了在流形上的作用的李群结构,和其相应的线性空间,即李代数,以及指数映射.
+在这一节里,将介绍适用于一些特定流形上计算的数值方法.该类方法利用了在流形上的作用的李群结构,和其相切的线性空间,即李代数,以及指数映射.
 
 首先考虑这样一类矩阵方程
 \begin{equation*}
@@ -773,7 +775,7 @@ $\beta/(1-\alpha)=n/m$. 事实也是如此,因为当 $n=0$ 时,就是所收敛�
 \begin{equation*}
 	\frac{x}{e^x-1}=1-\frac{1}{2}x+\frac{1}{12}x^2-\frac{1}{720}x^4+\cdots=\sum_{j=0}^{\infty}\frac{B_j}{j!}x^j,
 \end{equation*}
-式中 $B_j$ 是伯努利数.该数列在解析数论的黎曼猜想里有着重要的作用.因此,有如下展开
+式中 $B_j$ 是伯努利数.伯努利数在解析数论的黎曼猜想里有着重要的作用.因此,有如下展开
 \begin{equation*}
 	dexp_A^{-1}(C)=C-\frac{1}{2}[A,C]+\frac{1}{12}[A,[A,C]]+\cdots=\sum_{j=0}^{\infty}\frac{B_j}{j!}ad^j_AC.
 \end{equation*}
@@ -786,7 +788,7 @@ $\beta/(1-\alpha)=n/m$. 事实也是如此,因为当 $n=0$ 时,就是所收敛�
 	\end{equation*}}
 \end{definition}
 
-然后通过 $dexp^{-1}$ 来求得 BCH 公式.定义一个函数 $bch:\mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ 满足
+然后通过 $dexp^{-1}$ 来求得 Baker–Campbell–Hausdorff(BCH) 公式.定义一个函数 $bch:\mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ 满足
 \begin{equation*}
 	\mbox{expm}(bch(A,B))=\mbox{expm}(A)\mbox{expm}(B).
 \end{equation*}
@@ -804,8 +806,8 @@ $\beta/(1-\alpha)=n/m$. 事实也是如此,因为当 $n=0$ 时,就是所收敛�
 	C'(t)=dexp_{C(t)}^{-1}(A).
 \end{equation*}
 
-于是,有如下定理
-\begin{theorem}
+于是,得到如下定理
+\begin{theorem}[BCH 公式 \cite{arieh2005liegroup}]
 	\emph{函数 $C=bch(A,B)$ 可以由如下的微分方程来计算
 	\begin{equation*}
 		C'(t)=dexp_{C(t)}^{-1}(A),\quad 0\leq t\leq 1,\quad C(0)=B,
@@ -813,7 +815,7 @@ $\beta/(1-\alpha)=n/m$. 事实也是如此,因为当 $n=0$ 时,就是所收敛�
 	式中 $C(1)=bch(A,B)$.}
 \end{theorem}
 
-可以看到,该微分方程右端的式子,可以由前面的展开式得到近似,这对于设计求解李群方程的数值方法有着重要的作用.
+可以看到,该微分方程右端的式子,可以由前面的展开式得到近似,这对于设计求解李群方程的数值方法有着重要的作用,也就引出了我们的李群方法.
 
 关于流形上的李群方法,通常来说有两种手段,一种是 Crouch-Grossman 方法 \cite{crouch1993numerical,klein2013numerical,munthe2013onpost,sonneville2014geome,bras2011anonlinear,kroshko2011integrating} ,另一种是 RK-MK \cite{arieh2005liegroup} 方法.
 
@@ -823,7 +825,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 
 从本质上讲,该算法是将 Runge-Kutta 方法作用到李群方程上的一个有效尝试.该方法通过不断地冻结和融化系数,保证了解的流在流形的配置空间上.
 
-该方法的基本思想是,先沿着一个方向走一小步,然后利用指数映射,将结果投射到流形上.每次都这样,直到完成一步 Runge-Kutta 的步骤.因此,经过一个 CG 方法迭代,数值结果还在流形上.尽管该结果也会带来误差,但是不会脱离流形.
+该方法的基本思想是,先沿着一个方向走一小步,然后利用指数映射,将结果投射到流形上.每次都这样,直到完成一整步 Runge-Kutta 的步骤.因此,经过一个 CG 方法迭代,数值结果还在流形上.尽管该结果也会带来误差,但是不会脱离流形.
 
 对比 Runge-Kutta 法, Crouch-Grossman 方法的基本形式是
 \begin{equation*}
@@ -859,7 +861,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 相比之下, RK-MK 方法更加实用.这些方法又叫做 RK-MK 类方法,方法及其理论由陆续的几篇文章 \cite{mk1996lie,mk1997numerical,mk1998runge,mk1999high} 建立起来.该方法和 CG 方法类似,利用了指数映射.不同的是, CG 方法每走一小步都要求落回到流形上, RK-MK 方法先在李代数这个线性空间上进行计算,最后用指数映射保证这一步的计算结果在流形上.
 
 该方法建立在如下的理论上.
-\begin{theorem}
+\begin{theorem}[指数映射的微分 \cite{arieh2005liegroup}]
 	\emph{对于很小的 $t\geq 0$, 李群方法的解有如下的形式
 	\begin{equation*}
 		Y(t)=\mbox{expm}(\Theta(t))Y_0,
@@ -871,7 +873,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 	这里的 $dexp$ 为指数映射的微分.}
 \end{theorem}
 
-该定理告诉我们,如果能够求得 $\Theta(t)$, 就可以代入这个解,求得李群方程的解.首先,给出 Butcher 表
+该定理告诉我们,如果能够求得 $\Theta(t)$, 代入这个解,就可以求得李群方程的解.首先,给出 Butcher 表
 \begin{center}
   \begin{tabular}{c|cccc}
     $c_1$&$a_{11}$&$a_{12}$&$\cdots$&$a_{1\nu}$\\
@@ -897,7 +899,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 	\end{aligned}
 \end{equation*}
 
-可以看到,这里的 $dexp_{\Theta_k}^{-1}(A_k)$ 可以用前面的展开式进行计算,为了简化,这里只需展开几项进行计算.
+实际应用中,这里的 $dexp_{\Theta_k}^{-1}(A_k)$ 可以用前面的展开式进行计算,为了简化,这里只需展开几项进行计算.
 
 需要注意的是,为了计算 $ad^j_AC$, 需要如下递推公式得到
 \begin{equation*}
@@ -908,7 +910,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 \end{equation*}
 
 展开的项数也有要求,可以根据如下定理.
-\begin{theorem}
+\begin{theorem}[RK-MK 方法阶数 \cite{qin2011struc}]
 	\emph{若 Runge-Kutta 方法有 $p$ 阶, $dexp^{-1}$ 展开式中取到 $q$ 项,且 $q\geq p-1$, 则相应的 RK-MK 方法为 $p$ 阶的.}
 \end{theorem}
 
@@ -947,7 +949,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 
 注意到,上面的方法是显式的,这样的计算是很容易的.但是尽管这样计算具有便利性,该计算却不能具有其他很好的效果,如果一个李群方程不仅要求数值结果在流形上,而且要求该数值方法保持某些结构,可能需要一些隐式方法来求解.这个问题类比于哈密尔顿系统,有一个守恒量,但是目前的方法只能保证结果在流形上,却无法保证在流形上有保结构的结果.
 
-对于上面的不足,对于一些情况,需要隐式的 RK-MK 方法,于是就有了对其的显式改造,即利用波形松弛方法进行改造.
+对于上面的不足,如果要求保证守恒性质,需要隐式的 RK-MK 方法,于是就有了我们对其的显式改造,即利用波形松弛方法进行改造.
 
 %\section{流形上的波形松弛方法}\label{sec:04wrmani}
 %\esection{Waveform Relaxation Methods on Manifolds}
@@ -1070,7 +1072,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 
 %\subsection{基本算法}
 %\esubsection{Algorithm}
-为了得到较好的计算格式,和辛波形松弛方法一样,继续引入窗口技术,得到如下含有多重循环的算法 \ref{alg:04sym}.
+为了得到较好的计算格式,和辛波形松弛方法一样,还需引入窗口技术,得到如下含有多重循环的算法 \ref{alg:04sym}.
 
 \begin{algorithm}
 \caption{李群方程加窗口的波形松弛方法}
@@ -1130,7 +1132,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
   \label{fig:para2}
 \end{figure}
 
-\subsection*{例 1}
+\subsection*{算例 1}
 考虑如下的一维 sin-Gordon 方程
 \begin{equation}\label{eq:singordon}
   \left \{ \begin{array}{l}
@@ -1220,7 +1222,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
   \label{fig:ex1winerr}
 \end{figure}
 
-\subsection*{例 2}
+\subsection*{算例 2}
 考虑 Fermi-Pasta-Ulam 问题 \cite{hairer2006geometric}. 其哈密尔顿函数为
 \begin{equation*}
   \begin{aligned}
@@ -1246,7 +1248,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 \end{equation*}
 并且其他的初值为 $0$.
 
-首先考虑辛欧拉波形松弛方法~\eqref{eq:schemejacobi}. 取 $t_{\text{end}} = 10$, 步长为 $h = 10^{-3}$, 波形松弛迭代次数为 $k=20$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex2seucom} 展示了辛欧拉波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.全局最大误差为 $0.0195$.
+首先,考虑辛欧拉波形松弛方法~\eqref{eq:schemejacobi}. 取 $t_{\text{end}} = 10$, 步长为 $h = 10^{-3}$, 波形松弛迭代次数为 $k=20$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex2seucom} 展示了辛欧拉波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.全局最大误差为 $0.0195$.
 
 \begin{figure}[h!]
   \centering
@@ -1256,7 +1258,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
   \label{fig:ex2seucom}
 \end{figure}
 
-其次,考虑辛 Runge-Kutta 波形松弛方法~\eqref{eq:schemerkjacobi}. 取 $t_{\text{end}} = 10$, 步长为 $h = 1/100$, 波形松弛迭代次数为 $k=30$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex2srkcom} 展示了辛 Runge-Kutta 波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.在本例中使用了表 \ref{tbl:rk} 中的 Butcher 表,其中 $a = 1.351207$. 全局最大误差为 $1.0948e-06$.
+之后,考虑辛 Runge-Kutta 波形松弛方法~\eqref{eq:schemerkjacobi}. 取 $t_{\text{end}} = 10$, 步长为 $h = 1/100$, 波形松弛迭代次数为 $k=30$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex2srkcom} 展示了辛 Runge-Kutta 波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.在本例中使用了表 \ref{tbl:rk} 中的 Butcher 表,其中 $a = 1.351207$. 全局最大误差为 $1.0948e-06$.
 
 \begin{figure}[h!]
   \centering
@@ -1266,7 +1268,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
   \label{fig:ex2srkcom}
 \end{figure}
 
-\subsection*{例 3}
+\subsection*{算例 3}
 考虑如下的非线性波动方程 \cite{wu2013struc}
 \begin{equation}\label{eq:nonlinwave}
   \left \{ \begin{array}{l}
@@ -1322,7 +1324,7 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
   q_{N-1}^4 + \frac{1}{30} q_{N-1}^3.
 \end{equation*}
 
-首先考虑辛欧拉波形松弛方法~\eqref{eq:schemejacobi}. 取 $t_{\text{end}} = 10$, $N=20$, 步长为 $h = 10^{-3}$, 波形松弛迭代次数为 $k=10$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex3seucom} 展示了辛欧拉波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.全局最大误差为 $0.0506$.
+首先,考虑辛欧拉波形松弛方法~\eqref{eq:schemejacobi}. 取 $t_{\text{end}} = 10$, $N=20$, 步长为 $h = 10^{-3}$, 波形松弛迭代次数为 $k=10$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex3seucom} 展示了辛欧拉波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.全局最大误差为 $0.0506$.
 
 \begin{figure}[h!]
   \centering
@@ -1332,7 +1334,7 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
   \label{fig:ex3seucom}
 \end{figure}
 
-其次,考虑辛 Runge-Kutta 波形松弛方法~\eqref{eq:schemerkjacobi}. 取 $t_{\text{end}} = 10$, $N=20$, 步长为 $h = 1/100$, 波形松弛迭代次数为 $k=30$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex3srkcom} 展示了辛 Runge-Kutta 波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.在本例中使用了表 \ref{tbl:rk} 中的 Butcher 表,其中 $a = 1.351207$. 全局最大误差为 $3.7003e-05$.
+之后,考虑辛 Runge-Kutta 波形松弛方法~\eqref{eq:schemerkjacobi}. 取 $t_{\text{end}} = 10$, $N=20$, 步长为 $h = 1/100$, 波形松弛迭代次数为 $k=30$. 对于窗口加速方法,取每个时间窗口为 $0.1$. 图 \ref{fig:ex3srkcom} 展示了辛 Runge-Kutta 波形松弛方法无窗口加速(左图)和有窗口加速(右图)的比较.发现经典的波形松弛方法需要更多的步数才能收敛.在本例中使用了表 \ref{tbl:rk} 中的 Butcher 表,其中 $a = 1.351207$. 全局最大误差为 $3.7003e-05$.
 
 \begin{figure}[h!]
   \centering
@@ -1351,7 +1353,7 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
   \label{fig:wavefig}
 \end{figure}
 
-\subsection*{例 4}
+\subsection*{算例 4}
 最后给出一个计算的李群方程的例子,这个例子基于如下形式的三阶常微分方程
 
 \begin{equation*}
@@ -1404,7 +1406,7 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
 
 可以看到,第一个守恒量描述刚体的形状不变,第二个则描述动能守恒.该问题的解可以看作是一个球体和一个椭球的交线,因此,该解在一个稳定的椭圆上.
 
-这里,使用表 \ref{tbl:04rk3} 中的 Butcher 表,该表对应的 Runge-Kutta 法是一个辛方法.
+算例中,使用表 \ref{tbl:04rk3} 中的 Butcher 表,该表对应的 Runge-Kutta 法是一个辛方法,其中 $a = 1.351207$.
 
 \begin{table}[h!]
   \centering
@@ -1418,7 +1420,6 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
     & $a$ &$a$ & $1-2a$\\
   \end{tabular}
 \end{table}
-其中$a = 1.351207$.
 
 通过计算,能得到如下的数值结果,如图 \ref{fig:rkmk3}. 可以看出,该方法能够保持原格式应有的效果,得到了一个保结构的数值算法.这里,取步长为 $0.3$, 共取了 $500$ 步,分 $10$ 个窗口计算.
 
@@ -1431,7 +1432,7 @@ $H(q,p) = \frac{1}{2}p^{ T}p + \frac{1}{2}q^{T}q + G(q)$, 式中
 
  \section{小结}\label{sec:03conclusion}
  \esection{Brief Summary}
-在本章中,我们首先提出了求解哈密尔顿系统的辛波形松弛方法.该方法指明了针对该系统应该如何选择分裂函数的问题.为了加速算法,使用了窗口加速技术.我们从连续系统和离散系统两个方面给出了系统哈密尔顿量在迭代下收敛到守恒的量的性质,并在数值结果中验证了这一点.我们还给出了算法的基本流程.
+在本章中,我们首先提出了求解哈密尔顿系统的辛波形松弛方法.该方法给出了针对该系统应该如何选择分裂函数问题的一个可行性建议.为了加速算法,使用了窗口加速技术.我们从连续系统和离散系统两个方面给出了系统哈密尔顿量在迭代下收敛到守恒的量的性质,并在数值结果中验证了这一点.
 
 其次,在此基础上,我们对李群方法做出了详细地介绍,分析了其优点和不足,并对隐式的 RK-MK 方法提出了一种改进方法,即用波形松弛方法进行修正.该方法能够缓解隐式 RK-MK 方法的复杂性计算问题,把隐式的计算化为较为简单的显式或者半隐式问题,并用窗口技术进行加速.
 
