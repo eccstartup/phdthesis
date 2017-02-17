@@ -38,7 +38,7 @@ w(1,t)&=0,&0 \le t \le T,
 
 \section{辛的基本概念}\label{sec:02symplectic}
 \esection{Introduction to the Symplectic Method}
-辛方法 \cite{feng2010symplectic} 是求解较长时间区间的哈密尔顿系统的行之有效的方法.用辛方法求解哈密尔顿系统的做法给予人们新的启迪,指引着人们去寻找好的优美的方法.辛方法起源于 de Vogelaere (1956), Ruth (1983)和 冯康 (1985) 的工作 \cite{hairer2006geometric}, 其基本思想是避开盲目对精度的苛求,巧妙地利用哈密尔顿系统的辛结构,改为保持该结构作为目标,构造数值格式.理论和数值算例都验证了该方法的优越性,系统的数值能量能够保持在系统的真实值附近波动.数十年来,辛方法迅速发展起来,并且得到了不断地发扬光大 \cite{calvo1994numerical,leimkuhler2004simulating,hong2006multi,yang2009extended,monovasilis2013exponentially,xin2016birkhoffian,michalas2016numerical,liao2016multi}. 该方法数值算例证实了辛数值积分格式比非辛格式的优越性.因此,在处理多体问题和其他哈密尔顿系统问题上,有着较好的应用.
+辛方法 \cite{feng2010symplectic} 是求解较长时间区间的哈密尔顿系统的行之有效的方法.用辛方法求解哈密尔顿系统的做法给予人们新的启迪,指引着人们去寻找好的优美的方法.辛方法起源于 de Vogelaere (1956), Ruth (1983)和 冯康 (1985) 的工作 \cite{hairer2006geometric}, 其基本思想是避开盲目对精度的苛求,巧妙地利用哈密尔顿系统的辛结构,改为保持该结构作为目标,构造数值格式.理论和数值算例都验证了该方法的优越性,系统的数值能量能够保持在系统的真实值附近波动.数十年来,辛方法迅速发展起来,并且得到了不断地发扬光大 \cite{calvo1994numerical,leimkuhler2004simulating,hong2006multi,yang2009extended,monovasilis2013exponentially,xin2016birkhoffian,michalas2016numerical,liao2016multi}. 该方法数值算例证实了辛数值积分格式相比非辛格式的优越性.因此,在处理多体问题和其他哈密尔顿系统问题上,有着较好的应用.
 
 哈密尔顿系统是由数学家 Hamilton 构造出来,用来描述物理系统的发展型方程.该表示的优点是能够在无法求得该系统的解析解的情况下,阐明一些动力系统的性态.在工程应用中, 包括动力学、分子动力学、流体力学、量子力学、图像处理、天体力学、核工程等领域在内的问题,都可以表示成如下的哈密尔顿系统的形式 \cite{arieh2009afirst}
 \begin{equation}\label{eq:Hamiltonian}
@@ -383,7 +383,7 @@ $4$阶精度$4$级辛格式
 \section{电报方程的辛方法}\label{sec:02telegraph}
 \esection{Symplectic Methods for Telegraph Equations}
 
-电报方程的系统能量随时间而指数衰减.经过研究,发现了这样一个变换,能够使电报方程 \eqref{eq:tele} 变为一个守恒的系统,而这种守恒性刚好能让方程利用辛方法进行求解.这样做带来的好处是能够有效地求解更长的时间区间,获得更容易实现的数值格式.我们将在 \ref{sec:02transform} 节中详细介绍这种变换.
+电报方程的系统能量随时间而指数衰减.经过研究,我们发现了这样一个能够使电报方程 \eqref{eq:tele} 变为一个守恒的系统的变换,而得到的这种守恒性刚好能让方程利用辛方法进行求解.这样做带来的好处是能够有效地求解更长的时间区间,获得更容易实现的数值格式.我们将在 \ref{sec:02transform} 节中详细介绍这种变换.
 
 方程 \eqref{eq:tele} 的差分格式通常可以从两个角度来入手.一种是全离散,也就是说,对空间和时间进行等间距的网格的划分 $x_0=0<x_1<\cdots<x_N=1,~t_0=0<t_1<\cdots<t_n=T$. 之后,能够得到全离散的结果
 \begin{equation}\label{eq:fulld}
@@ -420,7 +420,7 @@ S=\begin{pmatrix}
 \caption{电报方程求解基本算法}
 \begin{algorithmic}[1]
 \STATE 将电报方程 \eqref{eq:tele} 变换成相应的 Klein-Gordon 方程. 相应地改变初边值条件. \newline
-\STATE 离散得到的 Klein-Gordon 方程成为哈密尔顿方程组. 使用辛方法求解该哈密尔顿系统,得到 Klein-Gordon 方程的数值解. \newline
+\STATE 离散 Klein-Gordon 方程为哈密尔顿方程组. 使用辛方法求解该哈密尔顿系统,得到 Klein-Gordon 方程的数值解. \newline
 \STATE 对该数值解作用逆变换,得到电报方程的数值解.
 \end{algorithmic}
 \label{alg:tele}
@@ -485,7 +485,7 @@ u(1,t)&=0,&0 \le t \le T,
 \end{aligned}
 \right.
 \end{equation}
-式中 $k > 0$, $a>0$ 和 $b < 0$ 是常数. $g_1(x)$ 和 $g_2(x)$ 是光滑函数, $u(x,t) \in \mathbb{R}$ 为所求函数.该变换对高维情形同样适用,在此给出一个二维的例子.
+式中 $k > 0$, $a>0$ 和 $b < 0$ 是常数. $g_1(x)$ 和 $g_2(x)$ 是光滑函数, $u(x,t) \in \mathbb{R}$ 为所求函数.该变换对高维情形同样适用,在此给出一个二维的例子
 \begin{equation*}
 \left\lbrace
 \begin{aligned}
@@ -572,7 +572,7 @@ A=\begin{pmatrix}
 
 \subsubsection{CFL 条件和阶条件分析}
 \esubsubsection{Analysis of the CFL Condition and Order Conditions}
-在数学上, Courant-Friedrichs-Lewy~(CFL) 条件是一种保证数值格式收敛的必要条件,尤其是适用于双曲偏微分方程的有限差分格式. CFL 条件的提出源自于对时间相关方程的时间步进数值格式的研究.该条件表明,时间步长必须取得足够小,才能保证计算过程中结果误差不会大得离谱.该条件由 Richard Courant, Kurt Friedrichs 和 Hans Lewy 在1928年的一篇文章中首次提出\cite{courant1967onthe}.在本小节,将给出 CFL 条件的选取方法,并且得出算法的阶.
+在数学上, Courant-Friedrichs-Lewy~(CFL) 条件是一种保证数值格式收敛的必要条件,尤其是适用于双曲偏微分方程的有限差分格式. CFL 条件的提出源自于对时间相关方程的时间步进数值格式的研究.该条件表明,时间步长必须取得足够小,才能保证计算过程中结果误差不会大得离谱.该条件由 Richard Courant, Kurt Friedrichs 和 Hans Lewy 在1928年的一篇文章中首次提出\cite{courant1967onthe}.本小节将给出 CFL 条件的选取方法,并且得出算法的阶.
 
 对于本算法,因为 Klein-Gordon 方程和波动方程有相似的类型,所以取波动方程的 CFL 条件作为 Klein-Gordon 方程的 CFL 条件
 \begin{equation*}
@@ -707,7 +707,7 @@ e^{\frac{1}{2}Kt}(N+\frac{1}{4}K^2)e^{-\frac{1}{2}Kt} u,
 \esubsection{Examples}
 
 \subsection*{算例 1}
-在此例子中,取方程 \eqref{eq:telegraph} 中的参数为 $k = 8\pi,~a = 2$ 和 $b
+在此例中,取方程 \eqref{eq:telegraph} 中的参数为 $k = 8\pi,~a = 2$ 和 $b
 = -3\pi^2$.
 
 此例的精确解是 $w(x,t) = e^{-\pi t}sin(\pi x)$. 初值和边值条件分别为
@@ -744,11 +744,11 @@ u_t(1,t)&=0.
 
 \textbf{$\Delta x$ 的阶}
 
-首先,为了得到 $\Delta x$ 的阶,固定一个较小的 $\Delta t$, 然后相应地变化 $\Delta x$. 结果在表 \ref{tab:dx1} 中给出. 这里取 $\Delta t=0.001$ 和 $T=2$,可以看到 St\"{o}rmer-Verlet 方法为二阶.
+首先,为了得到 $\Delta x$ 的阶,固定一个较小的 $\Delta t$, 然后相应地变化 $\Delta x$. 结果在表 \ref{tab:dx1} 中给出. 这里取 $\Delta t=0.001$ 和 $T=2$,可以看到 St\"{o}rmer-Verlet 方法为二阶的.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况,其中 $\Delta t=0.001$ 和 $T=2$}
+\caption{随 $\Delta x$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta t=0.001$, $T=2$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -768,11 +768,11 @@ u_t(1,t)&=0.
 其次,固定一个较小的 $\Delta x$, 相应地变化 $\Delta t$, 得到表 \ref{tab:dt1} 的结果. 此处的参数 $\Delta x$ 和 $\Delta t$ 取值时比较困难. 一方面 CFL 条件要求 $\Delta t$ 取得相对于 $\Delta x$ 小一些.另一方面,为了验证阶条件, $\Delta x$ 一定要比 $\Delta t$ 小才能看到 $\Delta t$ 的变化.
 
 然后我们看一下理论结果里的阶 $O(\Delta x^2+ \Delta t^k)$. 如果 $k =
-1$, 我们可以固定很小的 $\Delta x$, 通过变化 $\Delta t$ 来看阶数. 然而,当 $k \ge 2$, 这个阶数不是很容易得到检验. 取 $\Delta x = 0.01$, 结果在表 \ref{tab:dt1} 中给出,可以看到辛欧拉方法为一阶和 St\"{o}rmer-Verlet 方法为二阶.
+1$, 我们可以固定很小的 $\Delta x$, 通过变化 $\Delta t$ 来看阶数. 然而,当 $k \ge 2$, 这个阶数不是很容易得到检验. 取 $\Delta x = 0.01$, 结果在表 \ref{tab:dt1} 中给出,可以看到辛欧拉方法为一阶的, St\"{o}rmer-Verlet 方法为二阶的.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.01$ 和 $T=2$}
+\caption{随 $\Delta t$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.01$, $T=2$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -793,7 +793,7 @@ u_t(1,t)&=0.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.05$ 和 $\Delta t=0.001$}
+\caption{随 $T$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.05$, $\Delta t=0.001$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -815,13 +815,13 @@ u_t(1,t)&=0.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{02/Fig2.pdf}
-    \caption{表中展示了4种方法在 $[0,5]$ 区间的误差无穷范数的变化结果}
+    \caption{4种方法在 $[0,5]$ 区间的误差无穷范数的变化结果}
     \label{fig:err1}
 \end{figure}
 
 
 \subsection*{算例 2}
-在此例子中,取方程中的参数为 $a = 100, b
+在此例中,取方程中的参数为 $a = 100, b
 =-100\pi$ 和 $k =30\pi$. 并进行和算例 1 中同样的计算.
 精确解为 $e^{-10\pi t}\sin(\pi t)$. 初值和边值条件分别为
 \begin{equation*}
@@ -857,13 +857,12 @@ u_t(1,t)&=0.
 
 \textbf{$\Delta x$ 的阶}
 
-首先,为了检验 $\Delta x$ 的阶, 固定比较小的 $\Delta
-t$, 通过相应地变化 $\Delta x$ 来得到. 取 $\Delta t = 0.0001$, 和 $T
-= 1$, 结果在表 \ref{tab:dx2} 中给出,可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶.
+首先,为了检验 $\Delta x$ 的阶, 固定比较小的 $\Delta t$, 通过相应地变化 $\Delta x$ 来得到. 取 $\Delta t = 0.0001$, 和 $T
+= 1$, 结果在表 \ref{tab:dx2} 中给出,可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶的.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况,其中 $\Delta t=0.0001$ 和 $T=1$}
+\caption{随 $\Delta x$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta t=0.0001$, $T=1$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
 $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -880,11 +879,11 @@ $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
 
 \textbf{$\Delta t$ 的阶}
 
-其次,固定较小地 $\Delta x = 0.01$, 相应地变化 $\Delta t$, 得到表 \ref{tab:dt2} 的结果,可以看到直接方法为一阶.
+其次,固定较小的 $\Delta x = 0.01$, 相应地变化 $\Delta t$, 得到表 \ref{tab:dt2} 的结果,可以看到直接方法为一阶的.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.01$ 和 $T=2$}
+\caption{随 $\Delta t$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.01$, $T=2$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -905,7 +904,7 @@ $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.01$ 和 $\Delta t=0.001$}
+\caption{随 $T$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.01$, $\Delta t=0.001$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -920,7 +919,7 @@ $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
 \end{table}
 
 \subsection*{算例 3}
-在此例子中,我们求解二维的电报方程,
+在此例中,我们求解二维的电报方程,
 \begin{equation*}
 \frac{\partial ^2 w}{\partial t^2}+8\pi \frac{\partial w}{\partial
 t}=4 (\frac{\partial ^2 w}{\partial x^2} + \frac{\partial ^2
@@ -931,11 +930,11 @@ w}{\partial y^2}) -3\pi^2 w.
 \textbf{$\Delta x$ 的阶}
 
 首先,固定 $\Delta t$, 相应地变化 $\Delta x$, 并取
-$\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果,可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶.
+$\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果,可以看到隐式中点法和 St\"{o}rmer-Verlet 方法为二阶的.
 
 \begin{table}[h!]
   \centering
-\caption{表中比较了随 $\Delta x$ 的变化,误差的无穷范数变化情况,其中 $\Delta t=0.001$ 和 $T=2$}
+\caption{随 $\Delta x$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta t=0.001$, $T=2$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $\Delta x$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -951,11 +950,11 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果,可以看�
 
 \textbf{$\Delta t$ 的阶}
 
-其次,固定一个较小的 $\Delta x = 0.01$, 相应地变化 $\Delta t$, 得到了表 \ref{tab:dt3} 的结果,可以看到辛欧拉方法为一阶.
+其次,固定一个较小的 $\Delta x = 0.01$, 相应地变化 $\Delta t$, 得到了表 \ref{tab:dt3} 的结果,可以看到辛欧拉方法为一阶的.
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $\Delta t$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.01$ 和 $T=1$}
+\caption{随 $\Delta t$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.01$, $T=1$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $\Delta t$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -975,7 +974,7 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果,可以看�
 
 \begin{table}[h]
   \centering
-\caption{表中比较了随 $T$ 的变化,误差的无穷范数变化情况,其中 $\Delta x=0.1$ 和 $\Delta t=0.001$}
+\caption{随 $T$ 的变化,不同方法的误差的无穷范数变化情况比较,其中 $\Delta x=0.1$, $\Delta t=0.001$}
 \begin{tabularx}{\linewidth}{XXXXX}
  \toprule[1.5pt]
  $T$ &直接方法 & 辛欧拉 & 隐式中点 & St\"{o}rmer-Verlet\\
@@ -997,7 +996,7 @@ $\Delta t = 0.0001$ 和 $T = 1$. 得到表 \ref{tab:dx3} 中的结果,可以看�
 此外,对于过长时间的计算是不必要的,因为该问题在一定长的时间后数值衰减得很小,超过机器误差的最小值,故不做过长计算.
 
 \begin{remark}
-{\rm 注意到,这里我们没有对哈密尔顿量的结果进行比较,因为变化之后,数值上比较大,哈密尔顿量的变化会很灵敏.此时,可能要求去比较相对误差,然而该系统的哈密尔顿量保持在常值 $0$, 又使得我们无法使用相对误差作为衡量.因此可能需要一个更精妙的数值格式来保持,或者寻找一个新的评价标准来分析该方法的效果.然而,根据误差结果,我们有理由相信算法的有效性.}
+{\rm 注意到,这里我们没有对哈密尔顿量的结果进行比较,因为变化之后,数值上比较大,哈密尔顿量的变化会很灵敏.此时,可能要求比较相对误差,然而该系统的哈密尔顿量保持在常值 $0$, 又使得我们无法使用相对误差作为衡量.因此需要一个更精妙的数值格式来保持,或者寻找一个新的评价标准来分析该方法的效果.然而,根据上述误差结果,我们有理由相信算法的有效性.}
 \end{remark}
 
 \section{小结}\label{sec:02conclusion}

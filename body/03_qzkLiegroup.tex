@@ -276,7 +276,7 @@ x+\epsilon \xi(x),
 \end{equation*}
 称 $x+\epsilon \xi(x)$ 为单参数李变换群的\textbf{无穷小变换}.
 
-可以看到,无穷小变换包含了单参数李变换群的直到一阶导数性质,这对研究李群上的切空间,尤其是李代数来说是足够了的.后面将会看到,利用无穷小变换可以计算出点对称的许多重要的量,对求解偏微分方程的李群方法来说,这是最关键的一点.
+可以看到,无穷小变换包含了单参数李变换群的直到一阶导数的性质,这对研究李群上的切空间,尤其是李代数来说是足够了的.后面将会看到,利用无穷小变换可以计算出点对称的许多重要的量,对求解偏微分方程的李群方法来说,这是最关键的一点.
 
 接下来,给出三个李基本定理 \cite{bluman2008symmetry}.
 \begin{theorem}[李第一基本定理]
@@ -360,7 +360,7 @@ C_{\alpha\beta}^{\gamma}=-C_{\beta\alpha}^{\gamma},
 \end{equation*}}
 \end{theorem}
 
-李第一基本定理说明了,复杂的非线性变换,可以通过一阶展开,并变换参数,在局部等价于形式统一的一阶常微分方程.李第二基本定理和李第三基本定理在说李群对应一个李代数,及其结构常数的一些关系.
+李第一基本定理说明了,复杂的非线性变换,可以通过一阶展开,并变换参数,在局部等价于形式统一的一阶常微分方程.李第二基本定理和李第三基本定理是说李群对应一个李代数,且其结构常数满足一些关系.
 
 \subsection{无穷小生成元及其延拓}
 \esubsection{Infinitesimals and Prolongations}
@@ -457,7 +457,7 @@ D_i=\frac{D}{Dx_i}=\frac{\partial}{\partial x_i}+u_1\frac{\partial}{\partial u}+
 式中 $i_l=1,2,\ldots,n$. $l=1,2,\ldots,k$. $k=2,3,\ldots~.$}
 \end{theorem}
 
-对于 $n$ 个自变量 $n$ 个因变量的单参李群,可以对照 $n$ 个自变量单个因变量的情形,唯一区别是将因变量 $u$ 化为多个分量,而对每个分量,延拓的公式是一样的,此处不再展开.
+$n$ 个自变量 $n$ 个因变量的单参李群可以对照 $n$ 个自变量单个因变量的情形,唯一区别是将因变量 $u$ 化为多个分量,而对每个分量,延拓的公式是一样的,此处不再展开.
 
 如上的延拓方式被称为点对称的延拓,因为这样的延拓能够保证延拓之后的各阶导数关系在符号程度上成立.例如记
 \begin{equation*}
@@ -594,13 +594,13 @@ X^{(k)}=\xi_i(x,u)&\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\parti
 
 \subsection{拓展 QZK 方程的守恒律}\label{sec:05con}
 \esubsection{Conservation Laws of Extended QZK Equations}
-在本小节里,得到了 \eqref{eq:eqzk} 方程的守恒律,采用的手段是 Ibragimov 的新守恒律定理 \cite{wazwaz2012soli,yan2009per}.
+在本小节里,我们得到了 \eqref{eq:eqzk} 方程的守恒律,采用的手段是 Ibragimov 的新守恒律定理 \cite{wazwaz2012soli,yan2009per}.
 
-采用如下文章中的符号表示和相关结果,详见 \cite{wazwaz2012soli,yan2009per,yasar2010con,zakharov1974on}. 定义 $m$ 个含有 $n$ 个独立自变量 $x=(x^1,x^2,\cdots,x^n)$ 的 $r$ 阶  ($r\geq1$) PDE 系统为
+采用如下符号表示和相关结果,详见 \cite{wazwaz2012soli,yan2009per,yasar2010con,zakharov1974on}. 定义 $m$ 个含有 $n$ 个独立自变量 $x=(x^1,x^2,\cdots,x^n)$ 的 $r$ 阶  ($r\geq1$) PDE 系统为
 \begin{equation}\label{eq:system}
 F_\alpha(x,u,u_{(1)},\cdots,u_{(r)})=0,~ \alpha=1,2,\cdots,m,
 \end{equation}
-式中, $x=(x^1,x^2,\cdots,x^n)$ 自变量,其的分量为 $x^i$, $u=(u^1,u^2,\cdots,u^n)$ 为因变量,其分量 $u^\beta$.
+式中, $x=(x^1,x^2,\cdots,x^n)$ 自变量,其的分量为 $x^i$, $u=(u^1,u^2,\cdots,u^n)$ 为因变量,其分量为 $u^\beta$.
 
 \begin{definition}[形式 Lagrangian]
 	\emph{方程 \eqref{eq:system} 的形式 Lagrangian 定义为
@@ -836,7 +836,7 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 \begin{equation*}
 	\widetilde{X}=Ad(\exp{(\frac{\beta_2}{\beta_4} X_2)})\circ Ad(\exp{(\frac{\beta_1}{\beta_4} X_1)}) X=\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}.
 \end{equation*}
-可以知道,没有其他更简单的结果了.因此,每一个由 $X$ 生成的一维的子代数,如果满足 $\beta_5\neq 0 $, 则它等价于由
+此结果已为最简形式.因此,每一个由 $X$ 生成的一维的子代数,如果满足 $\beta_5\neq 0 $, 则它等价于由
 \begin{equation*}
 	\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}
 \end{equation*}
@@ -867,7 +867,7 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 
 情形 4:
 
-接下来,考虑 $\beta_5=\beta_4=\beta_3=0$ 的情形.取 $\beta_2=1$, 于是 $\widetilde{X}=\beta_{1}X_{1}+X_{2}$. 如果将其用 $Ad(\exp({\varepsilon X_4)})$ 作用于 $\widetilde{X}$, 有
+接下来,考虑 $\beta_5=\beta_4=\beta_3=0$ 的情形.取 $\beta_2=1$, 于是 $\widetilde{X}=\beta_{1}X_{1}+X_{2}$. 如果用 $Ad(\exp({\varepsilon X_4)})$ 作用于 $\widetilde{X}$, 有
 \begin{equation*}
 	\widetilde{X}=Ad(\exp{(\varepsilon X_1)}) X=\beta_{1}X_{1}+X_{2}.
 \end{equation*}

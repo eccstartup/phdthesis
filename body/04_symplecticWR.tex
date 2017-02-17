@@ -21,7 +21,7 @@
 
 对于每个哈密尔顿系统,其辛形式通常定义为 $\omega = dp \wedge dq$, 是一个常量.辛几何算法是保持辛形式的数值算法,属于数值的范畴,也称之为辛方法.辛方法擅长求解长时间区间的哈密尔顿系统 \cite{feng2010symplectic,hairer2006geometric}, 它立足于保持每个时间阶段的哈密尔顿函数  $H(q,p)$, 即 $H(q_{n+1},p_{n+1})=H(q_n,p_n)$, 而不是过分地追求解的阶数.这种方法在求解星体运动问题上得到了较好的数值结果.
 
-常用的辛方法有辛欧拉方法,辛 Runge-Kutta 方法,辛 Runge-Kutta-Nystr{\"o}m 方法 \cite{kalogiratou2014fourth,kalogiratou2015}, 辛 ERKN 方法 \cite{wang2014ahigh}, 哈密尔顿 BVM \cite{brugnano2014multi}, 等等.此外,相关的关于哈密尔顿系统的研究还有两步波形松弛方法 \cite{hassanzadeh2014two}, 针对非自治哈密尔顿系统的方法 \cite{hong2000numerical,zhang2010anote}, 随机哈密尔顿方程的方法 \cite{burrage2014structure,ma2015sto,fan2015using}, 多辛方法 \cite{wang2013multi} 和最优控制系统的研究 \cite{li2015asym}, 等等.另外可以知道,辛 Runge-Kutta 方法均为隐式方法 \cite{sanz1988runge}.
+常用的辛方法有辛欧拉方法,辛 Runge-Kutta 方法,辛 Runge-Kutta-Nystr{\"o}m 方法 \cite{kalogiratou2014fourth,kalogiratou2015}, 辛 ERKN 方法 \cite{wang2014ahigh}, 哈密尔顿 BVM \cite{brugnano2014multi}, 等等.此外,相关的关于哈密尔顿系统的研究还有两步波形松弛方法 \cite{hassanzadeh2014two}, 针对非自治哈密尔顿系统的方法 \cite{hong2000numerical,zhang2010anote}, 随机哈密尔顿方程的方法 \cite{burrage2014structure,ma2015sto,fan2015using}, 多辛方法 \cite{wang2013multi} 和最优控制系统的研究 \cite{li2015asym}, 等等.其中,辛 Runge-Kutta 方法均为隐式方法 \cite{sanz1988runge}.
 
 在本章后半部分所涉及的李群方程,是一类特殊形式的矩阵方程
 \begin{equation*}
@@ -69,7 +69,7 @@
   \label{fig:rkmk2}
 \end{figure}
 
-根据哈密尔顿系统的理论,事实上,这种偏差可以由类似于辛方法的一类重要的李群方法来解决.根据辛积分理论,辛 Runge-Kutta 方法只有隐式的格式,这里可能需要隐式的 RK-MK 方法才能保持数值解在流形上保结构.
+事实上,根据哈密尔顿系统的理论,这种偏差可以由类似于辛方法的一类重要的李群方法来解决.根据辛积分理论,辛 Runge-Kutta 方法只有隐式的格式,这里可能需要隐式的 RK-MK 方法才能保持数值解在流形上保结构.
 
 李群方法起初是由 Crouch 和 Grossman \cite{crouch1993numerical} 提出来的,即所谓的 Crouch-Grossman 方法,该方法得到了一系列地推广 \cite{faleinsen2001multi,zaletkin2010numerical,bulychev2001numerical,buono2003numerical,billo1992numerical}. 后来,在 1996 到 1999 年, Munthe-Kaas  等人提出了该方法的一个改进方法 \cite{mk1996lie,mk1997numerical,mk1998runge,mk1999high}, 即 MK-RK 方法,以及后面的一些推广 \cite{ostermann2010exponential,owren2000the,bruls2012lie,munthe2013onpost,garcla2011onalg}. Crouch-Grossman 方法和 MK-RK 方法都用到了李群的指数映射,联结了李群这个流形和李代数之间的关系,并且都利用了 Runge-Kutta 方法这种数值结构,使得阶数可以适当地提高,而且常规意义下的李群方法均为显式方法,计算较为简便.
 
@@ -193,7 +193,7 @@ H^{k+1}=H(q^{k+1},p^{k+1}),
 \frac{d\|H^{k+1}-H_0\|}{dt}\le (A_1+A_2)\|z^{k+1}-z\|+(B_1+B_2)\|z^{k}-z\| \to 0.
 \end{equation*}
 
-上面最后一个等号成立是因为波形松弛方法的收敛性.注意到 $H^{k+1}(z(0))=H_0(z(0))$, 定理即可获得证明.
+上面最后一个式子成立是因为波形松弛方法的收敛性.注意到 $H^{k+1}(z(0))=H_0(z(0))$, 定理即可获得证明.
 
 证毕.
 
@@ -215,7 +215,7 @@ z_{n+1}^{k+1}=z_{n}^{k+1}+h \tilde{F}(z_{n+1}^{k+1},z_{n+1}^{k},z_{n}^{k+1},z_{n
 
 {\textbf{证明}} 记 $H^{k+1}_{n+1}$ 为 $H(z_{n+1}^{k+1})$, $H_{n+1}$ 为 $H(z_{n+1})$ 其中 $z_{n+1}^{k+1}$ 和 $z_{n+1}$ 分别为辛波形松弛方法和辛方法的数值解.
 
-说离散的辛波形松弛方法是收敛的,如果满足 $\|z_{n+1}^{k+1} - z_{n+1}\| \to 0~(k \to \infty)$.
+我们说离散的辛波形松弛方法是收敛的,如果满足 $\|z_{n+1}^{k+1} - z_{n+1}\| \to 0~(k \to \infty)$.
 
 注意到
 \begin{equation*}
@@ -515,7 +515,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
 \end{equation*}
 上面的不等式表明通过显式格式得到了和辛方法同样的数值结果.
 
-尽管算法是收敛的,其数值收敛结果并不理想,原因是为了达到收敛条件,需要使用太多的迭代次数,可以从如下的定理看出来.
+尽管算法是收敛的,其数值收敛结果并不理想,原因是为了达到收敛条件,需要使用太多的迭代次数,可以从如下的结果看出来.
 
 考虑如下形式的线性微分方程
 \begin{equation*}
@@ -558,7 +558,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
   \end{equation*}}
 \end{lemma}
 
-{\textbf{证明}} 为了证明该结论,需要使用一些组合数学的知识.如图 \ref{fig:error} 所示, $e_{n+1}^{k+1}$ 最终都将由 $e_{i}^{0}$ 和 $e_{0}^{j}$ 所表示.这个表示等价于由点 $e_{n+1}^{k+1}$ 逐步移动到边界上的其他点.而且只能向西或者向南移动,并且要覆盖每一种可能的路径.
+{\textbf{证明}} 为了证明该结论,需要使用一些组合数学的知识.如图 \ref{fig:error} 所示, $e_{n+1}^{k+1}$ 最终都将由 $e_{i}^{0}$ 和 $e_{0}^{j}$ 所表示.这个表示等价于由点 $e_{n+1}^{k+1}$ 逐步移动到边界上的其他点,而且只能向西或者向南移动,并且要覆盖每一种可能的路径.
 
 \begin{figure}[h]
   \centering
@@ -575,7 +575,7 @@ WRGSRK 方法为, 对于 $i=1,\cdots,2d$
   \label{fig:error}
 \end{figure}
 
-这里选取一个作为例子来说明.想要将 $e_{n+1}^{k+1}$ 移动到 $e_{i}^{0}$, 需要向西移动 $n+1-i$ 步,向南移动 $k+1$ 步.每向西移动一步需要乘以因子 $\alpha$, 每向南移动一步需要乘以因子 $\beta$. 所有可能的路径数为 $\binom{k+n+2-i}{k+1}$, 所以有 $\beta^{k+1} \binom{k+n+2-i}{k+1} \alpha^{n+1-i}e_{i}^{0}$. 类似地,为了移动到 $e_{0}^{j}$, 有 $\alpha^{n+1} \binom{n+k+2-j}{n+1} \beta^{k+1-j}e_{0}^{j}$. 把这些结果加起来,就证明了该结论.
+这里选取一点作为例子来说明.想要将 $e_{n+1}^{k+1}$ 移动到 $e_{i}^{0}$, 需要向西移动 $n+1-i$ 步,向南移动 $k+1$ 步.每向西移动一步需要乘以因子 $\alpha$, 每向南移动一步需要乘以因子 $\beta$. 所有可能的路径数为 $\binom{k+n+2-i}{k+1}$, 所以有 $\beta^{k+1} \binom{k+n+2-i}{k+1} \alpha^{n+1-i}e_{i}^{0}$. 类似地,为了移动到 $e_{0}^{j}$, 有 $\alpha^{n+1} \binom{n+k+2-j}{n+1} \beta^{k+1-j}e_{0}^{j}$. 把这些结果加起来,就证明了该结论.
 
 从引理 \ref{lem:error} 可以看出,能够得到一个波形松弛方法误差的精确公式.对于波形松弛方法来说,所有的 $e_{0}^{j}$ 都为零.所以能够得到隐式欧拉波形松弛方法上面的误差结果.
 
@@ -858,7 +858,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 
 \subsubsection{RK-MK 方法}
 \esubsubsection{The Runge-Kutta-Munthe-Kaas Methods}
-相比之下, RK-MK 方法更加实用.这些方法又叫做 RK-MK 类方法,方法及其理论由陆续的几篇文章 \cite{mk1996lie,mk1997numerical,mk1998runge,mk1999high} 建立起来.该方法和 CG 方法类似,利用了指数映射.不同的是, CG 方法每走一小步都要求落回到流形上, RK-MK 方法先在李代数这个线性空间上进行计算,最后用指数映射保证这一步的计算结果在流形上.
+相比之下, RK-MK 方法(又叫做 RK-MK 类方法)更加实用.这类方法及其理论由陆续的几篇文章 \cite{mk1996lie,mk1997numerical,mk1998runge,mk1999high} 建立起来.该方法和 CG 方法类似,利用了指数映射.不同的是, CG 方法每走一小步都要求落回到流形上, RK-MK 方法先在李代数这个线性空间上进行计算,最后用指数映射保证这一步的计算结果在流形上.
 
 该方法建立在如下的理论上.
 \begin{theorem}[指数映射的微分 \cite{arieh2005liegroup}]
@@ -884,7 +884,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
          &$b_{1}$&$b_{2}$&$\cdots$&$b_{\nu}$
   \end{tabular}
 \end{center}
-式中这里的常数,为 Runge-Kutta 法里的常数. RK-MK 法利用了 RK 法的基本思想,结合了李群指数映射的特性,具有比较好的数值效果.
+式中 $a,b,c$ 为 Runge-Kutta 法里的常数. RK-MK 法利用了 RK 法的基本思想,结合了李群指数映射的特性,具有比较好的数值效果.
 \begin{equation*}
 	\begin{aligned}
 		&\left.\begin{aligned}
@@ -909,7 +909,7 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 	ad^n(u)(v)=ad(u)(ad^{n-1}(u)(v))=[u,[u,[\cdots,[u,v]]]],\quad \forall n \geq 1.
 \end{equation*}
 
-展开的项数也有要求,可以根据如下定理.
+展开的项数可以根据如下定理选取.
 \begin{theorem}[RK-MK 方法阶数 \cite{qin2011struc}]
 	\emph{若 Runge-Kutta 方法有 $p$ 阶, $dexp^{-1}$ 展开式中取到 $q$ 项,且 $q\geq p-1$, 则相应的 RK-MK 方法为 $p$ 阶的.}
 \end{theorem}
@@ -947,9 +947,9 @@ Crouch-Grossman(CG) 方法可以说是李群数值方法的带头人,该方法�
 
 可以看出来,和 CG 方法相比,这种方法减少了指数映射的计算次数,因此就减少了计算量和精度分析的难度.
 
-注意到,上面的方法是显式的,这样的计算是很容易的.但是尽管这样计算具有便利性,该计算却不能具有其他很好的效果,如果一个李群方程不仅要求数值结果在流形上,而且要求该数值方法保持某些结构,可能需要一些隐式方法来求解.这个问题类比于哈密尔顿系统,有一个守恒量,但是目前的方法只能保证结果在流形上,却无法保证在流形上有保结构的结果.
+注意到,上面的方法是显式的,这样的计算是很容易的.但如果一个李群方程不仅要求数值结果在流形上,而且要求该数值方法保持某些结构,可能需要一些隐式方法来求解.这个问题类比于哈密尔顿系统,有一个守恒量,用上面显式的方法只能保证结果在流形上,却无法保证在流形上有保结构的结果.
 
-对于上面的不足,如果要求保证守恒性质,需要隐式的 RK-MK 方法,于是就有了我们对其的显式改造,即利用波形松弛方法进行改造.
+对于上面的不足,如果要求保证守恒性质,需要隐式的 RK-MK 方法,我们利用波形松弛方法对其进行显式改造.
 
 %\section{流形上的波形松弛方法}\label{sec:04wrmani}
 %\esection{Waveform Relaxation Methods on Manifolds}
