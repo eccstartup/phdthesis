@@ -5,7 +5,7 @@
 %\esection{Introduction to extended quantum Zakharov-Kuznetsov equation}
 2011年, Zakharov 和 Kuznetsov \cite{abdou2011quant} 构造了描述由冷离子和热电子构成的磁等离子体的非线性离子波 (IAWs) 的方程.量子等离子体及其它们的性质从此获得了越来越多的从理论物理和实验物理角度的注意,这是因为它们在德布罗伊波长超过德拜波长接近费米波长时的带电载体特性 \cite{abdou2011quant,ahmed2013kinks,bhrawy2013soli,biswas20091soli,biswas2013soli,bluman2010appli,elganaini2011tra,godleswski2004the,guner2015bright,ibragimov2006inte}. 在均匀磁场里的弱非线性离子波的性质由 quantum Zakharov-Kuznetsov (QZK) 方程来刻画.许多研究者在不同的量子等离子体模型中研究了磁场的影响 \cite{ibragimov2007anew,iwasaki1990cylin,johnpilai2011sym,khan2008linear,krishnan2010sol,leveque1992num,linares2009well,linares2011local,morris2013soli,moslem2007soli,mothibi2015con,moussa2001simi,munro2014con,munro2000sta,mushtaq2005non,olver2000app,peng2008exact,sabry2009non}.
 
-(2+1) 维 Zakharov-Kuznetsov (ZK) 方程的主要研究手段有正弦余弦方法,拓展双曲正切方法,同伦分析方法 \cite{linares2009well}, 简化的 Hirota 方法 \cite{biswas2013soli,bluman2010appli} 和映射方法 \cite{morris2013soli}, 等等.带有非线性扩散项和时间相关系数的 (2+1) 维广义 Zakharov-Kuznetsov (GZK) 方程由孤立波拟设方法所研究 \cite{sabry2009non}. (3+1) 维 QZK 方程可以通过辅助方程方法 \cite{ahmed2013kinks} 和拓展 F 展开 (EFE) 方法得到 \cite{munro2000sta}. 在 \cite{ahmed2013kinks} 中作者使用了约化摄动方法正式地得到了拓展 quantum Zakharov-Kuznetsov (extended QZK) 方程,该方程由广义拓展方法 \cite{guner2015bright}, Jacobi 椭圆正弦和余弦函数 \cite{biswas20091soli} 所研究.李点对称方法和极简方程方法也可以用来研究 Zakharov-Kuznetsov 方程 \cite{leveque1992num}.此外,对于一类广义 (2+1) 维 Zakharov-Kuznetsov 方程也有类似的工作 \cite{moslem2007soli}.
+(2+1) 维 Zakharov-Kuznetsov (ZK) 方程的主要研究手段有正弦余弦方法,拓展双曲正切方法,同伦分析方法 \cite{linares2009well}、 简化的 Hirota 方法 \cite{biswas2013soli,bluman2010appli} 和映射方法 \cite{morris2013soli}, 等等.带有非线性扩散项和时间相关系数的 (2+1) 维广义 Zakharov-Kuznetsov (GZK) 方程由孤立波拟设方法所研究 \cite{sabry2009non}. (3+1) 维 QZK 方程可以通过辅助方程方法 \cite{ahmed2013kinks} 和拓展 F 展开 (EFE) 方法得到 \cite{munro2000sta}. 在 \cite{ahmed2013kinks} 中作者使用了约化摄动方法正式地得到了拓展 quantum Zakharov-Kuznetsov (extended QZK) 方程,该方程由广义拓展方法 \cite{guner2015bright}、 Jacobi 椭圆正弦和余弦函数 \cite{biswas20091soli} 所研究.李点对称方法和极简方程方法也可以用来研究 Zakharov-Kuznetsov 方程 \cite{leveque1992num}.此外,对于一类广义 (2+1) 维 Zakharov-Kuznetsov 方程也有类似的工作 \cite{moslem2007soli}.
 
 Wazwaz \cite{elganaini2011tra} 研究了一类新的拓展 (2+1) 维 QZK 方程, (3+1) 维 QZK 方程和 (3+1) 维拓展 QZK 方程.
 
@@ -17,7 +17,8 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 
 针对上述方程,作者采用了极简形式的 Hirota 方法,得到了多孤子解和爆破解 \cite{biswas2013soli,bluman2010appli}. 李点对称方法也有应用到 \eqref{eq:eqzk} 方程中的相关研究 \cite{sjoberg2007dou}.
 
-在本章中,我们将基于文献 \cite{wang2014soli} 进一步研究拓展 QZK 方程.守恒律在研究微分方程中扮演了重要角色,因为守恒律往往对应着物理中的守恒律,比如质量守恒、能量守恒、动量守恒、角动量守恒、电荷守恒或其他运动的约束 \cite{mushtaq2005non,song2013top,song2013dom}. 守恒律可以用来研究非线性偏微分方程的存在唯一性和解的稳定性 \cite{wang2014soli}, 此外也有关于数值解的研究 \cite{wazwaz2005exact,wazwaz2008the}. 因此,也有必要研究偏微分方程的守恒性质.
+在本章中,我们将基于文献 \cite{wang2014soli} 进一步研究拓展 QZK 方程.守恒律在研究微分方程中扮演了重要角色,
+在物理中有一些守恒律与之对应,比如质量守恒、能量守恒、动量守恒、角动量守恒、电荷守恒或其他运动的约束 \cite{mushtaq2005non,song2013top,song2013dom}. 守恒律可以用来研究非线性偏微分方程的存在唯一性和解的稳定性 \cite{wang2014soli}, 此外也有关于数值解的研究 \cite{wazwaz2005exact,wazwaz2008the}. 因此,也有必要研究偏微分方程的守恒性质.
 
 本章的结构安排如下.首先,在 \ref{sec:05lie} 中介绍李点对称方法.其次,给出了利用李点对称方法得到的一些结果.在 \ref{sec:05con} 中,根据 Ibragimov 新守恒律定理构造了拓展 QZK 方程的守恒律.接下来,在 \ref{sec:05optimal} 中,找到了一个最优系统的一维子代数.然后在 \ref{sec:05reduction} 中,对最优子代数系统进行了相似约化,将 (2+1) 维拓展 QZK 方程约化为含有两个独立变量的线性偏微分方程.最后做了小结.
 
@@ -25,7 +26,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 \esection{The Lie Point Symmetry Method}
 李点对称方法 \cite{peter2000sym,bluman2008symmetry} 基本思想是将李群作为变换群,将代数学中群作用到集合上的思想自然平移过来,其作用对象是微分方程,该作用达到将一个复杂的微分方程变换为较为简单的微分方程的目的.
 
-在此过程中,需要寻找一个变换,寻找该变换是李点对称方法的核心问题之一.一个常用的方法是用李点对称,该方法程式化程度高,将漫无边际地寻找变换的过程变成了只需要机械的符号计算的过程.李点对称的思想是保持变换的每一阶导数和偏导数的形式,这样就能保证方程形式在变换之后和原来方程一致.
+在此过程中,需要寻找一个变换,寻找该变换是李点对称方法的核心问题之一.一个常用的方法是用李点对称,该方法程式化程度高,将复杂地寻找变换的过程变成了机械的符号计算过程.李点对称的思想是保持变换的每一阶导数和偏导数的形式,这样就能保证方程形式在变换之后和原来方程一致.
 
 下面,首先介绍一些李群变换方法的相关知识.
 
@@ -52,7 +53,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 
 接下来举一些李群的例子
 \begin{description}
-	\item[(1)] $R^n$, 群作用是加法;
+	\item[(1)] $R^n~+$;
 	\item[(2)] $S^1=\{z\in \mathbb{C}:|z|=1 \},~\times$;
 	\item[(3)] $SU(2)=\{A \in GL(2,\mathbb{C})|A\bar{A}^T=1,det A = 1\},~\times$. 能够看出
 	\begin{equation*}
@@ -69,7 +70,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 	\emph{李群 $\mathcal{H}$ 是李群 $\mathcal{G}$ 是李子群,如果 $\mathcal{H}$ 是 $\mathcal{G}$ 的浸入子流形,并且是子群.}
 \end{definition}
 
-有了李子群的定义,就有了代数里面群的映射,同态,同构等代数工具来研究李群.
+有了李子群的定义,就有了代数里面群的映射、同态、同构等代数工具来研究李群.
 
 \begin{definition}[李群在流形上的作用]
 	\emph{李群 $\mathcal{G}$ 在流形 $M$ 上的作用是对于任意 $g\in \mathcal{G}$ 的一个微分同胚映射 $\rho(g) \in \mathrm{Diff}~M$, 满足 $\rho(1) = id$ 和 $\rho(gh)=\rho(g)\rho(h)$ 使得
@@ -91,7 +92,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 \begin{description}
 	\item[(1)] 左作用 $L_g : \mathcal{G} \to \mathcal{G}$ 定义为 $L_g (h) = gh$,
 	\item[(2)] 右作用 $R_g : \mathcal{G} \to \mathcal{G}$ 定义为 $R_g (h) = hg^{-1}$,
-	\item[(3)] 共轭作用 $Ad~g: \mathcal{G} \to \mathcal{G}$ 定义为 $Ad~g(h) = ghg^{−1}$.
+	\item[(3)] 共轭作用 $\mbox{Ad}~g: \mathcal{G} \to \mathcal{G}$ 定义为 $\mbox{Ad}~g(h) = ghg^{−1}$.
 \end{description}
 
 接下来,我们介绍一个在李群和李代数之间的一个重要的映射,指数映射 $\mathrm{exp}: \mathfrak{g}\to \mathcal{G}$, 其中 $\mathfrak{g}=T\mathcal{G}$ 为 $\mathcal{G}$ 的切空间,也是李群的李代数,有如下定理.
@@ -103,7 +104,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 式中上面的点代表对 $t$ 求导数.称该映射 $\gamma_x$ 为关于 $x$ 的单参子群.}
 \end{theorem}
 
-有了单参子群 $\gamma_x$ ,就可以给出指数映射的定义了.
+有了单参子群 $\gamma_x$ ,就可以给出指数映射的定义.
 \begin{definition}
 	\emph{设 $\mathcal{G}$ 为一个实数或者复数的李群, $\mathfrak{g}=T\mathcal{G}$, 那么,指数映射 $\mathrm{exp}: \mathfrak{g}\to \mathcal{G}$ 定义为
 	\begin{equation*}
@@ -117,10 +118,10 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 \emph{设 $\mathcal{G}$ 为一个实数或者复数的李群, $\mathfrak{g}=T\mathcal{G}$, 则有
 \begin{description}
 	\item[(1)] $\mathrm{exp}(x) = 1 + x + \ldots$, (即 $\mathrm{exp}(0)=1$, 并且 $\mathrm{exp}_*(0): \mathfrak{g} \to T\mathcal{G} = \mathfrak{g}$ 为单位映射).
-	\item[(2)] 指数映射是一个从 $\mathfrak{g}$ 的 $0$ 点的邻域到 $\mathcal{G}$ 的 $1$ 点邻域的微分同胚映射(对于复数李群,为可逆解析映射).局部的逆映射定义为 $log$.
+	\item[(2)] 指数映射是一个从 $\mathfrak{g}$ 的 $0$ 点的邻域到 $\mathcal{G}$ 的 $1$ 点邻域的微分同胚映射(对于复数李群,为可逆解析映射).局部的逆映射定义为 $\log$.
 	\item[(3)] 对任意的 $s,t\in K$, 有 $\mathrm{exp}((t + s)x) = \mathrm{exp}(tx) \mathrm{exp}(sx)$.
 	\item[(4)] 对于任意的李群同态 $\psi:\mathcal{G}_1\to \mathcal{G}_2$, 和任意的 $x\in \mathfrak{g}_1$, 有 $\mathrm{exp}(\psi_{*} (x)) = \psi(\mathrm{exp}(x))$.
-	\item[(5)] 对任意的 $X\in \mathcal{G}$ 和任意的 $y\in \mathfrak{g}$, 有 $X \mathrm{exp}(y)X^{−1} = \mathrm{exp}(Ad~X .y)$.
+	\item[(5)] 对任意的 $X\in \mathcal{G}$ 和任意的 $y\in \mathfrak{g}$, 有 $X \mathrm{exp}(y)X^{−1} = \mathrm{exp}(\mbox{Ad}~X .y)$.
 \end{description}}
 \end{theorem}
 
@@ -157,7 +158,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 	\end{equation*}
 	\item[(2)] 对任意的 $x,y\in \mathfrak{g}$, 在 $\mathfrak{g}=T\mathcal{G}$ 上李群 $\mathcal{G}$ 的自共轭算子满足
 	\begin{equation*}
-		Ad~g([x,y]) = [Ad~g.x,Ad~g.y].
+		\mbox{Ad}~g([x,y]) = [\mbox{Ad}~g.x,\mbox{Ad}~g.y].
 	\end{equation*}
 	\item[(3)] $\mathrm{exp}(x)\mathrm{exp}(y)\mathrm{exp}(-x)\mathrm{exp}(-y)=\mathrm{exp}([x,y]+\cdots)$, 其中省略的部分是三阶或三阶以上的项.
 \end{description}}
@@ -167,15 +168,15 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 
 可以看出
 \begin{equation*}
-	Ad:\mathcal{G}\to GL(\mathfrak{g}).
+	\mbox{Ad}:\mathcal{G}\to GL(\mathfrak{g}).
 \end{equation*}
 于是有如下的性质定理.
 
 \begin{theorem}[共轭关系 \cite{kirillov2008anintro}]\label{thm:adjoint}
-	\emph{定义 $ad=Ad_*:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$ 为 $Ad$ 的切映射,那么有
+	\emph{定义 $\mbox{ad}=\mbox{Ad}_*:\mathfrak{g}\to\mathfrak{gl}(\mathfrak{g})$ 为 $\mbox{Ad}$ 的切映射,那么有
 	\begin{description}
-		\item[(1)] $ad~x.y = [x, y]$;
-		\item[(2)] $Ad(\mathrm{exp}~x) = \mathrm{exp}(ad~x)$.
+		\item[(1)] $\mbox{ad}~x.y = [x, y]$;
+		\item[(2)] $\mbox{Ad}(\mathrm{exp}~x) = \mathrm{exp}(\mbox{ad}~x)$.
 	\end{description}}
 \end{theorem}
 
@@ -190,10 +191,10 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
 		[x, [y, z]] + [y, [z, x]] + [z, [x, y]] = 0.
 	\end{equation*}
 	\begin{equation*}
-		ad~x.[y, z] = [ad~x.y, z] + [y, ad~x.z].
+		\mbox{ad}~x.[y, z] = [\mbox{ad}~x.y, z] + [y, \mbox{ad}~x.z].
 	\end{equation*}
 	\begin{equation*}
-		ad~[x, y] = ad~x~ad~y − ad~y~ad~x.
+		\mbox{ad}~[x, y] = \mbox{ad}~x~\mbox{ad}~y − \mbox{ad}~y~\mbox{ad}~x.
 	\end{equation*}}
 \end{theorem}
 
@@ -246,7 +247,7 @@ u_{t}+auu_{x}+b(u_{xxx}+u_{yyy})+c(u_{xyy}+u_{xxy})=0,
     \emph{我们称一组 $s$-参数子代数构成最优系统,如果其中每一个 $s$-参数子代数 $\mathfrak{g}$ 在共轭表示意义下是唯一的.该组 $s$-参数子代数称为一维子代数最优系统.}
 \end{definition}
 
-有了这些李群和李代数的基础知识,就可以对李群方法做出介绍了.
+有了这些李群和李代数的基础知识,就可以介绍李群方法.
 
 \subsection{无穷小变换}
 \esubsection{Infinitesimal Transformations}
@@ -328,7 +329,7 @@ x^*=x.
 \end{equation*}
 通过一个参数变换
 \begin{equation*}
-	\tau=\int_{0}^{\varepsilon}\Gamma(\varepsilon ')d\varepsilon '=\int_{0}^{\varepsilon}\frac{1}{1+\varepsilon '}d\varepsilon ' = log(1+\varepsilon),
+	\tau=\int_{0}^{\varepsilon}\Gamma(\varepsilon ')d\varepsilon '=\int_{0}^{\varepsilon}\frac{1}{1+\varepsilon '}d\varepsilon ' = \log(1+\varepsilon),
 \end{equation*}
 单参数李群变成
 \begin{equation*}
@@ -556,7 +557,7 @@ X^{(k)}=\xi_i(x,u)&\frac{\partial}{\partial x_i}+\eta(x,u)\frac{\partial}{\parti
 	v(x,u)=\Psi(y_1(x,u),y_2(x,u),\cdots,y_{n-1}(x,u)),
 \end{equation*}
 式中 $\Psi$ 为任意可微函数.这里可以寻找关于自变量 $y_1,y_2,\cdots,y_{n-1}$ 和因变量 $v$ 的函数.最后将得到的 $v$ 代入原偏微分方程里可以得到约化的方程.
-	\item[(2) 直接代入方法] 该方法相比之下更有效,尤其是在不能求得不变曲面的特征方程时,必须这样做.假设 $\xi_n(x,u)\neq 0$, 方程可以写作
+	\item[(2) 直接代入方法] 该方法相比之下更有效,尤其是在不能求得不变曲面的特征方程时,不变形式方法无法使用.假设 $\xi_n(x,u)\neq 0$, 方程可以写作
 	\begin{equation*}
 		\frac{\partial u}{\partial x_n}=\frac{\eta(x,u)}{\xi_n(x,u)}-\sum_{i=1}^{n-1}\frac{\xi_i(x,u)}{\xi_n(x,u)}\frac{\partial u}{\partial x_i}.
 	\end{equation*}
@@ -793,7 +794,7 @@ c^{t}&=\frac{1}{a}u-tu_{x}u.\\
 \esubsection{Optimal Systems of 1D Subalgebras for Extended QZK Equations}
 在本小节,我们将采用文献 \cite{peter2000sym} 中的方法来推导出方程 \eqref{eq:eqzk} 的一维子代数最优系统.根据定理 \ref{thm:adjoint} 可知,其共轭变换为
 \begin{equation*}
-	Ad(\exp(\varepsilon X_i))X_j=X_j-\varepsilon[X_i,X_j]+\frac{\varepsilon^2}{2}[X_i,[X_i,X_j]]-\cdots,
+	\mbox{Ad}(\exp(\varepsilon X_i))X_j=X_j-\varepsilon[X_i,X_j]+\frac{\varepsilon^2}{2}[X_i,[X_i,X_j]]-\cdots,
 \end{equation*}
 式中 $[X_i,X_j]=X_iX_j-X_jX_i$ 是李代数的交换子, $\varepsilon$ 为参数.
 
@@ -805,7 +806,7 @@ c^{t}&=\frac{1}{a}u-tu_{x}u.\\
 \label{tab:table1}
 \begin{tabularx}{\linewidth}{XXXXXX}
 \toprule[1.5pt]
-$Ad(\exp(\varepsilon *))(*)$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}$&$X_{5}$\\
+$\mbox{Ad}(\exp(\varepsilon *))(*)$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}$&$X_{5}$\\
 \midrule[1pt]
 $X_{1}$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}-\varepsilon X_{1}$&$X_{5}$\\
 $X_{2}$&$X_{1}$&$X_{2}$&$X_{3}$&$X_{4}-\varepsilon X_{2}$&$X_{5}$\\
@@ -832,9 +833,9 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 
 情形 1:
 
-首先假设 $\beta_5\neq 0.$ 对 $X$ 做尺度变换使得 $\beta_5=1$. 作用于 $Ad(\exp{(\frac{\beta_2}{\beta_4} X_2)})$ 和 $Ad(\exp{(\frac{\beta_1}{\beta_4} X_1)})$ 能够得到
+首先假设 $\beta_5\neq 0.$ 对 $X$ 做尺度变换使得 $\beta_5=1$. 作用于 $\mbox{Ad}(\exp{(\frac{\beta_2}{\beta_4} X_2)})$ 和 $\mbox{Ad}(\exp{(\frac{\beta_1}{\beta_4} X_1)})$ 能够得到
 \begin{equation*}
-	\widetilde{X}=Ad(\exp{(\frac{\beta_2}{\beta_4} X_2)})\circ Ad(\exp{(\frac{\beta_1}{\beta_4} X_1)}) X=\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}.
+	\widetilde{X}=\mbox{Ad}(\exp{(\frac{\beta_2}{\beta_4} X_2)})\circ \mbox{Ad}(\exp{(\frac{\beta_1}{\beta_4} X_1)}) X=\beta_{3}X_{3}+\beta_{4}X_{4}+X_{5}.
 \end{equation*}
 此结果已为最简形式.因此,每一个由 $X$ 生成的一维的子代数,如果满足 $\beta_5\neq 0 $, 则它等价于由
 \begin{equation*}
@@ -846,7 +847,7 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 
 其余的一维子代数应该由这样的向量生成 $\beta_5=0, ~\beta_4\neq 0$. 同样地,取 $\beta_4=1$, 有,非零向量 $X=\beta_{1}X_{1}+\beta_{2}X_{2}+\beta_{3}X_{3}+X_{4}$ 等价于如下映射地 $\widetilde{X}$
 \begin{equation*}
-	\widetilde{X}= Ad(\exp{(\frac{\beta_3}{3} X_3)})\circ Ad(\exp{(\beta_2 X_2)})\circ Ad(\exp{(\beta_1 X_1)}) X=X_{4}.
+	\widetilde{X}= \mbox{Ad}(\exp{(\frac{\beta_3}{3} X_3)})\circ \mbox{Ad}(\exp{(\beta_2 X_2)})\circ \mbox{Ad}(\exp{(\beta_1 X_1)}) X=X_{4}.
 \end{equation*}
 因此,每个一维子代数由满足条件 $\beta_5=0,~ \beta_4\neq 0$ 的 $X$ 生成,等价于该子代数由 $X_{4}$ 生成.
 
@@ -855,7 +856,7 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 进一步,如果 $\beta_5=0,~\beta_4=0,$ 且 $\beta_3\neq 0$, 取 $\beta_3=1$,有 $X$ 等价于在共轭变换下的 $\widetilde{X}$
 \begin{equation*}
 \begin{aligned}
-\widetilde{X}&=Ad(\exp(\varepsilon X_{4}))\circ Ad(\exp{(\frac{-\beta_1}{a} X_1)}) X\\
+\widetilde{X}&=\mbox{Ad}(\exp(\varepsilon X_{4}))\circ \mbox{Ad}(\exp{(\frac{-\beta_1}{a} X_1)}) X\\
 &=e^{\varepsilon}\beta_{2}X_{2}+e^{3\varepsilon}X_{3}.
 \end{aligned}
 \end{equation*}
@@ -867,9 +868,9 @@ $X_{5}$&$X_{1}$&$X_{2}$&$X_{3}+a\varepsilon X_{1}$&$X_{4}+2\varepsilon X_{5}$&$X
 
 情形 4:
 
-接下来,考虑 $\beta_5=\beta_4=\beta_3=0$ 的情形.取 $\beta_2=1$, 于是 $\widetilde{X}=\beta_{1}X_{1}+X_{2}$. 如果用 $Ad(\exp({\varepsilon X_4)})$ 作用于 $\widetilde{X}$, 有
+接下来,考虑 $\beta_5=\beta_4=\beta_3=0$ 的情形.取 $\beta_2=1$, 于是 $\widetilde{X}=\beta_{1}X_{1}+X_{2}$. 如果用 $\mbox{Ad}(\exp({\varepsilon X_4)})$ 作用于 $\widetilde{X}$, 有
 \begin{equation*}
-	\widetilde{X}=Ad(\exp{(\varepsilon X_1)}) X=\beta_{1}X_{1}+X_{2}.
+	\widetilde{X}=\mbox{Ad}(\exp{(\varepsilon X_1)}) X=\beta_{1}X_{1}+X_{2}.
 \end{equation*}
 
 因此 $X$ 中满足 $\beta_5=\beta_4=\beta_3=0$ 的子代数,等价于由
