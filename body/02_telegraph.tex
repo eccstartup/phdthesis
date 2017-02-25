@@ -1,16 +1,16 @@
 \chapter{一类电报方程的辛方法研究}
 \echapter{Study on Symplectic Method for Telegraph Equations}
 
-本章介绍一类含有齐次初边值条件电报方程的辛方法,该方法的思想是利用一个特殊的变换,把不具有守恒性的电报方程,变为具有守恒性质的 Klein-Gordon 方程进行求解.对于变换后的守恒结构,我们结合辛方法进行求解.
+本章介绍一类含有齐次初边值条件电报方程的辛方法,利用一种特殊的变换,把不具有守恒性的电报方程变为具有守恒性质的 Klein-Gordon 方程.对于变换后的守恒结构结合辛方法进行求解.
 
-传输线主要用来传输无线电频率的交变电流,反映了当电流频率高到一定程度时的波的性质.传输线广泛应用在信号传输,产生脉冲和信号过滤等领域.常见的传输线主要有平行线、同轴电缆、
-带状线、微带线、波导管、介质波导和光纤,等等.电报方程,也称为传输线方程或电报员方程,来源于Maxwell方程组,是描述传输线里电流电压属性的一类方程.更具体地讲,电报方程来源于这样的问题,导体由无限个二端口元件连接而成,每一个元件都是很小的传输线元件.一般的传输线方程可以由图~\ref{fig:tele1} 中的等效模型,其关系可根据基尔霍夫电压和电流定律导出~\cite{ludwig2000rf}.
+传输线主要用来传输无线电频率的交变电流,反映了当电流频率高到一定程度时波的性质.传输线广泛应用在信号传输、产生脉冲和信号过滤等领域.常见的传输线主要有平行线、同轴电缆、
+带状线、微带线、波导管、介质波导和光纤,等等.电报方程,也称为传输线方程或电报员方程,来源于Maxwell方程组,是描述传输线里电流电压属性的一类方程.更具体地讲,电报方程来源于这样的问题:导体由无限个二端口元件连接而成,每一个元件都是很小的传输线元件.一般的传输线方程可以由图~\ref{fig:tele1} 中的等效模型描述,其关系可根据基尔霍夫电压和电流定律导出~\cite{ludwig2000rf}.
 
-现有的关于求解电报方程的方法通常分为两大类,第一类是求精确解,第二类是求数值解.精确解只对一小部分方程有效,其他问题还需要用数值模拟来解决.求数值解的方法,从思想上可以分为两种,第一种是用解析的方法,将解的波形迭代起来求解,第二种则是离散方程之后的数值计算,即离散求解.解析方法通过迭代波形,使得结果逐渐逼近真解.常见的解析方法有 Exp-函数方法~\cite{naher2011exp}、 Adomian 分解方法~(ADM)~\cite{adomian1988areview,sheikholeslami2012analytical}、 变分迭代方法~(VIM)~\cite{wu2013variational} 和同伦摄动方法~(HPM)~\cite{sheikholeslami2012homotopy}. 电报方程的离散方法常见的有微分二次方法~(DQM)~\cite{jiwari2012numerical}、 交替迭代隐式方法~(ADI) \cite{cui2013convergence} 和 WENO 方法 \cite{borges2008improved,shen2014improvement}.
+现有的关于求解电报方程的方法通常分为两大类:第一类是求精确解,第二类是求数值解.精确解只对一小部分方程有效,大量问题还需要用数值模拟来解决.求数值解的方法,可以分为两种:第一种是用解析的方法,将解的波形迭代起来求解;第二种则是离散方程之后的数值计算,即离散求解.解析方法通过迭代波形,使得结果逐渐逼近真解.常见的解析方法有 Exp-函数方法~\cite{naher2011exp}、 Adomian 分解方法~(ADM)~\cite{adomian1988areview,sheikholeslami2012analytical}、 变分迭代方法~(VIM)~\cite{wu2013variational} 和同伦摄动方法~(HPM)~\cite{sheikholeslami2012homotopy}. 电报方程的离散方法常见的有微分二次方法~(DQM)~\cite{jiwari2012numerical}、 交替迭代隐式方法~(ADI) \cite{cui2013convergence} 和 WENO 方法 \cite{borges2008improved,shen2014improvement}.
 
-这里简要介绍各种解析方法的思想. Exp-函数方法是利用行波变换将偏微分方程转换为常微分方程,然后再将常微分方程的解用指数函数展成分式形式,过程中产生了一些待定常数,最后求解待定常数. Adomian 分解方法由 George Adomian 提出,该方法将算子的线性部分和非线性部分分裂开来,再设计迭代格式,是一种逼近真解的解析方法.变分迭代方法是一种迭代方法,主要有三个步骤,构造修正泛函,构造 Lagrange 乘子,确定初始迭代,其中第二步的构造 Lagrange 乘子是最重要的也是最困难的.同伦摄动方法和 Adomian 分解方法开始的步骤类似,将算子的线性部分和非线性部分分裂开来,然后再利用摄动方法,构造一个同伦,摄动的极限就是方程的真解.
+这里简要介绍各种解析方法的思想. Exp-函数方法是利用行波变换将偏微分方程转换为常微分方程,接着将常微分方程的解用指数函数展开成分式形式,最后求解过程中产生的待定常数. Adomian 分解方法由 George Adomian 提出,将算子的线性部分和非线性部分分裂开来再设计迭代格式,是一种逼近真解的解析方法.变分迭代方法是一种迭代方法,主要有三个步骤:构造修正泛函,构造 Lagrange 乘子和确定初始迭代.其中,第二步构造 Lagrange 乘子最重要的也最困难.同伦摄动方法和 Adomian 分解方法开始的步骤类似,将算子的线性部分和非线性部分分裂开来,然后再利用摄动方法构造一个同伦,摄动的极限就是方程的真解.
 
-常用的离散方法的基本思想如下.微分二次方法是把方程的每一项,包括函数值,及其各阶偏导数值,对于一组特殊的基进行展开,最后确定展开的系数,其衍生的方法有多项式微分二次方法等等.交替迭代隐式方法作为一种隐式差分数值格式,在高维问题的计算中有着较为好的效果,主要擅长计算热传导和扩散类方程.其思想是将一个有限差分格式沿着不同的空间方向分裂成两步,再进行计算.其优点是无条件稳定且时间空间二阶,也有更高阶的格式可以构造. WENO 方法是基于 ENO 方法提出来的,擅长于求解双曲型问题,比如交通流问题、波动类方程,等等.该方法是一种加权求值方法,通过特殊的构造权值,对 ENO 方法进行了改进,该方法对于分片光滑问题有着较好的效果.
+其次介绍常用的离散方法的基本思想.微分二次方法是把方程的每一项,包括函数值,及其各阶偏导数值,用一组特殊的基进行展开,再确定展开的系数,微分二次方法的衍生方法有多项式微分二次方法等.交替迭代隐式方法作为一种隐式差分数值格式,在高维问题的计算中有着较为好的效果,主要擅长计算热传导和扩散类方程.交替迭代隐式方法将一个有限差分格式沿着不同的空间方向分裂成两步,再进行计算,其优点是无条件稳定且时间空间二阶,也有更高阶的格式可以构造. WENO 方法基于 ENO 方法,擅长于求解双曲型问题,比如交通流问题、波动类方程,等等. WENO 方法是一种加权求值方法,通过特殊的构造权值,对 ENO 方法进行了改进,对于分片光滑问题有着较好的效果.
 
 本章所研究的电报方程如下:
 \begin{equation}\label{eq:tele}
@@ -26,7 +26,7 @@ w(1,t)&=0,&0 \le t \le T,
 \end{aligned}
 \right.
 \end{equation}
-式中 $k > 0$, $a>0$ 和 $b < 0$ 是常数. $g_1(x)$ 和 $g_2(x)$ 是光滑函数, 满足相容性条件 $g_1(0)=0$. $w(x,t) \in \mathbb{R}$ 为所求函数. 此方程对应于如下的一类传输线方程,方程的等效电路图如图~\ref{fig:tele1}. 图中,要求 $a^2 = \frac{1}{L_1C_1}, k= (\frac{R_2^{-1}}{C_1}+\frac{R_1}{L_1}), b =-\frac{R_1R_2^{-1}}{L_1C_1}$.
+式中 $k > 0$, $a>0$ 和 $b < 0$ 是常数; $g_1(x)$ 和 $g_2(x)$ 是光滑函数, 满足相容性条件 $g_1(0)=0$; $w(x,t) \in \mathbb{R}$ 为所求函数. 此方程对应于如下的一类传输线方程,其等效电路图如图~\ref{fig:tele1} 所示. 图中,要求 $a^2 = \frac{1}{L_1C_1}, k= (\frac{R_2^{-1}}{C_1}+\frac{R_1}{L_1}), b =-\frac{R_1R_2^{-1}}{L_1C_1}$.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{02/Fig1.pdf}
@@ -34,13 +34,13 @@ w(1,t)&=0,&0 \le t \le T,
     \label{fig:tele1}
 \end{figure}
 
-在本章中,针对具有齐次边界条件的电报方程 \eqref{eq:tele} 进行求解.该求解方法适用于一维和高维问题.本章的基本框架如下.首先在 \ref{sec:02symplectic} 中介绍辛方法.接下来,在 \ref{sec:02telegraph} 中逐步展开介绍我们的方法及其相关理论,数值结果将在 \ref{sec:02numerical} 中给出.最后一部分 \ref{sec:02conclusion} 是小结.
+在本章中,针对具有齐次边界条件的电报方程 \eqref{eq:tele} 进行求解.该求解方法适用于一维和高维问题.本章的基本框架如下:首先,在 \ref{sec:02symplectic} 中介绍辛方法;接下来,在 \ref{sec:02telegraph} 中逐步展开介绍我们的方法及其相关理论;数值结果在 \ref{sec:02numerical} 中给出;最后一部分 \ref{sec:02conclusion} 是小结.
 
 \section{辛的基本概念}\label{sec:02symplectic}
 \esection{Introduction to the Symplectic Method}
-辛方法 \cite{feng2010symplectic} 是求解较长时间区间的哈密尔顿系统的行之有效的方法.用辛方法求解哈密尔顿系统的做法给予人们新的启迪,指引着人们去寻找好的优美的方法.辛方法起源于 de Vogelaere (1956), Ruth (1983)和 冯康 (1985) 的工作 \cite{hairer2006geometric}, 其基本思想是避开盲目对精度的苛求,巧妙地利用哈密尔顿系统的辛结构,改为保持该结构作为目标,构造数值格式.理论和数值算例都验证了该方法的优越性,系统的数值能量能够保持在系统的真实值附近波动.数十年来,辛方法迅速发展起来,并且得到了不断地发扬光大 \cite{calvo1994numerical,leimkuhler2004simulating,hong2006multi,yang2009extended,monovasilis2013exponentially,xin2016birkhoffian,michalas2016numerical,liao2016multi}. 该方法数值算例证实了辛数值积分格式相比非辛格式的优越性.因此,在处理多体问题和其他哈密尔顿系统问题上,有着较好的应用.
+辛方法 \cite{feng2010symplectic} 是求解较长时间区间的哈密尔顿系统的行之有效的方法.用辛方法求解哈密尔顿系统的做法给予人们新的启迪,指引着人们去寻找好的优美的方法.辛方法起源于 de Vogelaere (1956)、 Ruth (1983)和 冯康 (1985) 的工作 \cite{hairer2006geometric}, 其基本思想是避开盲目对精度的苛求,巧妙地利用哈密尔顿系统的辛结构,以保持该结构作为目标,构造数值格式.理论和数值算例都验证了该方法的优越性,系统的数值能量能够保持在系统的真实值附近波动.数十年来,辛方法发展迅速,得到了不断地发扬光大 \cite{calvo1994numerical,leimkuhler2004simulating,hong2006multi,yang2009extended,monovasilis2013exponentially,xin2016birkhoffian,michalas2016numerical,liao2016multi}. 该方法数值算例证实了辛数值积分格式比非辛格式的优越性.因此,在处理多体问题和其他哈密尔顿系统问题上,有着较好的应用.
 
-哈密尔顿系统是由数学家 Hamilton 构造出来,用来描述物理系统的发展型方程.该表示的优点是能够在无法求得该系统的解析解的情况下,阐明一些动力系统的性态.在工程应用中, 包括动力学、分子动力学、流体力学、量子力学、图像处理、天体力学、核工程等领域在内的问题,都可以表示成如下的哈密尔顿系统的形式 \cite{arieh2009afirst}
+哈密尔顿系统是由数学家 Hamilton 构造出来,用来描述物理系统的发展型方程.该表示的优点是能够在无法求得系统的解析解的情况下,阐明一些动力系统的性态.在工程应用中, 包括动力学、分子动力学、流体力学、量子力学、图像处理、天体力学、核工程等领域在内的问题都可以表示成如下的哈密尔顿系统的形式 \cite{arieh2009afirst}
 \begin{equation}\label{eq:Hamiltonian}
 \left\lbrace
 \begin{aligned}
@@ -53,12 +53,13 @@ w(1,t)&=0,&0 \le t \le T,
 \begin{equation*}
 \omega = \sum_{i=1}^d d q_i \wedge d p_i.
 \end{equation*}
-保持哈密尔顿系统辛结构的数值方法称之为辛方法,在后面部分会给出准确的定义.常用的辛方法有隐式中点法,交错显式格式,基于 Pad\'{e} 逼近的方法, St\"{o}rmer-Verlet 格式,辛 Runge-Kutta 方法,等等.
+
+保持哈密尔顿系统辛结构的数值方法称之为辛方法,在后面部分将给出其准确的定义.常用的辛方法有隐式中点法、交错显式格式、基于 Pad\'{e} 逼近的方法、 St\"{o}rmer-Verlet 格式和辛 Runge-Kutta 方法,等等.
 
 在本小节,我们列出了几种具有代表性的辛格式.哈密尔顿系统具有一个守恒的哈密尔顿量 $H(q,p)$, 其中 $q$ 表示位移 $p$ 表示动量.
 
 
-令 $\Phi_h : \mathbb{R}^{2d} \to \mathbb{R}^{2d}$ 表示时间步进的数值算法进行一步计算的函数, 其中 $d$ 为 $p$ 和 $q$ 的维数. $z_{n+1}=\Phi_h(z_n)$ 其中 $z_n$ 是在第 $n$ 步时间点上数值解.辛方法则是具有以下性质的一类方法.
+令 $\Phi_h : \mathbb{R}^{2d} \to \mathbb{R}^{2d}$ 表示时间步进的数值算法进行一步计算的函数, 其中 $d$ 为 $p$ 和 $q$ 的维数. $z_{n+1}=\Phi_h(z_n)$ 中, $z_n$ 是在第 $n$ 步时间点上数值解.辛方法则是具有以下性质的一类方法.
 
 \begin{definition}[辛方法~\cite{hairer2006geometric}]
 \emph{一个单步的数值方法 $z_{n+1}=\Phi_h(z_n)$ 称为辛方法,如果该方法保持二形式
@@ -81,7 +82,7 @@ dq_{n+1}\wedge dp_{n+1}=dq_n\wedge dp_n,
 {\rm 定义 \ref{def:symplectic} 使得我们能够更容易验证数值格式的辛性质.为了获得更多的,更高阶的辛方法,需要使用生成函数法,见 \cite{hairer2006geometric}.}
 \end{remark}
 
-接下来,在这里给出一些辛方法的例子.
+接下来给出一些辛方法的例子.
 
 \noindent \textbf{隐式中点法}
 \begin{equation*}
@@ -123,7 +124,7 @@ q_{n+1}&=q_{n+1/2}+\frac{h}{2}H_q(p_{n+1},q_{n+1/2}),
 
 \noindent \textbf{辛 Runge-Kutta 方法}
 
-对于 Runge-Kutta 方法,我们知道, $\nu$ 步的 Runge-Kutta 方法可以写成
+对于 Runge-Kutta 方法, $\nu$ 步的 Runge-Kutta 方法可以写成
 \begin{equation*}
   \left\lbrace
     \begin{aligned}
@@ -149,7 +150,7 @@ q_{n+1}&=q_{n+1/2}+\frac{h}{2}H_q(p_{n+1},q_{n+1/2}),
 \begin{theorem}{辛 Runge-Kutta 方法\cite{sanz1988runge}}
 \emph{如果该 Runge-Kutta 的 Butcher 表满足
 \begin{equation*}
-  b_ia_{ij}+b_ja_{ji}=b_ib_j,\quad \textrm{对所有}\,\, i,j=1,2,\cdots,\nu,
+  b_ia_{ij}+b_ja_{ji}=b_ib_j,\quad \textrm{对所有}\,\, i,j=1,2,\cdots,\nu
 \end{equation*}
 则该 Runge-Kutta 方法是保辛的.}
 \end{theorem}
@@ -198,7 +199,7 @@ $3$ 阶格式
 
 \noindent \textbf{可分系统的多级显式方法}
 
-对于可分的哈密尔顿系统, $H(q,p)=V(q)+U(p)$, 该系统可以写成
+可分的哈密尔顿系统 $H(q,p)=V(q)+U(p)$ 可以写成
 \begin{equation*}
 	\frac{d}{dt}\begin{bmatrix}
 	q\\
@@ -271,11 +272,11 @@ $4$阶精度$4$级辛格式
 \begin{equation*}
 	d_1=\frac{1}{3}(2+\alpha),\quad d_2=-\frac{1}{3}(1+2\alpha),\quad d_3=\frac{1}{2}(2+\alpha),\quad d_4=0,
 \end{equation*}
-这里 $\alpha = 2^{\frac{1}{3}}+2^{-\frac{1}{3}}$.
+式中 $\alpha = 2^{\frac{1}{3}}+2^{-\frac{1}{3}}$.
 
 \noindent \textbf{多级隐式辛方法}
 
-这里举几个多级隐式辛格式 \cite{qin2011struc}
+举几个多级隐式辛格式 \cite{qin2011struc}
 \begin{equation*}
 	\left\lbrace \begin{aligned}
 		&z^{k+1}=2Y_1-z^k,\\
@@ -383,7 +384,7 @@ $4$阶精度$4$级辛格式
 \section{电报方程的辛方法}\label{sec:02telegraph}
 \esection{Symplectic Methods for Telegraph Equations}
 
-电报方程的系统能量随时间而指数衰减.经过研究,发现了这样一个能够使电报方程 \eqref{eq:tele} 变为一个守恒的系统的变换,而得到的这种守恒性刚好能让方程利用辛方法进行求解.这样做带来的好处是能够有效地求解更长的时间区间,获得更容易实现的数值格式.我们将在 \ref{sec:02transform} 节中详细介绍这种变换.
+电报方程的系统能量随时间按指数衰减.研究发现一种能够使电报方程 \eqref{eq:tele} 变为一个守恒系统的变换,而得到的守恒性使得方程可利用辛方法进行求解.其好处是能够有效地求解更长的时间区间的解,获得更容易实现的数值格式.我们将在 \ref{sec:02transform} 节中详细介绍这种变换.
 
 方程 \eqref{eq:tele} 的差分格式通常可以从两个角度来入手.一种是全离散,也就是说,对空间和时间进行等间距的网格的划分 $x_0=0<x_1<\cdots<x_N=1,~t_0=0<t_1<\cdots<t_n=T$. 之后,能够得到全离散的结果
 \begin{equation}\label{eq:fulld}
